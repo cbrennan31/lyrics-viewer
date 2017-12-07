@@ -1,7 +1,8 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Routes from './Routes'
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<h1>Boo yaa</h1>, document.getElementById('app'));
+  ReactDOM.render(<Routes />, document.getElementById('app'));
 })
