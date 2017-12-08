@@ -274,3 +274,1310 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+
+
+Started GET "/" for ::1 at 2017-12-07 15:45:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (18.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+AbstractController::ActionNotFound (The action 'index' could not be found for StaticPagesController):
+  actionpack (4.2.6) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.6) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (2.8ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (77.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (167.4ms)
+
+
+Started GET "/" for ::1 at 2017-12-07 15:54:42 -0500
+
+LoadError (Unable to autoload constant LyricsController, expected /Users/cbrennan/challenges/lyrics-viewer-2/app/controllers/lyrics_controller.rb to define it):
+  activesupport (4.2.6) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:70:in `controller_reference'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:60:in `controller'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:39:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (63.0ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (120.7ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.8ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (118.1ms)
+
+
+Started GET "/" for ::1 at 2017-12-07 15:54:46 -0500
+
+LoadError (Unable to autoload constant LyricsController, expected /Users/cbrennan/challenges/lyrics-viewer-2/app/controllers/lyrics_controller.rb to define it):
+  activesupport (4.2.6) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `const_get'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:261:in `block in constantize'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `each'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `inject'
+  activesupport (4.2.6) lib/active_support/inflector/methods.rb:259:in `constantize'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:566:in `get'
+  activesupport (4.2.6) lib/active_support/dependencies.rb:597:in `constantize'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:70:in `controller_reference'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:60:in `controller'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:39:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.6) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.6) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.2ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (108.2ms)
+
+
+Started GET "/" for ::1 at 2017-12-07 15:55:39 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.3ms)
+DEPRECATION WARNING on line 81 of /Users/cbrennan/.gem/ruby/2.3.3/gems/foundation-rails-6.2.1.0/vendor/assets/scss/components/_button-group.scss: #{} interpolation near operators will be simplified
+in a future version of Sass. To preserve the current behavior, use quotes:
+
+  unquote('#{$buttongroup-spacing} == "0"')
+
+You can use the sass-convert command to automatically fix most cases.
+
+
+Completed 200 OK in 38567ms (Views: 38566.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/bundle.self-731e709855f56d68e2adb35d905ee69759dfc0ee0d0df597d1e1c1033aacec1a.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 15:56:18 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 15:57:48 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 134ms (Views: 134.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/bundle.self-731e709855f56d68e2adb35d905ee69759dfc0ee0d0df597d1e1c1033aacec1a.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 15:57:48 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:16:16 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 844ms (Views: 842.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bundle.self-835401bab1fc3477cab451768b543c17bfd71f10bf8a7a585541681f44392edb.js?body=1" for ::1 at 2017-12-07 16:16:17 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:18:50 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 163ms (Views: 163.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/bundle.self-835401bab1fc3477cab451768b543c17bfd71f10bf8a7a585541681f44392edb.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:18:50 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:19:20 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 145ms (Views: 144.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/bundle.self-835401bab1fc3477cab451768b543c17bfd71f10bf8a7a585541681f44392edb.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:19:20 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:20:58 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 136ms (Views: 135.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/bundle.self-835401bab1fc3477cab451768b543c17bfd71f10bf8a7a585541681f44392edb.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:20:58 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:21:01 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 89ms (Views: 89.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/bundle.self-835401bab1fc3477cab451768b543c17bfd71f10bf8a7a585541681f44392edb.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:21:01 -0500
+
+
+Started GET "/" for ::1 at 2017-12-07 16:22:43 -0500
+Processing by LyricsController#index as HTML
+  Rendered lyrics/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 735ms (Views: 734.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/bundle.self-2613da0adfd8fbaadf838ce0238562ef59edec0ffd5a6091aadb8ea19aff7a53.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:22:44 -0500
+
+
+Started GET "/eventsindex" for ::1 at 2017-12-07 16:22:52 -0500
+
+ActionController::RoutingError (No route matches [GET] "/eventsindex"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (58.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (143.1ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (62.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (132.3ms)
+
+
+Started GET "/events" for ::1 at 2017-12-07 16:22:56 -0500
+Processing by EventsController#index as HTML
+  Rendered events/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 114ms (Views: 113.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/bundle.self-2613da0adfd8fbaadf838ce0238562ef59edec0ffd5a6091aadb8ea19aff7a53.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:22:57 -0500
+
+
+Started GET "/events/index" for ::1 at 2017-12-07 16:23:06 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"index"}
+  Rendered events/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 97ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-9c28b3fface2fae5de62feb04853e50951a3c6c35e324677d3ec640f4934ef3e.css?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.accordion.self-6c28f3f91f10621dea9006b993acf28cda9ea59c4e962048fee0e94588b696bb.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.abide.self-fbc98127620ee01eaa2881e128f8448984eecf2eaf9fd8cc40b020ad7e9f2bd3.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.core.self-f55f82f1d32e31421cdb346360219495e02cb256a9235560ae847258f51ded3a.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.accordionMenu.self-6a75eb2b3768268d8ec00fc703ea3752f847738031a2614ce3ab5e4bbb9882dd.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.drilldown.self-11995b03e1b847772717a9123dc61fb32511459cccc6b8bc816b29e6739c3555.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.dropdown.self-f384376d246673d8cc9e59e8a1e0655d1ac164ebd79ed62938bb665b8e98fda0.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.dropdownMenu.self-d58c8deb698da27cd9f2df0dd6bef68b289948015c0eb1f1734e601754b77a22.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.equalizer.self-20c80813228b7707630bb8e9b79d9e9e95bc08793fd7f7c0bb4d1a8e1abba874.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.interchange.self-8098699bc5e479e34a597c857ca10cf84217780d16b09b4be350ec42d7c3ba85.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.magellan.self-185cddbb3ea900a8b64ad9482999414820039c72b88ac73ce4062e26c2fcb51f.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.offcanvas.self-43878eed51fe559619ff3c62e266b58335e0cd40bc765ede9bb5c61a5e25625d.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.orbit.self-3790b70d486b6233de7bf36256a99b4470bbf5bab8d5cdba23038a96bed7c426.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.responsiveMenu.self-04daa3af5d3c617fa7d588b45b56abd62539f5fde28756c7b4705de2aa10c4fd.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.responsiveToggle.self-2b01f8c5e2bfe4eeaf7b15dd94962ef957112c455f4dc3abcf5e41e4c98b5b91.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.reveal.self-3b377de155fe3f888dcbb074b9017ed4e19c3ef995e13eea42b10839dd9756f6.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.slider.self-89883a154b8e68187e9465e5470bf26d54b48a4a69de4636afbb38953ee41ea6.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.sticky.self-8e0aa578f0015adbf99c14d1bb8464da751951e2c6e2923c2395ceba99c28bac.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.tabs.self-891f2cfe78a15ab6d129ae1bdcd83bb8c344b5677446700c8329442081eddddf.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.toggler.self-e503f9a635124ad4578a03dc24e47ac4cdb922a60bac8c9c99d024da00b0bd52.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.tooltip.self-4cf167bdbe826668ee0d73e6e30da8aaba252c73084db7b005923d5cd102d11e.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.box.self-789413a9ae946f5aee2709ac5e1ad5c9a7780fb4e16b46efe3572f22a0ea6b4d.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.keyboard.self-cf209dc0383f29cb576393bbdee52dbbd819837d6430a35afb4a4703770972f9.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.mediaQuery.self-931eb6f96f60670ad0ebcb0a6d7bed0cced317a2059749343b094c4d72098b6c.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.motion.self-13d4248460aba53c0fd52e1ec0d5cb41c317b1c4d974bc5d905c9976dc9ef218.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.nest.self-c9876586f80b068aea0d01390583424a28fa305c450e12a49bb301dcc686d1a0.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.timerAndImageLoader.self-68c67c1b0b4f2e2cb7f2af57124f38f54b749efed9f1bebc44677dc27abf7864.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.touch.self-e26387c8ba249a8e90745647603562023cd1932c720ddf72407dc7a489ecb893.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.util.triggers.self-71a2360cfe56c89eb46e0776c3d04601a8cce01d9e1098b808375eecc4b2418c.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/foundation.self-5ecf2f4d83e6260dabd6ec48e76d8ddebccf956563f34072221bf960d3b8c255.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/bundle.self-2613da0adfd8fbaadf838ce0238562ef59edec0ffd5a6091aadb8ea19aff7a53.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+
+
+Started GET "/assets/application.self-1509cb3433bf7f60a75710bd4d8561d25423676b3c4d4a21914940bf07b8869a.js?body=1" for ::1 at 2017-12-07 16:23:06 -0500
+  [1m[35m (41.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7913082835282300095)[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (11.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7913082835282300095)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7913082835282300095)[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCurrentToVerses (20171207230129)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.9ms)[0m  [1m[35mALTER TABLE "verses" ADD "current" boolean NOT NULL[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171207230129"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7913082835282300095)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7913082835282300095)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCurrentToVerses (20171207230129)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (27.1ms)[0m  [1m[35mALTER TABLE "verses" DROP "current"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20171207230129"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7913082835282300095)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7913082835282300095)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCurrentToVerses (20171207230129)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.2ms)[0m  [1m[35mALTER TABLE "verses" ADD "current" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171207230129"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7913082835282300095)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

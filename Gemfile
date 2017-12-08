@@ -1,15 +1,15 @@
 source "https://rubygems.org"
 
-gem "coffee-rails", "~> 4.1.0"
+gem "coffee-rails"
 gem "foundation-rails"
 gem "haml-rails"
-gem "jbuilder", "~> 2.0"
+gem "jbuilder"
 gem "jquery-rails"
 gem "pg"
 gem "rails"
-gem "sass-rails", "~> 5.0"
-gem "sdoc", "~> 0.4.0", group: :doc
-gem "uglifier", ">= 1.3.0"
+gem "sass-rails"
+gem "sdoc", group: :doc
+gem "uglifier"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -18,7 +18,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", "~> 2.0"
+  gem "web-console"
   gem "spring"
 end
 

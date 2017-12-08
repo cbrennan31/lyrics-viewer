@@ -1,0 +1,3 @@
+class LyricsController < ApplicationController
+
+end
