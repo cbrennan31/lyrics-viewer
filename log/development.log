@@ -1,0 +1,1132 @@
+Started GET "/cable" for ::1 at 2017-12-09 12:27:20 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-09 12:27:20 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "LyricsChannel"
+Started GET "/cable" for ::1 at 2017-12-09 12:27:24 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-09 12:27:24 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "LyricsChannel"
+Started GET "/cable" for ::1 at 2017-12-09 12:27:27 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-09 12:27:27 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "LyricsChannel"
+Started GET "/cable" for ::1 at 2017-12-09 12:27:28 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-09 12:27:28 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "LyricsChannel"
+Started GET "/" for ::1 at 2017-12-09 12:27:32 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (6.3ms)
+Completed 200 OK in 17ms (Views: 13.2ms)
+
+
+Started GET "/hello_world" for ::1 at 2017-12-09 12:27:40 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (250.4ms)
+Completed 500 Internal Server Error in 381ms
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x007fee9e7867b8>:0x007fee9e7c7358>
+Did you mean?  javascript_path
+               javascript_tag):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb__3727511257661764448_70331418918700'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:30:26 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (144.2ms)
+Completed 500 Internal Server Error in 428ms
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x007fc62b8ae280>:0x007fc62b54d960>
+Did you mean?  javascript_path
+               javascript_tag):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb___2350455510940583820_70244553028840'
+Started GET "/" for 127.0.0.1 at 2017-12-09 12:30:45 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 8ms (Views: 6.5ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:30:57 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 500 Internal Server Error in 101ms
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<#<Class:0x007fc62b8ae280>:0x007fc6310bc0f8>
+Did you mean?  javascript_path
+               javascript_tag):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb___2350455510940583820_70244568927380'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:41:23 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (224.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 05e2978942aeb1d65571
+Version: webpack 3.10.0
+Time: 1518ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-d3989dc00726a3dd7a55.js     311 kB       0  [emitted]  [big]  hello-world-bundle
+       application-10c03550040142c275b7.js    4.49 kB       1  [emitted]         application
+                             manifest.json  148 bytes          [emitted]         
+  [35] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [53] ./app/javascript/packs/application.js 515 bytes {1} [built]
+  [54] ./app/javascript/packs/hello-world-bundle.js 236 bytes {0} [built]
+    + 107 hidden modules
+
+ERROR in ./app/javascript/bundles/HelloWorld/components/HelloWorld.jsx
+Module build failed: SyntaxError: Unexpected token (26:6)
+
+  24 |   render() {
+  25 |     return (
+> 26 |       <div>
+     |       ^
+  27 |         <h3>
+  28 |           Hello, {this.state.name}!
+  29 |         </h3>
+
+ @ ./app/javascript/packs/hello-world-bundle.js 3:0-69
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/handleError.js
+Module not found: Error: Can't resolve 'react' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/handleError.js 7:13-29
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/createReactElement.js
+Module not found: Error: Can't resolve 'react' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/createReactElement.js 8:13-29
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+Module not found: Error: Can't resolve 'react-dom' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js 19:16-36
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/clientStartup.js
+Module not found: Error: Can't resolve 'react-dom' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/clientStartup.js 14:16-36
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/handleError.js
+Module not found: Error: Can't resolve 'react-dom/server' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/handleError.js 11:14-41
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+ERROR in ./node_modules/react-on-rails/node_package/lib/serverRenderReactComponent.js
+Module not found: Error: Can't resolve 'react-dom/server' in '/Users/cbrennan/challenges/lyrics-viewer/node_modules/react-on-rails/node_package/lib'
+ @ ./node_modules/react-on-rails/node_package/lib/serverRenderReactComponent.js 13:14-41
+ @ ./node_modules/react-on-rails/node_package/lib/ReactOnRails.js
+ @ ./app/javascript/packs/hello-world-bundle.js
+
+
+Completed 500 Internal Server Error in 3586ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find webpack-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/application-10c03550040142c275b7.js",
+  "hello-world-bundle.js": "/packs/hello-world-bundle-d3989dc00726a3dd7a55.js"
+}
+):
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+   10:   <body>
+  
+app/views/layouts/hello_world.html.erb:7:in `_app_views_layouts_hello_world_html_erb___2070055126398224670_70327178826820'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:43:36 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (3.1ms)
+Completed 200 OK in 17ms (Views: 14.0ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:50:51 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+ERROR when compiling base_js_code! See file tmp/base_js_code.js to correlate line numbers of error. Error is
+
+Error: Cannot find module "react-dom"
+
+webpackMissingModule (webpack-internal:///55:19:81)
+eval (webpack-internal:///55:19:167)
+Object.(execjs) (<anonymous>:714:1)
+__webpack_require__ ((execjs):55:30)
+eval (webpack-internal:///54:2:73)
+Object.(execjs) (<anonymous>:702:1)
+__webpack_require__ ((execjs):55:30)
+(execjs):98:18
+(execjs):101:10
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `eval_unsafe'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `block (2 levels) in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:239:in `timeout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:179:in `block in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `block in with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:177:in `eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:10:in `block in initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:66:in `translate'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:9:in `initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `new'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/module.rb:27:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:117:in `create_js_context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:14:in `block in reset_pool'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:170:in `try_create'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:82:in `block (2 levels) in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `loop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `block in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:89:in `checkout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:61:in `block in with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `handle_interrupt'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:86:in `eval_js'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:50:in `server_render_js_with_console_logging'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool.rb:23:in `method_missing'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:425:in `server_rendered_react_component_html'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:354:in `internal_react_component'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:100:in `react_component'
+/Users/cbrennan/challenges/lyrics-viewer/app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154576659580'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:157:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:168:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:352:in `instrument_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:155:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:14:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:103:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:83:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/rendering.rb:24:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:36:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/cbrennan/.rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-proxy-0.6.3/lib/rack/proxy.rb:57:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/configuration.rb:225:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:624:in `handle_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:438:in `process_client'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:302:in `block in run'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendered hello_world/index.html.erb within layouts/hello_world (316.8ms)
+Completed 500 Internal Server Error in 629ms
+
+
+  
+ActionView::Template::Error (ERROR in SERVER PRERENDERING
+Encountered error: "Error: Cannot find module "react-dom""
+when prerendering HelloWorld with props: {"name":"Stranger"}
+js_code was:
+(function() {
+  var railsContext = {"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"http://localhost:3000/hello_world","location":"/hello_world","scheme":"http","host":"localhost","port":3000,"pathname":"/hello_world","search":null,"httpAcceptLanguage":"en-US,en;q=0.9","serverSide":true};
+
+  var props = {"name":"Stranger"};
+  return ReactOnRails.serverRenderReactComponent({
+    name: 'HelloWorld',
+    domNodeId: 'HelloWorld-react-component-ad5b5e57-507b-4803-a96b-86e6f75c13ff',
+    props: props,
+    trace: true,
+    railsContext: railsContext
+  });
+})()
+
+
+webpackMissingModule (webpack-internal:///55:19:81)
+eval (webpack-internal:///55:19:167)
+Object.(execjs) (<anonymous>:714:1)
+__webpack_require__ ((execjs):55:30)
+eval (webpack-internal:///54:2:73)
+Object.(execjs) (<anonymous>:702:1)
+__webpack_require__ ((execjs):55:30)
+(execjs):98:18
+(execjs):101:10
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `eval_unsafe'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `block (2 levels) in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:239:in `timeout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:179:in `block in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `block in with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:177:in `eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:10:in `block in initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:66:in `translate'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:9:in `initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `new'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/module.rb:27:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:117:in `create_js_context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:14:in `block in reset_pool'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:170:in `try_create'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:82:in `block (2 levels) in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `loop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `block in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:89:in `checkout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:61:in `block in with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `handle_interrupt'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:86:in `eval_js'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:50:in `server_render_js_with_console_logging'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool.rb:23:in `method_missing'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:425:in `server_rendered_react_component_html'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:354:in `internal_react_component'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:100:in `react_component'
+/Users/cbrennan/challenges/lyrics-viewer/app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154576659580'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:157:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:168:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:352:in `instrument_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:155:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:14:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:103:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:83:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/rendering.rb:24:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:36:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/cbrennan/.rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-proxy-0.6.3/lib/rack/proxy.rb:57:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/configuration.rb:225:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:624:in `handle_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:438:in `process_client'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:302:in `block in run'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'):
+    1: <h1>Hello World</h1>
+    2: <%= react_component("HelloWorld", props: @hello_world_props, prerender: true) %>
+  
+app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154576659580'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:51:04 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+ERROR when compiling base_js_code! See file tmp/base_js_code.js to correlate line numbers of error. Error is
+
+Error: Cannot find module "react-dom"
+
+webpackMissingModule (webpack-internal:///55:19:81)
+eval (webpack-internal:///55:19:167)
+Object.(execjs) (<anonymous>:714:1)
+__webpack_require__ ((execjs):55:30)
+eval (webpack-internal:///54:2:73)
+Object.(execjs) (<anonymous>:702:1)
+__webpack_require__ ((execjs):55:30)
+(execjs):98:18
+(execjs):101:10
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `eval_unsafe'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `block (2 levels) in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:239:in `timeout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:179:in `block in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `block in with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:177:in `eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:10:in `block in initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:66:in `translate'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:9:in `initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `new'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/module.rb:27:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:117:in `create_js_context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:14:in `block in reset_pool'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:170:in `try_create'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:82:in `block (2 levels) in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `loop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `block in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:89:in `checkout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:61:in `block in with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `handle_interrupt'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:86:in `eval_js'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:50:in `server_render_js_with_console_logging'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool.rb:23:in `method_missing'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:425:in `server_rendered_react_component_html'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:354:in `internal_react_component'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:100:in `react_component'
+/Users/cbrennan/challenges/lyrics-viewer/app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154585556100'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:157:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:168:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:352:in `instrument_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:155:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:14:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:103:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:83:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/rendering.rb:24:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:36:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/cbrennan/.rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-proxy-0.6.3/lib/rack/proxy.rb:57:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/configuration.rb:225:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:624:in `handle_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:438:in `process_client'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:302:in `block in run'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendered hello_world/index.html.erb within layouts/hello_world (33.9ms)
+Completed 500 Internal Server Error in 46ms
+
+
+  
+ActionView::Template::Error (ERROR in SERVER PRERENDERING
+Encountered error: "Error: Cannot find module "react-dom""
+when prerendering HelloWorld with props: {"name":"Stranger"}
+js_code was:
+(function() {
+  var railsContext = {"inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","href":"http://localhost:3000/hello_world","location":"/hello_world","scheme":"http","host":"localhost","port":3000,"pathname":"/hello_world","search":null,"httpAcceptLanguage":"en-US,en;q=0.9","serverSide":true};
+
+  var props = {"name":"Stranger"};
+  return ReactOnRails.serverRenderReactComponent({
+    name: 'HelloWorld',
+    domNodeId: 'HelloWorld-react-component-3fb1df55-6755-43d6-887f-4a4e65c52957',
+    props: props,
+    trace: true,
+    railsContext: railsContext
+  });
+})()
+
+
+webpackMissingModule (webpack-internal:///55:19:81)
+eval (webpack-internal:///55:19:167)
+Object.(execjs) (<anonymous>:714:1)
+__webpack_require__ ((execjs):55:30)
+eval (webpack-internal:///54:2:73)
+Object.(execjs) (<anonymous>:702:1)
+__webpack_require__ ((execjs):55:30)
+(execjs):98:18
+(execjs):101:10
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `eval_unsafe'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:180:in `block (2 levels) in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:239:in `timeout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:179:in `block in eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `block in with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:69:in `with_lock'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/mini_racer-0.1.14/lib/mini_racer.rb:177:in `eval'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:10:in `block in initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:66:in `translate'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/mini_racer_runtime.rb:9:in `initialize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `new'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/runtime.rb:57:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/execjs-2.7.0/lib/execjs/module.rb:27:in `compile'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:117:in `create_js_context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:14:in `block in reset_pool'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:170:in `try_create'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:82:in `block (2 levels) in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `loop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:78:in `block in pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `synchronize'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool/timed_stack.rb:77:in `pop'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:89:in `checkout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:61:in `block in with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `handle_interrupt'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/connection_pool-2.2.1/lib/connection_pool.rb:60:in `with'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:86:in `eval_js'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool/exec.rb:50:in `server_render_js_with_console_logging'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/lib/react_on_rails/server_rendering_pool.rb:23:in `method_missing'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:425:in `server_rendered_react_component_html'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:354:in `internal_react_component'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/react_on_rails-10.0.2/app/helpers/react_on_rails_helper.rb:100:in `react_component'
+/Users/cbrennan/challenges/lyrics-viewer/app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154585556100'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:157:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:168:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:352:in `instrument_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/template.rb:155:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/template_renderer.rb:14:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:103:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/streaming.rb:217:in `_render_template'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:83:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/rendering.rb:24:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:36:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/cbrennan/.rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:34:in `cleanup_view_runtime'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/rack-proxy-0.6.3/lib/rack/proxy.rb:57:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/configuration.rb:225:in `call'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:624:in `handle_request'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:438:in `process_client'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/server.rb:302:in `block in run'
+/Users/cbrennan/.gem/ruby/2.3.3/gems/puma-3.11.0/lib/puma/thread_pool.rb:120:in `block in spawn_thread'):
+    1: <h1>Hello World</h1>
+    2: <%= react_component("HelloWorld", props: @hello_world_props, prerender: true) %>
+  
+app/views/hello_world/index.html.erb:2:in `_app_views_hello_world_index_html_erb__1969446751141377574_70154585556100'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:51:21 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 8ms (Views: 6.9ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:56:05 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (250.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+module.js:538
+    throw err;
+    ^
+
+Error: Cannot find module '@rails/webpacker'
+    at Function.Module._resolveFilename (module.js:536:15)
+    at Function.Module._load (module.js:466:25)
+    at Module.require (module.js:579:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/Users/cbrennan/challenges/lyrics-viewer/config/webpack/environment.js:1:87)
+    at Module._compile (module.js:635:30)
+    at Object.Module._extensions..js (module.js:646:10)
+    at Module.load (module.js:554:32)
+    at tryModuleLoad (module.js:497:12)
+    at Function.Module._load (module.js:489:3)
+
+Completed 200 OK in 1363ms (Views: 1067.4ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:56:08 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 7ms (Views: 5.9ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:56:09 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:56:44 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.0ms)
+Completed 500 Internal Server Error in 17ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find webpack-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/application-10c03550040142c275b7.js",
+  "hello-world-bundle.js": "/packs/hello-world-bundle-d3989dc00726a3dd7a55.js"
+}
+):
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+   10:   <body>
+  
+app/views/layouts/hello_world.html.erb:7:in `_app_views_layouts_hello_world_html_erb__4255912370881584169_70114567838280'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:57:10 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.7ms)
+Completed 500 Internal Server Error in 16ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find webpack-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/application-10c03550040142c275b7.js",
+  "hello-world-bundle.js": "/packs/hello-world-bundle-d3989dc00726a3dd7a55.js"
+}
+):
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:     <%= javascript_pack_tag 'webpack-bundle' %>
+    8:   </head>
+    9: 
+   10:   <body>
+  
+app/views/layouts/hello_world.html.erb:7:in `_app_views_layouts_hello_world_html_erb__4255912370881584169_70114545002920'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:58:32 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (3.9ms)
+Completed 200 OK in 22ms (Views: 16.7ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 12:58:33 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 7ms (Views: 6.2ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:05:53 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (223.4ms)
+Completed 200 OK in 564ms (Views: 244.2ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:05:55 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:05:57 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 8ms (Views: 6.7ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:09:55 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (234.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 0e3b3bfd2e9818b26cae
+Version: webpack 3.10.0
+Time: 1841ms
+                                     Asset       Size  Chunks                    Chunk Names
+       hello_react-26f5bdcbd468b6ddff76.js    1.68 MB       0  [emitted]  [big]  hello_react
+hello-world-bundle-9fde6e8c231e84c81ee7.js     222 kB       1  [emitted]         hello-world-bundle
+       application-2a9946d7a3879d27d129.js    4.49 kB       2  [emitted]         application
+                             manifest.json  214 bytes          [emitted]         
+  [11] ./app/javascript/packs/application.js 515 bytes {2} [built]
+  [12] ./app/javascript/packs/hello_react.jsx 739 bytes {0} [built]
+  [27] ./app/javascript/packs/hello-world-bundle.js 236 bytes {1} [built]
+    + 26 hidden modules
+
+ERROR in ./app/javascript/packs/hello-world-bundle.js
+Module not found: Error: Can't resolve 'react-on-rails' in '/Users/cbrennan/challenges/lyrics-viewer/app/javascript/packs'
+ @ ./app/javascript/packs/hello-world-bundle.js 1:0-42
+
+
+Completed 200 OK in 3924ms (Views: 3625.4ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:10:02 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.1ms)
+Completed 200 OK in 9ms (Views: 8.2ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:10:04 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.2ms)
+Completed 200 OK in 8ms (Views: 7.2ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:10:11 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.4ms)
+Completed 200 OK in 8ms (Views: 6.3ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:12:10 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (234.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `exec': No such file or directory - /Users/cbrennan/challenges/lyrics-viewer/node_modules/.bin/webpack (Errno::ENOENT)
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `block in run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `chdir'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/runner.rb:6:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/exe/webpack:8:in `<top (required)>'
+	from ./bin/webpack:17:in `load'
+	from ./bin/webpack:17:in `<main>'
+
+Completed 200 OK in 950ms (Views: 637.6ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:12:15 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.9ms)
+Completed 200 OK in 8ms (Views: 6.2ms)
+
+
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:15:18 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (127.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `exec': No such file or directory - /Users/cbrennan/challenges/lyrics-viewer/node_modules/.bin/webpack (Errno::ENOENT)
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `block in run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `chdir'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/runner.rb:6:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/exe/webpack:8:in `<top (required)>'
+	from ./bin/webpack:17:in `load'
+	from ./bin/webpack:17:in `<main>'
+
+Completed 500 Internal Server Error in 716ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello-world-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:   </head>
+    8: 
+    9:   <body>
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb__1432152587619905607_70321410162860'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:16:06 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (1.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `exec': No such file or directory - /Users/cbrennan/challenges/lyrics-viewer/node_modules/.bin/webpack (Errno::ENOENT)
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `block in run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `chdir'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/runner.rb:6:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/exe/webpack:8:in `<top (required)>'
+	from ./bin/webpack:17:in `load'
+	from ./bin/webpack:17:in `<main>'
+
+Completed 500 Internal Server Error in 324ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello-world-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:   </head>
+    8: 
+    9:   <body>
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb__1432152587619905607_70321402652340'
+Started GET "/hello_world" for 127.0.0.1 at 2017-12-09 13:16:08 -0500
+Processing by HelloWorldController#index as HTML
+  Rendering hello_world/index.html.erb within layouts/hello_world
+  Rendered hello_world/index.html.erb within layouts/hello_world (0.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+/Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `exec': No such file or directory - /Users/cbrennan/challenges/lyrics-viewer/node_modules/.bin/webpack (Errno::ENOENT)
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:11:in `block in run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `chdir'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/webpack_runner.rb:10:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/lib/webpacker/runner.rb:6:in `run'
+	from /Users/cbrennan/.gem/ruby/2.3.3/gems/webpacker-3.0.2/exe/webpack:8:in `<top (required)>'
+	from ./bin/webpack:17:in `load'
+	from ./bin/webpack:17:in `<main>'
+
+Completed 500 Internal Server Error in 383ms
+
+
+  
+ActionView::Template::Error (Webpacker can't find hello-world-bundle.js in /Users/cbrennan/challenges/lyrics-viewer/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. Webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your Webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+    3:   <head>
+    4:     <title>ReactOnRailsWithWebpacker</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= javascript_pack_tag 'hello-world-bundle' %>
+    7:   </head>
+    8: 
+    9:   <body>
+  
+app/views/layouts/hello_world.html.erb:6:in `_app_views_layouts_hello_world_html_erb__1432152587619905607_70321453638420'
