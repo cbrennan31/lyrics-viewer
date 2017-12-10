@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'verses#index'
+
+  resources :events, only: [:index, :show]
+  resources :verses, only: [:index]
+  resources :songs, only: [:show]
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :user_games, only: [:create, :index, :update, :show, :destroy]
+  #     resources :games, only: [:create]
+  #     resources :users, only: [:show]
+  #     resources :clues, only: [:create]
+  #     resources :user_clues, only: [:destroy]
+  #   end
+  # end
 end
