@@ -1,39 +1,34 @@
-source "https://rubygems.org"
+source 'https://rubygems.org/'
 
-gem "coffee-rails"
-gem "foundation-rails"
-gem "haml-rails"
-gem "jbuilder"
-gem "jquery-rails"
-gem "pg"
-gem "rails"
-gem "sass-rails"
-gem "sdoc", group: :doc
-gem "uglifier"
-
-group :development, :test do
-  gem "dotenv-rails"
-  gem "pry-rails"
-  gem "rspec-rails"
-end
+gem 'rails', '~> 5.1.2'
+gem 'react_on_rails'
+gem 'redis', '~> 3.3', '>= 3.3.3'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
 
 group :development do
-  gem "web-console"
-  gem "spring"
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
-  gem "capybara"
-  gem "coveralls", require: false
-  gem "database_cleaner"
-  gem "factory_girl_rails"
-  gem "launchy"
-  gem "shoulda-matchers"
-  gem "vcr"
-  gem "webmock"
+group :development, :test do
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'launchy', require: false
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda'
+  gem 'valid_attribute'
 end
 
 group :production do
-  gem "puma"
-  gem "rails_12factor"
+  gem 'rails_12factor'
 end
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby
