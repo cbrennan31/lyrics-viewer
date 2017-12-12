@@ -4,11 +4,18 @@ class VersesChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    verse = Verse.find_by(id: data['id'].to_i)
-    verse.update(current: true)
+    Verse.all.each { |v| v.update(current: false) }
+
+    lyrics = nil
+
+    if Verse.find_by(id: data['id'].to_i)
+      verse = Verse.find_by(id: data['id'].to_i)
+      verse.update(current: true)
+      lyrics = verse.lyrics
+    end
 
     ActionCable.server.broadcast("verses", {
-      lyrics: verse.lyrics
+      lyrics: lyrics
     })
   end
 end

@@ -5,13 +5,12 @@ class Verses extends Component{
     super(props);
 
     this.state = {
-
     }
   }
 
-  render() {
+  render() {    
     return(
-      <p>{this.props.lyrics}</p>
+      <div>{this.props.lyrics}</div>
     )
   }
 }

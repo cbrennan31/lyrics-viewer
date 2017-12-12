@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SongShow from '../components/SongShow'
+import SongVerse from '../components/SongVerse'
 import ActionCable from 'actioncable'
 
 class SongShowContainer extends Component{
@@ -9,11 +9,11 @@ class SongShowContainer extends Component{
     this.state = {
       cable: ActionCable.createConsumer('/cable'),
       subscription: false,
-      verseId: ''
+      currentVerse: 0
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    this.handlePrevious = this.handlePrevious.bind(this)
+    this.handleNext = this.handleNext.bind(this)
   }
 
   componentDidMount() {
@@ -22,27 +22,45 @@ class SongShowContainer extends Component{
     })
   }
 
-  handleChange(e) {
-    this.setState({verseId: e.target.value})
+  handlePrevious(e) {
+    e.preventDefault()
+    let currentVerse = this.state.currentVerse
+    if (currentVerse > 0) {
+      this.setState({currentVerse: currentVerse - 1}, () => {
+        this.state.subscription.send({
+          id: this.state.currentVerse
+        })
+      })
+    }
   }
 
-  handleSubmit(e) {
+  handleNext(e) {
     e.preventDefault()
-
-    if (this.state.verseId != '') {
-      this.state.subscription.send({
-        id: this.state.verseId
+    let currentVerse = this.state.currentVerse
+    if (currentVerse < this.props.verses.length) {
+      this.setState({currentVerse: currentVerse + 1}, () => {
+        this.state.subscription.send({
+          id: this.state.currentVerse
+        })
       })
     }
   }
 
   render() {
-    return(
-      <SongShow
-        handleSubmit = {this.handleSubmit}
-        handleChange = {this.handleChange}
-        verseId = {this.state.verseId}
+    let verses = this.props.verses.map((verse) => {
+      return <SongVerse
+        key={verse.id}
+        id={verse.id}
+        lyrics={verse.lyrics}
+        selected = {this.state.currentVerse == verse.id}
       />
+    })
+    return(
+      <div>
+        {verses}
+        <input type="button" value="Previous" onClick={this.handlePrevious}/>
+        <input type="button" value="Next" onClick={this.handleNext}/>
+      </div>
     )
   }
 }
