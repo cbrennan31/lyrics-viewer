@@ -2012,3 +2012,1491 @@ VersesChannel#receive({"id"=>"2"})
 [ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
 VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
 VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 14:52:18 -0500
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (232.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 5034ms (Views: 5031.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 14:52:24 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 14:52:24 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/2" for ::1 at 2017-12-12 14:53:35 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 14:53:35 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 14:53:35 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (14.0ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (6.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" ORDER BY "songs"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (3.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (3.9ms)[0m  [1m[33mUPDATE "songs" SET "id" = $1, "updated_at" = $2 WHERE "songs"."id" = $3[0m  [["id", 1], ["updated_at", "2017-12-12 19:54:06.463745"], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/songs/2" for ::1 at 2017-12-12 14:54:12 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 14:54:12 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 14:54:12 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 14:54:12 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 14:54:14 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 14:54:14 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 14:54:15 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 14:54:15 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (8.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (6.7ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (18.9ms)[0m  [1m[32mINSERT INTO "verses" ("song_id", "lyrics", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["song_id", 1], ["lyrics", "Third Verse"], ["created_at", "2017-12-12 19:54:46.698439"], ["updated_at", "2017-12-12 19:54:46.698439"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "verses" ("song_id", "lyrics", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["song_id", 1], ["lyrics", "Fourth Verse"], ["created_at", "2017-12-12 19:55:00.162460"], ["updated_at", "2017-12-12 19:55:00.162460"]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-12 19:55:04.616157"], ["id", 3]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"4"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-12 19:55:06.563387"], ["id", 4]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Fourth Verse"}
+VersesChannel transmitting {"lyrics"=>"Fourth Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Fourth Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 15:11:19 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3156ms (Views: 3154.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 15:11:28 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:11:28 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/" for ::1 at 2017-12-12 15:11:35 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2987ms (Views: 2985.6ms | ActiveRecord: 0.0ms)
+
+
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 15:12:08 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3184ms (Views: 3182.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 15:12:12 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:12:12 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 15:12:34 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3026ms (Views: 3025.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:12:37 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:12:37 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:12:37 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"1"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse"}
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"2"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse"}
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 15:13:05 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2785ms (Views: 2783.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:08 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:13:09 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:09 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel#receive({"id"=>"3"})
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse"}
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse"} (via streamed from verses)
+Started GET "/" for ::1 at 2017-12-12 15:13:32 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:32 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:13:32 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:32 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/" for ::1 at 2017-12-12 15:13:38 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:38 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:13:38 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:13:38 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:23:45 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 215ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `song' for #<SongsController:0x007f9a79141070>):
+  
+app/controllers/songs_controller.rb:3:in `show'
+Started GET "/cable" for ::1 at 2017-12-12 15:23:55 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:23:55 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:28:40 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (1.7ms)
+[Webpacker] Compiling…
+Started GET "/cable" for ::1 at 2017-12-12 15:28:47 -0500
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 7131ms (Views: 7111.4ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:28:47 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:28:48 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:28:48 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:29:11 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  Rendered songs/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 20.7ms | ActiveRecord: 6.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:29:11 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:31:11 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:31:11 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:33:27 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 5.0ms)
+
+
+  
+NameError (uninitialized constant SongsController::Verses):
+  
+app/controllers/songs_controller.rb:4:in `show'
+Started GET "/cable" for ::1 at 2017-12-12 15:33:35 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:33:35 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:33:40 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 5.1ms)
+
+
+  
+NameError (undefined local variable or method `song' for #<SongsController:0x007f9a79039df8>
+Did you mean?  @song):
+  
+app/controllers/songs_controller.rb:4:in `show'
+Started GET "/cable" for ::1 at 2017-12-12 15:33:48 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:33:48 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:33:53 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 44ms (Views: 20.3ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 15:34:00 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:34:00 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:34:18 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:34:18 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:34:19 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:34:19 -0500
+VersesChannel stopped streaming from verses
+Started GET "/" for ::1 at 2017-12-12 15:45:53 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:45:53 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:45:54 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:45:54 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/" for ::1 at 2017-12-12 15:49:10 -0500
+Processing by VersesController#index as HTML
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (0.9ms)
+[Webpacker] Compiling…
+Started GET "/cable" for ::1 at 2017-12-12 15:49:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:49:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3673ms (Views: 3672.0ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:49:13 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 15:49:14 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 15:49:14 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 15:54:12 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (17.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 5422c56c8601e8460f30
+Version: webpack 3.10.0
+Time: 2101ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-7c7fae0ad4de7a2e627f.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-c40288131e359662de88.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 310 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token (31:4)
+
+  29 |     let verses = this.props.verses.map ((verse) => {
+  30 |       <SongVerse key = {verse.id} id = {verse.id} lyrics = {verse.lyrics}
+> 31 |     })
+     |     ^
+  32 |     return(
+  33 |       {verses}
+  34 |     )
+
+ @ ./app/javascript/packs/application.js 17:0-72
+
+
+Completed 200 OK in 3587ms (Views: 3575.4ms | ActiveRecord: 1.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 15:54:15 -0500
+VersesChannel stopped streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:01:12 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3714ms (Views: 3710.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:01:34 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (5.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3369ms (Views: 3362.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:02:24 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3365ms (Views: 3360.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:02:51 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: b240912d3af0f33140df
+Version: webpack 3.10.0
+Time: 2027ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-67ecfabd1c616f01b90d.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-b2d3dc23deb130011523.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 190 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token (35:4)
+
+  33 |       <p>hi</p>
+  34 |       // {verses}
+> 35 |     )
+     |     ^
+  36 |   }
+  37 | }
+  38 | 
+
+ @ ./app/javascript/packs/hello-world-bundle.js 6:0-72
+
+
+Completed 200 OK in 3767ms (Views: 3760.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:03:07 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3009ms (Views: 3003.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 16:04:03 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:03 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:04:05 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (6.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3025ms (Views: 3020.8ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:08 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:04:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:04:23 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3521ms (Views: 3516.8ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:26 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:04:27 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:27 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:04:49 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 37ms (Views: 31.0ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:49 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:04:50 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:04:50 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:05:18 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3454ms (Views: 3447.1ms | ActiveRecord: 1.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:21 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:05:22 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:22 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:05:47 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3006ms (Views: 3001.4ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:50 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:05:51 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:51 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:05:53 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 34ms (Views: 28.5ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:53 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:05:53 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:53 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:05:54 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 1.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:54 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:05:55 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:55 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:05:56 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 25ms (Views: 18.8ms | ActiveRecord: 1.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:56 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:05:57 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:05:57 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:06:21 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:06:21 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:06:21 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:06:21 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:07:14 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:07:14 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:07:15 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:07:15 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:07:16 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:07:16 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:07:17 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:07:17 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:07:42 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 9d6c340897822165e620
+Version: webpack 3.10.0
+Time: 2139ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-2b19549e16acbc4fc199.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-e6ce224464f80c1befdf.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 199 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token, expected , (36:0)
+
+  34 |     )
+  35 |   }
+> 36 | }
+     | ^
+  37 | 
+  38 | export default SongShowContainer;
+  39 | 
+
+ @ ./app/javascript/packs/application.js 17:0-72
+
+
+Completed 200 OK in 3649ms (Views: 3645.0ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:07:45 -0500
+VersesChannel stopped streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:08:09 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: b6e75e7562c6413d0a19
+Version: webpack 3.10.0
+Time: 1718ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-221f4af01fdbb3ff5dee.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-2a85ad1d2b364a45a7c7.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 295 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token, expected , (31:4)
+
+  29 |       <SongVerse key = {verse.id} id = {verse.id} lyrics = {verse.lyrics} />
+  30 |     }
+> 31 |     debugger
+     |     ^
+  32 |     return(
+  33 |       <div>{verses}</div>
+  34 |     )
+
+ @ ./app/javascript/packs/application.js 17:0-72
+
+
+Completed 200 OK in 2777ms (Views: 2766.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:08:28 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 23ms (Views: 19.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:08:30 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:08:48 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2734ms (Views: 2730.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 16:09:17 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:09:17 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:10:04 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 5a5d33b29e7f889b4c0d
+Version: webpack 3.10.0
+Time: 1742ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-8687ed32d92a5824db73.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-e65675e2affbecb837d4.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 307 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token, expected , (31:17)
+
+  29 |       debugger
+  30 | 
+> 31 |       <SongVerse key = {verse.id} id = {verse.id} lyrics = {verse.lyrics} />
+     |                  ^
+  32 |     })
+  33 |     return(
+  34 |       <div>{verses}</div>
+
+ @ ./app/javascript/packs/application.js 17:0-72
+
+
+Completed 200 OK in 2794ms (Views: 2789.0ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:10:06 -0500
+VersesChannel stopped streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:10:24 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:11:47 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 233cce62b0aaa9e1984a
+Version: webpack 3.10.0
+Time: 2047ms
+                                     Asset       Size  Chunks                    Chunk Names
+hello-world-bundle-48d192b004805fef72e7.js    2.24 MB       0  [emitted]  [big]  hello-world-bundle
+       application-41ac32d47902bf34302c.js    2.24 MB       1  [emitted]  [big]  application
+                             manifest.json  148 bytes          [emitted]         
+  [45] (webpack)/buildin/global.js 509 bytes {0} {1} [built]
+ [133] ./app/javascript/bundles/containers/VersesContainer.js 2.63 kB {0} {1} [built]
+ [138] ./app/javascript/bundles/containers/SongShowContainer.js 301 bytes {0} {1} [built] [failed] [1 error]
+ [139] ./app/javascript/packs/application.js 1.04 kB {1} [built]
+ [140] ./app/javascript/packs/hello-world-bundle.js 524 bytes {0} [built]
+    + 136 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/SongShowContainer.js
+Module build failed: SyntaxError: Unexpected token, expected , (31:17)
+
+  29 |       debugger
+  30 | 
+> 31 |       <SongVerse key={verse.id} id={verse.id} lyrics={verse.lyrics} />
+     |                  ^
+  32 |     })
+  33 |     return(
+  34 |       <div>{verses}</div>
+
+ @ ./app/javascript/packs/application.js 17:0-72
+
+
+Completed 200 OK in 3620ms (Views: 3615.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:12:15 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3521ms (Views: 3517.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 16:12:35 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:12:35 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:12:40 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:12:40 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:13:04 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:13:04 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:13:26 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (5.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3420ms (Views: 3416.9ms | ActiveRecord: 1.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:13:29 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:13:30 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:13:30 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:14:14 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 27ms (Views: 22.9ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:14:14 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:14:14 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:14:14 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:15:20 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+Started GET "/songs/1" for ::1 at 2017-12-12 16:15:20 -0500
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+Processing by SongsController#show as HTML
+  Rendered songs/show.html.erb within layouts/application (6.5ms)
+  Parameters: {"id"=>"1"}
+[Webpacker] Compiling…
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 106ms (Views: 28.1ms | ActiveRecord: 42.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:15:20 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:15:21 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:15:21 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3792ms (Views: 3785.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/songs/1" for ::1 at 2017-12-12 16:16:33 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3450ms (Views: 3445.9ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:16:36 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:16:37 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:16:37 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:17:06 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3375ms (Views: 3370.8ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:10 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:17:10 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:10 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:17:22 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.6ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2848ms (Views: 2843.5ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:24 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:17:25 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:25 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:17:44 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2618ms (Views: 2614.2ms | ActiveRecord: 0.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:46 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:17:47 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:17:47 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:18:25 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3278ms (Views: 3272.2ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:18:29 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:18:29 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:18:29 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:18:44 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 1.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:18:44 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:18:44 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:18:44 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:19:40 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 1.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:19:40 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:19:40 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:19:40 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:21:13 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3335ms (Views: 3331.7ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:21:16 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:21:16 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:21:16 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:21:28 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2900ms (Views: 2894.5ms | ActiveRecord: 1.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:21:31 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:21:31 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:21:31 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:23:41 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (2.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3496ms (Views: 3492.0ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:23:44 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:23:45 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:23:45 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = $1[0m  [["song_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "verses" SET "song_id" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["song_id", 1], ["updated_at", "2017-12-12 21:26:15.696006"], ["id", 2]]
+  [1m[35m (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "song_id" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["song_id", 1], ["updated_at", "2017-12-12 21:26:15.712844"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/songs/1" for ::1 at 2017-12-12 16:26:17 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 60ms (Views: 35.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 16:26:18 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:26:18 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:26:28 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:26:28 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:27:29 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3437ms (Views: 3433.9ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:27:33 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:27:33 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:27:33 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:28:51 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (3.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2641ms (Views: 2637.3ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:28:54 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:29:05 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:29:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:29:39 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 25ms (Views: 20.5ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:29:39 -0500
+VersesChannel stopped streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:30:52 -0500
+Started GET "/cable" for ::1 at 2017-12-12 16:30:52 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:30:52 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (32.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1[0m
+  Rendered songs/show.html.erb within layouts/application (36.9ms)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 4050ms (Views: 3984.1ms | ActiveRecord: 33.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-12 16:30:56 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:30:57 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:30:57 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/songs/1" for ::1 at 2017-12-12 16:31:31 -0500
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering songs/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 43ms (Views: 25.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-12 16:31:31 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:31:31 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/cable" for ::1 at 2017-12-12 16:31:38 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-12 16:31:38 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses

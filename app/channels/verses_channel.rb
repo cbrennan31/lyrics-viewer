@@ -4,6 +4,7 @@ class VersesChannel < ApplicationCable::Channel
   end
 
   def receive(data)
+    Verse.all.each { |v| v.update(current: false) }
     verse = Verse.find_by(id: data['id'].to_i)
     verse.update(current: true)
 
