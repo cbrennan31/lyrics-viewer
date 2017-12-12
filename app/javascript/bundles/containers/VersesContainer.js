@@ -9,7 +9,7 @@ class VersesContainer extends Component{
     this.state = {
       cable: ActionCable.createConsumer('/cable'),
       subscription: false,
-      lyrics: null
+      lyrics: props.lyrics
     }
   }
 

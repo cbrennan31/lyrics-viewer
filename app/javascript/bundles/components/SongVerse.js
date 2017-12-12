@@ -9,8 +9,12 @@ class SongVerse extends Component{
   }
 
   render() {
+    let fontColor = 'black'
+    if (this.props.selected) {
+      fontColor = 'red'
+    }
     return(
-      <div>{this.props.lyrics}</div>
+      <div style = {{color: fontColor}}>{this.props.lyrics}</div>
     )
   }
 }

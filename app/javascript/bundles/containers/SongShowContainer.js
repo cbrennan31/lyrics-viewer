@@ -9,7 +9,7 @@ class SongShowContainer extends Component{
     this.state = {
       cable: ActionCable.createConsumer('/cable'),
       subscription: false,
-      currentVerse: ''
+      currentVerse: 0
     }
 
     this.handlePrevious = this.handlePrevious.bind(this)
@@ -23,7 +23,27 @@ class SongShowContainer extends Component{
   }
 
   handlePrevious(e) {
-    
+    e.preventDefault()
+    let currentVerse = this.state.currentVerse
+    if (currentVerse > 0) {
+      this.setState({currentVerse: currentVerse - 1}, () => {
+        this.state.subscription.send({
+          id: this.state.currentVerse
+        })
+      })
+    }
+  }
+
+  handleNext(e) {
+    e.preventDefault()
+    let currentVerse = this.state.currentVerse
+    if (currentVerse < this.props.verses.length) {
+      this.setState({currentVerse: currentVerse + 1}, () => {
+        this.state.subscription.send({
+          id: this.state.currentVerse
+        })
+      })
+    }
   }
 
   render() {
@@ -32,13 +52,15 @@ class SongShowContainer extends Component{
         key={verse.id}
         id={verse.id}
         lyrics={verse.lyrics}
-        selected = {this.state.currentVerse}
+        selected = {this.state.currentVerse == verse.id}
       />
     })
     return(
-      <div>{verses}</div>
-      <input type="button" value="Previous" onClick={this.handlePrevious}/>
-      <input type="button" value="Next" onClick={this.handleNext}/>
+      <div>
+        {verses}
+        <input type="button" value="Previous" onClick={this.handlePrevious}/>
+        <input type="button" value="Next" onClick={this.handleNext}/>
+      </div>
     )
   }
 }
