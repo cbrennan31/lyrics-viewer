@@ -9,7 +9,8 @@ class SongShowContainer extends Component{
     this.state = {
       cable: ActionCable.createConsumer('/cable'),
       subscription: false,
-      currentVerse: 0
+      currentVerse: 0,
+      verseIds: []
     }
 
     this.handlePrevious = this.handlePrevious.bind(this)
@@ -20,13 +21,31 @@ class SongShowContainer extends Component{
     this.state.subscription = this.state.cable.subscriptions.create({
       channel: "VersesChannel"
     })
+    this.setState({
+      currentVerse: 0,
+      verseIds: this.props.verses.map((verse) => verse.id)
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      currentVerse: 0,
+      verseIds: nextProps.verses.map((verse) => verse.id)
+    })
   }
 
   handlePrevious(e) {
     e.preventDefault()
     let currentVerse = this.state.currentVerse
     if (currentVerse > 0) {
-      this.setState({currentVerse: currentVerse - 1}, () => {
+      if (currentVerse == this.state.verseIds[1]) {
+        currentVerse = 0
+      } else {
+        let indexOfCurrentVerseId = this.state.verseIds.indexOf(currentVerse)
+        indexOfCurrentVerseId -= 1
+        currentVerse = this.state.verseIds[indexOfCurrentVerseId]
+      }
+      this.setState({currentVerse: currentVerse}, () => {
         this.state.subscription.send({
           id: this.state.currentVerse
         })
@@ -37,24 +56,35 @@ class SongShowContainer extends Component{
   handleNext(e) {
     e.preventDefault()
     let currentVerse = this.state.currentVerse
-    if (currentVerse < this.props.verses.length) {
-      this.setState({currentVerse: currentVerse + 1}, () => {
-        this.state.subscription.send({
-          id: this.state.currentVerse
-        })
-      })
+
+    if (currentVerse == this.state.verseIds[this.state.verseIds.length - 1]) {
+      currentVerse = 0
+    } else {
+      let indexOfCurrentVerseId = this.state.verseIds.indexOf(currentVerse)
+      indexOfCurrentVerseId += 1
+      currentVerse = this.state.verseIds[indexOfCurrentVerseId]
     }
+
+    this.setState({currentVerse: currentVerse}, () => {
+      this.state.subscription.send({
+        id: this.state.currentVerse
+      })
+    })
   }
 
   render() {
-    let verses = this.props.verses.map((verse) => {
-      return <SongVerse
-        key={verse.id}
-        id={verse.id}
-        lyrics={verse.lyrics}
-        selected = {this.state.currentVerse == verse.id}
-      />
-    })
+    let verses
+
+    if (this.props.verses) {
+      verses = this.props.verses.map((verse) => {
+        return <SongVerse
+          key={verse.id}
+          id={verse.id}
+          lyrics={verse.lyrics}
+          selected = {this.state.currentVerse == verse.id}
+        />
+      })
+    }
     return(
       <div>
         {verses}
