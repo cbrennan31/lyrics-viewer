@@ -9,8 +9,7 @@ class EventShow extends Component{
     this.state = {
       selectedSong: 1,
       cable: ActionCable.createConsumer('/cable'),
-      subscription: false,
-      currentVerse: 0,
+      subscription: false
     }
 
     this.handleSongSelection = this.handleSongSelection.bind(this)

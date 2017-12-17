@@ -9,7 +9,7 @@ class SongShowContainer extends Component{
     this.state = {
       cable: ActionCable.createConsumer('/cable'),
       subscription: false,
-      currentVerse: 0,
+      currentVerse: null,
       verseIds: []
     }
 
@@ -37,7 +37,7 @@ class SongShowContainer extends Component{
   handlePrevious(e) {
     e.preventDefault()
     let currentVerse = this.state.currentVerse
-    if (currentVerse > 0) {
+    if (currentVerse) {
       if (currentVerse == this.state.verseIds[1]) {
         currentVerse = 0
       } else {
@@ -58,7 +58,7 @@ class SongShowContainer extends Component{
     let currentVerse = this.state.currentVerse
 
     if (currentVerse == this.state.verseIds[this.state.verseIds.length - 1]) {
-      currentVerse = 0
+      currentVerse = null
     } else {
       let indexOfCurrentVerseId = this.state.verseIds.indexOf(currentVerse)
       indexOfCurrentVerseId += 1
