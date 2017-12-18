@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SongShowContainer from '../containers/SongShowContainer'
+import { connect } from 'react-redux'
+import selectSong from '../actions/index'
 import ActionCable from 'actioncable'
 
 class EventShow extends Component{
@@ -7,12 +9,10 @@ class EventShow extends Component{
     super(props);
 
     this.state = {
-      selectedSong: 1,
+      selectedSong: this.props.selectedSong,
       cable: ActionCable.createConsumer('/cable'),
       subscription: false
     }
-
-    this.handleSongSelection = this.handleSongSelection.bind(this)
   }
 
   componentDidMount() {
@@ -21,19 +21,16 @@ class EventShow extends Component{
     })
   }
 
-  handleSongSelection(e) {
-    this.setState({selectedSong: e.target.id})
-  }
-
   render() {
     let songContainer
+    let dispatch = this.props.dispatch
     this.props.songs.forEach((song) => {
-      if (song.id == this.state.selectedSong) {
+      if (song.id == this.props.selectedSong) {
         songContainer = <SongShowContainer verses = {this.props.verses[song.id - 1]} />
       }
     })
     let songTitles = this.props.songs.map((song) => {
-      return <p key={song.id} id={song.id} onClick={this.handleSongSelection}>{song.title}</p>
+      return <p key={song.id} id={song.id} onClick = { () => dispatch(selectSong(song.id))}>{song.title}</p>
     })
 
     return(
