@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as actionCreators from '../actions/index'
 import EventShow from '../components/EventShow'
 
 const mapStateToProps = (state) => ({
-  selectedSong: state.selectedSong
+  selectedSong: state.selectedSong,
+  cable: state.cable,
+  subscription: state.subscription
 })
 
 const EventShowContainer = connect(

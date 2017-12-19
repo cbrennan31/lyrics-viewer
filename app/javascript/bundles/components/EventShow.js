@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import SongShowContainer from '../containers/SongShowContainer'
 import { connect } from 'react-redux'
-import selectSong from '../actions/index'
+import * as Actions from '../actions'
 import ActionCable from 'actioncable'
 
 class EventShow extends Component{
   constructor(props) {
     super(props);
-
-    this.state = {
-      selectedSong: this.props.selectedSong,
-      cable: ActionCable.createConsumer('/cable'),
-      subscription: false
-    }
   }
 
   componentDidMount() {
-    this.state.subscription = this.state.cable.subscriptions.create({
-      channel: "VersesChannel"
-    })
+    this.props.dispatch(Actions.subscribe(this.props.cable))
   }
 
   render() {
@@ -30,7 +22,7 @@ class EventShow extends Component{
       }
     })
     let songTitles = this.props.songs.map((song) => {
-      return <p key={song.id} id={song.id} onClick = { () => dispatch(selectSong(song.id))}>{song.title}</p>
+      return <p key={song.id} id={song.id} onClick = { () => dispatch(Actions.selectSong(song.id))}>{song.title}</p>
     })
 
     return(
