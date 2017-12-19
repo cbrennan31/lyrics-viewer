@@ -7,8 +7,6 @@ class SongShowContainer extends Component{
     super(props);
 
     this.state = {
-      cable: ActionCable.createConsumer('/cable'),
-      subscription: false,
       currentVerse: null,
       verseIds: []
     }
@@ -18,9 +16,7 @@ class SongShowContainer extends Component{
   }
 
   componentDidMount() {
-    this.state.subscription = this.state.cable.subscriptions.create({
-      channel: "VersesChannel"
-    })
+    this.props.subscribe(this.props.cable)
     this.setState({
       currentVerse: 0,
       verseIds: this.props.verses.map((verse) => verse.id)
@@ -46,7 +42,7 @@ class SongShowContainer extends Component{
         currentVerse = this.state.verseIds[indexOfCurrentVerseId]
       }
       this.setState({currentVerse: currentVerse}, () => {
-        this.state.subscription.send({
+        this.props.cable.subscription.send({
           id: this.state.currentVerse
         })
       })
@@ -66,7 +62,7 @@ class SongShowContainer extends Component{
     }
 
     this.setState({currentVerse: currentVerse}, () => {
-      this.state.subscription.send({
+      this.props.cable.subscription.send({
         id: this.state.currentVerse
       })
     })
