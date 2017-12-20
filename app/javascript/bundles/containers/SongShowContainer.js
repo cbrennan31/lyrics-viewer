@@ -1,71 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SongVerse from '../components/SongVerse'
+import * as Actions from '../actions'
+import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
 
+const mapStateToProps = (state) => ({
+  cable: state.cable,
+  currentVerse: state.verseSelection.currentVerse,
+  verseIDs: state.verseSelection.verseIDs
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setVerseIDs: Actions.setVerseIDs,
+    subscribe: Actions.subscribe,
+    handlePrevious: Actions.handlePrevious,
+    handleNext: Actions.handleNext
+  }, dispatch)
+}
+
 class SongShowContainer extends Component{
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentVerse: null,
-      verseIds: []
-    }
-
-    this.handlePrevious = this.handlePrevious.bind(this)
-    this.handleNext = this.handleNext.bind(this)
-  }
 
   componentDidMount() {
     this.props.subscribe(this.props.cable)
-    this.setState({
-      currentVerse: 0,
-      verseIds: this.props.verses.map((verse) => verse.id)
-    })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      currentVerse: 0,
-      verseIds: nextProps.verses.map((verse) => verse.id)
-    })
-  }
-
-  handlePrevious(e) {
-    e.preventDefault()
-    let currentVerse = this.state.currentVerse
-    if (currentVerse) {
-      if (currentVerse == this.state.verseIds[1]) {
-        currentVerse = 0
-      } else {
-        let indexOfCurrentVerseId = this.state.verseIds.indexOf(currentVerse)
-        indexOfCurrentVerseId -= 1
-        currentVerse = this.state.verseIds[indexOfCurrentVerseId]
-      }
-      this.setState({currentVerse: currentVerse}, () => {
-        this.props.cable.subscription.send({
-          id: this.state.currentVerse
-        })
-      })
-    }
-  }
-
-  handleNext(e) {
-    e.preventDefault()
-    let currentVerse = this.state.currentVerse
-
-    if (currentVerse == this.state.verseIds[this.state.verseIds.length - 1]) {
-      currentVerse = null
-    } else {
-      let indexOfCurrentVerseId = this.state.verseIds.indexOf(currentVerse)
-      indexOfCurrentVerseId += 1
-      currentVerse = this.state.verseIds[indexOfCurrentVerseId]
-    }
-
-    this.setState({currentVerse: currentVerse}, () => {
-      this.props.cable.subscription.send({
-        id: this.state.currentVerse
-      })
-    })
   }
 
   render() {
@@ -77,18 +35,38 @@ class SongShowContainer extends Component{
           key={verse.id}
           id={verse.id}
           lyrics={verse.lyrics}
-          selected = {this.state.currentVerse == verse.id}
+          selected = {this.props.currentVerse == verse.id}
         />
       })
     }
     return(
       <div>
         {verses}
-        <input type="button" value="Previous" onClick={this.handlePrevious}/>
-        <input type="button" value="Next" onClick={this.handleNext}/>
+        <input
+          type="button"
+          value="Previous"
+          onClick={() => {
+            this.props.handlePrevious(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
+              this.props.cable.subscription.send({
+                id: newVerse
+              })
+            })
+          }}
+        />
+        <input
+          type="button"
+          value="Next"
+          onClick={() => {
+            this.props.handleNext(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
+              this.props.cable.subscription.send({
+                id: newVerse
+              })
+            })
+          }}
+        />
       </div>
     )
   }
 }
 
-export default SongShowContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(SongShowContainer)

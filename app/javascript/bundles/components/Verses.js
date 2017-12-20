@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Verses extends Component{
+class Verse extends Component{
   constructor(props) {
     super(props);
 
@@ -8,11 +8,11 @@ class Verses extends Component{
     }
   }
 
-  render() {    
+  render() {
     return(
       <div>{this.props.lyrics}</div>
     )
   }
 }
 
-export default Verses;
+export default Verse;
