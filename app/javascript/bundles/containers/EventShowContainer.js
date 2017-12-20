@@ -7,11 +7,12 @@ import ActionCable from 'actioncable'
 
 const mapStateToProps = (state) => ({
   selectedSong: state.selectedSong,
-  cable: state.cable
+  cable: state.cable,
 })
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
+    setVerseIDs: Actions.setVerseIDs,
     selectSong: Actions.selectSong,
     subscribe: Actions.subscribe
   }, dispatch)
@@ -35,7 +36,16 @@ class EventShowContainer extends Component{
       }
     })
     let songTitles = this.props.songs.map((song) => {
-      return <p key={song.id} id={song.id} onClick = { () => this.props.selectSong(song.id)}>{song.title}</p>
+      return <p
+        key={song.id}
+        id={song.id}
+        onClick = { () => {
+          this.props.selectSong(song.id)
+          this.props.setVerseIDs(this.props.verses[song.id - 1])
+        }}
+      >
+        {song.title}
+      </p>
     })
 
     return(

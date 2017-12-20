@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Verses from '../components/Verses'
+import Verse from '../components/Verses'
 import ActionCable from 'actioncable'
 
 class VersesContainer extends Component{
@@ -23,7 +23,7 @@ class VersesContainer extends Component{
 
   render() {
     return(
-      <Verses lyrics = {this.state.lyrics}/>
+      <Verse lyrics = {this.state.lyrics}/>
     )
   }
 }

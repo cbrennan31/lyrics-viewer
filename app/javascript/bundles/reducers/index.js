@@ -19,9 +19,21 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   }
 }
 
+const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
+  switch (action.type){
+    case 'SET_VERSE_IDS':
+      return Object.assign({}, state, {verseIDs: action.verseIDs})
+    case 'HANDLE_PREVIOUS':
+      return Object.assign({}, state, {currentVerse: action.currentVerse})
+    case 'HANDLE_NEXT':
+      return Object.assign({}, state, {currentVerse: action.currentVerse})
+    default:
+      return state
+  }
+}
 
 const EventShowReducer = combineReducers({
-  selectedSong, cable
+  selectedSong, cable, verseSelection
 })
 
 export default EventShowReducer
