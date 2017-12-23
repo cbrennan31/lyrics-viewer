@@ -17,7 +17,7 @@ class VersesContainer extends Component{
     this.state.subscription = this.state.cable.subscriptions.create({
       channel: "VersesChannel"
     }, {
-      received: (data) => {this.setState({lyrics: data.lyrics})}
+      received: (data) => {this.setState({lyrics: data.lyrics, eventStarted: data.eventStarted})}
     })
   }
 
