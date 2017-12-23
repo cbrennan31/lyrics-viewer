@@ -8,13 +8,16 @@ import ActionCable from 'actioncable'
 const mapStateToProps = (state) => ({
   selectedSong: state.selectedSong,
   cable: state.cable,
+  eventInProgress: state.eventInProgress
 })
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     setVerseIDs: Actions.setVerseIDs,
     selectSong: Actions.selectSong,
-    subscribe: Actions.subscribe
+    subscribe: Actions.subscribe,
+    startEvent: Actions.startEvent,
+    endEvent: Actions.endEvent
   }, dispatch)
 }
 
@@ -24,6 +27,7 @@ class EventShowContainer extends Component{
   }
 
   render() {
+    let eventMessage = this.props.eventInProgress > 0 ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
     let songContainer
     let dispatch = this.props.dispatch
     this.props.songs.forEach((song) => {
@@ -51,8 +55,21 @@ class EventShowContainer extends Component{
     return(
       <div>
         <p>{this.props.event.title}</p>
-        <input type="button" value="Start Event" />
-        <input type="button" value="End Event" />
+        {eventMessage}
+        <input
+          type="button"
+          value="Start Event"
+          onClick={() =>
+            this.props.startEvent(this.props.event.id, (id) => {
+              this.props.cable.subscription.send({current_event: id})
+            })
+          }
+        />
+        <input type="button" value="End Event" onClick={() => this.props.endEvent(() => {
+              this.props.cable.subscription.send({current_event: 0})
+            })
+          }
+        />
         {songTitles}
         {songContainer}
       </div>

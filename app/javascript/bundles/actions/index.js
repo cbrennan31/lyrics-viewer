@@ -51,3 +51,18 @@ export const handleNext = (verseIDs, currentVerse, callback) => {
     currentVerse: newVerse
   }
 }
+
+export const startEvent = (id, callback) => {
+  callback(id)
+  return {
+    type: 'START_EVENT',
+    id
+  }
+}
+
+export const endEvent = (callback) => {
+  callback()
+  return {
+    type: 'END_EVENT'
+  }
+}

@@ -32,8 +32,19 @@ const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
   }
 }
 
+const eventInProgress = (state = 0, action) => {
+  switch (action.type){
+    case 'START_EVENT':
+      return action.id
+    case 'END_EVENT':
+      return 0
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
-  selectedSong, cable, verseSelection
+  selectedSong, cable, verseSelection, eventInProgress
 })
 
 export default EventShowReducer
