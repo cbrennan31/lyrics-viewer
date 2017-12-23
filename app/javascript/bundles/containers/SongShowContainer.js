@@ -24,6 +24,7 @@ class SongShowContainer extends Component{
 
   componentDidMount() {
     this.props.subscribe(this.props.cable)
+    this.props.setVerseIDs(this.props.verses)
   }
 
   render() {

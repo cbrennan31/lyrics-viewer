@@ -4,18 +4,38 @@ class VersesChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    Verse.all.each { |v| v.update(current: false) }
-
     lyrics = nil
+    event_title = nil
+# change id to a diff variable name
+    if data['id']
 
-    if Verse.find_by(id: data['id'].to_i)
-      verse = Verse.find_by(id: data['id'].to_i)
-      verse.update(current: true)
-      lyrics = verse.lyrics
+      if Event.find_by(in_progress: true)
+        event_title = Event.find_by(in_progress: true).title
+      end
+
+      Verse.all.each { |v| v.update(current: false) }
+
+      if data['id'] > 0
+        verse = Verse.find(data['id'])
+        verse.update(current: true)
+        lyrics = verse.lyrics
+      end
+    end
+
+    if data['current_event']
+      if data['current_event'] > 0
+        current_event = Event.find(data['current_event'])
+        current_event.update(in_progress: true)
+        event_title = current_event.title
+      else
+        Event.all.each { |v| v.update(in_progress: false) }
+        Verse.all.each { |v| v.update(current: false) }
+      end
     end
 
     ActionCable.server.broadcast("verses", {
-      lyrics: lyrics
+      lyrics: lyrics,
+      current_event: event_title
     })
   end
 end
