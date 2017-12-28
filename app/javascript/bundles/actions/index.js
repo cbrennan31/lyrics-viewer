@@ -66,3 +66,7 @@ export const endEvent = (callback) => {
     type: 'END_EVENT'
   }
 }
+
+export const addSong = () => ({
+  type: 'ADD SONG'
+})

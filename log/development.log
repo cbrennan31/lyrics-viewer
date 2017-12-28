@@ -20531,3 +20531,1333 @@ Started GET "/cable/" [WebSocket] for ::1 at 2017-12-22 21:51:57 -0500
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 VersesChannel is transmitting the subscription confirmation
 VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-22 22:01:50 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 57ms (Views: 37.1ms | ActiveRecord: 2.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-22 22:01:50 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-22 22:01:51 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-22 22:01:51 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "t"], ["updated_at", "2017-12-23 03:01:53.370386"], ["id", 1]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "f"], ["updated_at", "2017-12-23 03:01:54.533608"], ["id", 1]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "t"], ["updated_at", "2017-12-23 03:01:56.378236"], ["id", 1]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "f"], ["updated_at", "2017-12-23 03:01:57.106162"], ["id", 1]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>1})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:01:59.103095"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"First Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>2})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:01:59.588235"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:01:59.600209"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"Second Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>3})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:01:59.855760"], ["id", 2]]
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:01:59.878996"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"Third Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>4})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:00.239776"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:00.251022"], ["id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Fourth Verse", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"Fourth Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Fourth Verse", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:01.136443"], ["id", 4]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>5})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:02.967866"], ["id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v1", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>6})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:03.309305"], ["id", 5]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:03.323447"], ["id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v2", :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:03.700833"], ["id", 6]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "t"], ["updated_at", "2017-12-23 03:02:09.892345"], ["id", 1]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>5})
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:10.865178"], ["id", 5]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v1", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>6})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:11.348835"], ["id", 5]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:11.360366"], ["id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v2", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:12.713022"], ["id", 6]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+VersesChannel#receive({"id"=>5})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.2ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:15.143440"], ["id", 5]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v1", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>6})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:15.363657"], ["id", 5]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:15.378021"], ["id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v2", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:15.563965"], ["id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>5})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:18.422245"], ["id", 5]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v1", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>6})
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:18.626282"], ["id", 5]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:18.640434"], ["id", 6]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v2", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:18.810227"], ["id", 6]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>5})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.1ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:19.026351"], ["id", 5]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v1", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v1", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>6})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:20.067623"], ["id", 5]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:20.080601"], ["id", 6]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Song v2", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Song v2", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:20.562068"], ["id", 6]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>1})
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:25.591951"], ["id", 1]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"First Verse", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"First Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"First Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>2})
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:27.382116"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.2ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:27.386670"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Second Verse", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Second Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Second Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>3})
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:27.936094"], ["id", 2]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:27.949502"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Third Verse", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Third Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Third Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>4})
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:28.145816"], ["id", 3]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "t"], ["updated_at", "2017-12-23 03:02:28.160873"], ["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>"Fourth Verse", :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>"Fourth Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>"Fourth Verse", "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"id"=>0})
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "verses" SET "current" = $1, "updated_at" = $2 WHERE "verses"."id" = $3[0m  [["current", "f"], ["updated_at", "2017-12-23 03:02:28.335784"], ["id", 4]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-22 23:11:21 -0500
+VersesChannel stopped streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-22 23:12:34 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-23 14:02:18 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (39.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (24.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (33.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (50.2ms)
+Completed 200 OK in 215ms (Views: 47.9ms | ActiveRecord: 99.4ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-23 14:02:19 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-23 14:02:19 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-23 14:02:19 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-23 22:09:39 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-23 22:09:39 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-23 22:09:40 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-23 23:53:39 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-23 23:53:39 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-23 23:53:40 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-23 23:58:18 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-23 23:58:18 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-23 23:58:19 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-23 23:59:04 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-23 23:59:04 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-23 23:59:05 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 13:03:50 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 13:03:50 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 13:03:51 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 17:08:43 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 17:08:43 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 17:08:44 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 17:09:40 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 17:09:40 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 17:09:40 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 17:25:40 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 17:25:40 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 17:25:41 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 17:34:11 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 17:34:11 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 17:34:11 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-24 21:18:26 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-24 21:18:26 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-24 21:18:27 -0500
+VersesChannel stopped streaming from verses
+Started GET "/" for ::1 at 2017-12-28 16:59:10 -0500
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by VersesController#index as HTML
+  [1m[36mVerse Load (12.1ms)[0m  [1m[34mSELECT  "verses".* FROM "verses" WHERE "verses"."current" = $1 LIMIT $2[0m  [["current", "t"], ["LIMIT", 1]]
+  [1m[36mEvent Load (12.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."in_progress" = $1 LIMIT $2[0m  [["in_progress", "t"], ["LIMIT", 1]]
+  Rendering verses/index.html.erb within layouts/application
+  Rendered verses/index.html.erb within layouts/application (219.2ms)
+Completed 200 OK in 1750ms (Views: 1671.8ms | ActiveRecord: 46.5ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 16:59:12 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 16:59:12 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 16:59:16 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (7.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 61ms (Views: 23.1ms | ActiveRecord: 17.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 16:59:18 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 16:59:18 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 16:59:18 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:02:46 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3649ms (Views: 3640.7ms | ActiveRecord: 2.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:02:50 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:02:50 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:02:50 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:36:03 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 2690517338989d164298
+Version: webpack 3.10.0
+Time: 2315ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-3aa38c72b1b3e911aabc.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 195 bytes {0} [built] [failed] [1 error]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.06 kB {0} [built]
+ [181] ./app/javascript/bundles/containers/EventShowContainer.js 5.14 kB {0} [built]
+    + 177 hidden modules
+
+ERROR in ./app/javascript/bundles/components/SongForm.js
+Module build failed: SyntaxError: Unexpected token (14:18)
+
+  12 |     return(
+  13 |       <form>
+> 14 |         <label for"song">
+     |                   ^
+  15 |           Song Title
+  16 |           <input type="text" id="song" />
+  17 |         </label>
+
+ @ ./app/javascript/bundles/containers/EventShowContainer.js 15:0-46
+ @ ./app/javascript/bundles/components/EventShowStore.js
+ @ ./app/javascript/packs/application-bundle.js
+
+ERROR in ./app/javascript/bundles/actions/index.js
+Module build failed: SyntaxError: Unexpected token (71:7)
+
+  69 | 
+  70 | export const addSong = () => ({
+> 71 |   type = 'ADD SONG'
+     |        ^
+  72 | })
+  73 | 
+
+ @ ./app/javascript/bundles/containers/SongShowContainer.js 12:0-38
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3739ms (Views: 3732.2ms | ActiveRecord: 2.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:36:07 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:36:18 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 0f51c067feee513d684d
+Version: webpack 3.10.0
+Time: 2114ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-713e293d71851ee2a469.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 1.65 kB {0} [built]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.06 kB {0} [built]
+ [181] ./app/javascript/bundles/containers/EventShowContainer.js 5.14 kB {0} [built]
+    + 177 hidden modules
+
+ERROR in ./app/javascript/bundles/components/SongForm.js
+Module build failed: SyntaxError: Unexpected token (14:18)
+
+  12 |     return(
+  13 |       <form>
+> 14 |         <label for"song">
+     |                   ^
+  15 |           Song Title
+  16 |           <input type="text" id="song" />
+  17 |         </label>
+
+ @ ./app/javascript/bundles/containers/EventShowContainer.js 15:0-46
+ @ ./app/javascript/bundles/components/EventShowStore.js
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3487ms (Views: 3468.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 17:36:38 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2987ms (Views: 2976.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 17:36:41 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (2.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 35ms (Views: 18.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 17:36:42 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:36:42 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:37:09 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3252ms (Views: 3245.5ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:37:12 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:37:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:37:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:37:37 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 20ms (Views: 12.6ms | ActiveRecord: 2.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:37:37 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:37:38 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:37:38 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:38:57 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2756ms (Views: 2747.3ms | ActiveRecord: 2.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:00 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:39:00 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:00 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:39:03 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 24ms (Views: 16.2ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:03 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:39:04 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:04 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:39:06 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:06 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:39:07 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:07 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses

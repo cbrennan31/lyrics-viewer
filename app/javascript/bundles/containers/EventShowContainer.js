@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import SongShowContainer from './SongShowContainer'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
-import ActionCable from 'actioncable'
+import ActionCable from 'actioncable';
+import SongForm from '../components/SongForm'
 
 const mapStateToProps = (state) => ({
   selectedSong: state.selectedSong,
   cable: state.cable,
-  eventInProgress: state.eventInProgress
+  eventInProgress: state.eventInProgress,
+  songFormRevealed: state.songFormRevealed
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -17,7 +19,8 @@ const mapDispatchToProps = (dispatch) => {
     selectSong: Actions.selectSong,
     subscribe: Actions.subscribe,
     startEvent: Actions.startEvent,
-    endEvent: Actions.endEvent
+    endEvent: Actions.endEvent,
+    addSong: Actions.addSong
   }, dispatch)
 }
 
@@ -27,6 +30,10 @@ class EventShowContainer extends Component{
   }
 
   render() {
+    let addSong = this.props.songFormRevealed ?
+      <SongForm /> :
+      <input type="button" value="Add Song" onClick={this.props.addSong}/>
+
     let eventMessage = this.props.eventInProgress > 0 ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
     let songContainer
     let dispatch = this.props.dispatch
@@ -71,6 +78,7 @@ class EventShowContainer extends Component{
           }
         />
         {songTitles}
+        {addSong}
         {songContainer}
       </div>
 

@@ -43,8 +43,17 @@ const eventInProgress = (state = 0, action) => {
   }
 }
 
+const songFormRevealed = (state = false, action) => {
+  switch (action.type){
+    case 'ADD SONG':
+      return true
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
-  selectedSong, cable, verseSelection, eventInProgress
+  selectedSong, cable, verseSelection, eventInProgress, songFormRevealed
 })
 
 export default EventShowReducer
