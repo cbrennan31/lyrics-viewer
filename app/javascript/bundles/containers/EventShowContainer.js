@@ -49,7 +49,6 @@ class EventShowContainer extends Component{
 
     let eventMessage = this.props.eventInProgress > 0 ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
     let songContainer
-    let dispatch = this.props.dispatch
     this.props.songs.forEach((song) => {
       if (song.id == this.props.selectedSong) {
         songContainer = <SongShowContainer
