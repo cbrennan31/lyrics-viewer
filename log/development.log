@@ -21861,3 +21861,2389 @@ Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:39:07 -0500
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 VersesChannel is transmitting the subscription confirmation
 VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:51:18 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 31ms (Views: 23.8ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:51:18 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:51:19 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:51:19 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:55:41 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (2.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3978ms (Views: 3968.5ms | ActiveRecord: 3.6ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:55:45 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 17:55:46 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 17:55:46 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 17:59:18 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 201e1fb85433af4b0bdd
+Version: webpack 3.10.0
+Time: 2071ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-52e435c9fa5b0674e1e4.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 1.77 kB {0} [built]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.14 kB {0} [built]
+ [181] ./app/javascript/bundles/containers/EventShowContainer.js 5.14 kB {0} [built]
+    + 177 hidden modules
+
+ERROR in ./app/javascript/bundles/components/SongForm.js
+Module build failed: SyntaxError: Unexpected token (6:8)
+
+  4 | class Verse extends Component{
+  5 | 
+> 6 |   const mapDispatchToProps = (dispatch) => {
+    |         ^
+  7 |     return bindActionCreators( submitSong, dispatch )
+  8 |   }
+  9 | 
+
+ @ ./app/javascript/bundles/containers/EventShowContainer.js 15:0-46
+ @ ./app/javascript/bundles/components/EventShowStore.js
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3471ms (Views: 3463.8ms | ActiveRecord: 2.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 17:59:22 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:00:24 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 201e1fb85433af4b0bdd
+Version: webpack 3.10.0
+Time: 1917ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-52e435c9fa5b0674e1e4.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 1.77 kB {0} [built]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.14 kB {0} [built]
+ [181] ./app/javascript/bundles/containers/EventShowContainer.js 5.14 kB {0} [built]
+    + 177 hidden modules
+
+ERROR in ./app/javascript/bundles/components/SongForm.js
+Module build failed: SyntaxError: Unexpected token (6:8)
+
+  4 | class Verse extends Component{
+  5 | 
+> 6 |   const mapDispatchToProps = (dispatch) => {
+    |         ^
+  7 |     return bindActionCreators( submitSong, dispatch )
+  8 |   }
+  9 | 
+
+ @ ./app/javascript/bundles/containers/EventShowContainer.js 15:0-46
+ @ ./app/javascript/bundles/components/EventShowStore.js
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 2938ms (Views: 2931.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 18:00:46 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (7.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 8c760c0d3899124f652a
+Version: webpack 3.10.0
+Time: 1972ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-56589294468a0f356ed9.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 1.77 kB {0} [built]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.14 kB {0} [built]
+ [181] ./app/javascript/bundles/containers/EventShowContainer.js 5.14 kB {0} [built]
+    + 177 hidden modules
+
+ERROR in ./app/javascript/bundles/components/SongForm.js
+Module build failed: SyntaxError: Unexpected token (6:8)
+
+  4 | class SongForm extends Component{
+  5 | 
+> 6 |   const mapDispatchToProps = (dispatch) => {
+    |         ^
+  7 |     return bindActionCreators( submitSong, dispatch )
+  8 |   }
+  9 | 
+
+ @ ./app/javascript/bundles/containers/EventShowContainer.js 15:0-46
+ @ ./app/javascript/bundles/components/EventShowStore.js
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3084ms (Views: 3068.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 18:04:13 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3491ms (Views: 3483.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 18:04:17 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:04:17 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:04:21 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 2.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:04:21 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:04:21 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:04:21 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:04:29 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 27ms (Views: 20.3ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:04:29 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:04:34 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:04:34 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:04:57 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3412ms (Views: 3406.1ms | ActiveRecord: 1.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:05:00 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:05:01 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:05:01 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:05:03 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 32ms (Views: 26.2ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:05:03 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:05:04 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:05:04 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:06:02 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3491ms (Views: 3485.0ms | ActiveRecord: 3.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:06:05 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:06:05 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:06:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:06:45 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (2.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (10.6ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3241ms (Views: 3226.6ms | ActiveRecord: 6.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:06:49 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:06:49 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:06:49 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:08:04 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3510ms (Views: 3504.6ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:08:08 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:08:08 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:08:08 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:12:46 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3282ms (Views: 3272.8ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:12:49 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:12:49 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:12:49 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:13:22 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (5.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3317ms (Views: 3308.6ms | ActiveRecord: 2.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 18:13:25 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 18:13:25 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:13:25 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 18:26:43 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 77ms (Views: 25.3ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 18:26:43 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 18:26:43 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:42:59 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 20c713b0cd0ae35ff14e
+Version: webpack 3.10.0
+Time: 2152ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-db8197382a082fd3eedf.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 225 bytes {0} [built] [failed] [1 error]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.14 kB {0} [built]
+ [182] ./app/javascript/bundles/containers/EventShowContainer.js 5.29 kB {0} [built]
+    + 178 hidden modules
+
+ERROR in ./app/javascript/bundles/actions/index.js
+Module build failed: SyntaxError: Unexpected token, expected ; (1:4)
+
+> 1 | npm install --save cross-fetch
+    |     ^
+  2 | 
+  3 | export const selectSong = (id) => ({
+  4 |   type: 'SELECT_SONG',
+
+ @ ./app/javascript/bundles/containers/SongShowContainer.js 12:0-38
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3708ms (Views: 3695.5ms | ActiveRecord: 3.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:43:03 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:43:28 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2763ms (Views: 2757.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 20:43:31 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:43:31 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:45:03 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2592ms (Views: 2586.0ms | ActiveRecord: 1.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:45:06 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:45:06 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:45:06 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:46:23 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2513ms (Views: 2507.5ms | ActiveRecord: 2.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:46:25 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:46:26 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:46:26 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:51:42 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2839ms (Views: 2832.1ms | ActiveRecord: 2.1ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:51:45 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:51:45 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:51:45 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:52:36 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2681ms (Views: 2664.6ms | ActiveRecord: 2.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:52:39 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:52:39 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:52:39 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 20:52:45 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"title"=>"Hi", "song"=>{"title"=>"Hi"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=):
+  
+app/controllers/api/v1/songs_controller.rb:7:in `create'
+Started GET "/cable" for ::1 at 2017-12-28 20:54:58 -0500
+  [1m[35m (8.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:54:59 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 20:55:03 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (220.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 4503ms (Views: 4415.0ms | ActiveRecord: 34.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:55:07 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:55:08 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:55:08 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 20:55:14 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"title"=>"hi", "song"=>{"title"=>"hi"}}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 77953ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=):
+  
+app/controllers/api/v1/songs_controller.rb:8:in `create'
+Started GET "/events/1" for ::1 at 2017-12-28 20:58:53 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+Started GET "/events/1" for ::1 at 2017-12-28 20:58:53 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mEvent Load (2.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mSong Load (9.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (15.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (23.9ms)
+  [1m[36mVerse Load (10.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (3.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (19.6ms)
+[Webpacker] Compiling…
+Completed 200 OK in 70ms (Views: 30.0ms | ActiveRecord: 25.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:58:53 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:58:53 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:58:53 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3504ms (Views: 3469.5ms | ActiveRecord: 18.0ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 20:59:00 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"title"=>"hi", "song"=>{"title"=>"hi"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 18593ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=):
+  
+app/controllers/api/v1/songs_controller.rb:8:in `create'
+Started GET "/events/1" for ::1 at 2017-12-28 20:59:50 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 2.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 20:59:50 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 20:59:51 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 20:59:51 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:00:17 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"hi", "song"=>{"id"=>1, "title"=>"hi"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "hi"], ["event_id", 1], ["created_at", "2017-12-29 02:00:30.879199"], ["updated_at", "2017-12-29 02:00:30.879199"]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 13083ms (Views: 0.6ms | ActiveRecord: 22.0ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:02:56 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"hi", "song"=>{"id"=>1, "title"=>"hi"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "hi"], ["event_id", 1], ["created_at", "2017-12-29 02:02:56.982747"], ["updated_at", "2017-12-29 02:02:56.982747"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 31ms (Views: 0.8ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 21:03:04 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:03:04 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:03:42 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (20.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: f5d21f746d5cf7e7cbe2
+Version: webpack 3.10.0
+Time: 2130ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-d6d57ab4d1f5ef6cd209.js   2.56 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [23] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+  [80] ./app/javascript/bundles/actions/index.js 221 bytes {0} [built] [failed] [1 error]
+  [81] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [150] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [163] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [180] ./app/javascript/bundles/reducers/index.js 2.14 kB {0} [built]
+ [182] ./app/javascript/bundles/containers/EventShowContainer.js 5.29 kB {0} [built]
+    + 178 hidden modules
+
+ERROR in ./app/javascript/bundles/actions/index.js
+Module build failed: SyntaxError: Unexpected token (102:4)
+
+  100 |       debugger
+  101 |       return dispatch(receiveSong(json))
+> 102 |     )}
+      |     ^
+  103 |   }
+  104 | }
+  105 | 
+
+ @ ./app/javascript/bundles/containers/SongShowContainer.js 12:0-38
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 3529ms (Views: 3512.0ms | ActiveRecord: 8.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:03:46 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:03:56 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (14.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3467ms (Views: 3455.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 21:04:00 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:00 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:04:20 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 3.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:20 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:04:20 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:20 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:04:21 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:21 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:04:21 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:21 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:04:23 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 2.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:23 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:04:23 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:04:23 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:04:37 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"hi", "song"=>{"id"=>1, "title"=>"hi"}}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "hi"], ["event_id", 1], ["created_at", "2017-12-29 02:04:37.259311"], ["updated_at", "2017-12-29 02:04:37.259311"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:06:12 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (15.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3391ms (Views: 3379.9ms | ActiveRecord: 6.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:06:15 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:06:15 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:06:15 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:07:41 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (10.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3397ms (Views: 3383.3ms | ActiveRecord: 3.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:07:44 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:07:45 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:07:45 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:11:10 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (10.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3288ms (Views: 3280.4ms | ActiveRecord: 3.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:11:13 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:11:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:11:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:14:13 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.0ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 27ms (Views: 16.8ms | ActiveRecord: 3.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:14:13 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:14:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:14:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:16:01 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3282ms (Views: 3275.1ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:16:04 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:16:05 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:16:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:17:22 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (19.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3499ms (Views: 3485.1ms | ActiveRecord: 6.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:17:26 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:17:26 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:17:26 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:40:49 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (9.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3515ms (Views: 3504.8ms | ActiveRecord: 3.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:40:53 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:40:53 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:40:53 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:41:11 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (11.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2698ms (Views: 2688.3ms | ActiveRecord: 3.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:41:14 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:41:14 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:41:14 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:41:20 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"new song", "song"=>{"id"=>1, "title"=>"new song"}}
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new song"], ["event_id", 1], ["created_at", "2017-12-29 02:41:20.611840"], ["updated_at", "2017-12-29 02:41:20.611840"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:42:01 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/events/1" for ::1 at 2017-12-28 21:42:01 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (2.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mEvent Load (2.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mSong Load (2.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (4.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (18.3ms)
+  [1m[36mVerse Load (2.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (19.1ms)
+[Webpacker] Compiling…
+Completed 200 OK in 50ms (Views: 29.9ms | ActiveRecord: 11.9ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:42:01 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:42:01 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:42:01 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3648ms (Views: 3626.8ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:42:07 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"new song 2", "song"=>{"id"=>1, "title"=>"new song 2"}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new song 2"], ["event_id", 1], ["created_at", "2017-12-29 02:42:07.614430"], ["updated_at", "2017-12-29 02:42:07.614430"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21ms (Views: 0.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:49:36 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 31ms (Views: 21.0ms | ActiveRecord: 4.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:49:36 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:49:37 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:49:37 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 21:50:05 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (14.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3295ms (Views: 3285.0ms | ActiveRecord: 4.8ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:50:08 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:50:10 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:50:10 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:50:45 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"new store", "song"=>{"id"=>1, "title"=>"new store"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new store"], ["event_id", 1], ["created_at", "2017-12-29 02:50:45.966594"], ["updated_at", "2017-12-29 02:50:45.966594"]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:52:44 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (33.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3443ms (Views: 3431.4ms | ActiveRecord: 5.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:52:47 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:52:47 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:52:47 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:52:55 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"newer song", "song"=>{"id"=>1, "title"=>"newer song"}}
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "newer song"], ["event_id", 1], ["created_at", "2017-12-29 02:52:55.063052"], ["updated_at", "2017-12-29 02:52:55.063052"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:54:31 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (21.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2715ms (Views: 2701.8ms | ActiveRecord: 6.2ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:54:34 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:54:34 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:54:34 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:54:43 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"newest song", "song"=>{"id"=>1, "title"=>"newest song"}}
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "newest song"], ["event_id", 1], ["created_at", "2017-12-29 02:54:43.127534"], ["updated_at", "2017-12-29 02:54:43.127534"]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:56:09 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (26.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3318ms (Views: 3298.1ms | ActiveRecord: 9.6ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:56:12 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:56:13 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:56:13 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:56:22 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"new new song", "song"=>{"id"=>1, "title"=>"new new song"}}
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new new song"], ["event_id", 1], ["created_at", "2017-12-29 02:56:22.014400"], ["updated_at", "2017-12-29 02:56:22.014400"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:56:33 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"new new song", "song"=>{"id"=>1, "title"=>"new new song"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new new song"], ["event_id", 1], ["created_at", "2017-12-29 02:56:33.753681"], ["updated_at", "2017-12-29 02:56:33.753681"]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21ms (Views: 0.5ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 21:56:52 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 36ms (Views: 23.9ms | ActiveRecord: 7.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 21:56:52 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 21:56:52 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 21:56:52 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 21:57:00 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"hiwrhqworihqwr", "song"=>{"id"=>1, "title"=>"hiwrhqworihqwr"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "hiwrhqworihqwr"], ["event_id", 1], ["created_at", "2017-12-29 02:57:00.794115"], ["updated_at", "2017-12-29 02:57:00.794115"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 7.9ms)
+
+
+VersesChannel#receive({"current_event"=>1})
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>"First Event"}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>"First Event"} (via streamed from verses)
+VersesChannel#receive({"current_event"=>0})
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (10.8ms)[0m  [1m[33mUPDATE "events" SET "in_progress" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["in_progress", "f"], ["updated_at", "2017-12-29 03:00:25.308514"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE Song Load (0.0ms)[0m  [1m[34mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+[ActionCable] Broadcasting to verses: {:lyrics=>nil, :current_event=>nil}
+VersesChannel transmitting {"lyrics"=>nil, "current_event"=>nil} (via streamed from verses)
+Started GET "/events/1" for ::1 at 2017-12-28 22:03:13 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (28.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3337ms (Views: 3322.2ms | ActiveRecord: 9.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:03:16 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:03:17 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:03:17 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:03:21 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"adgadgadg", "song"=>{"id"=>1, "title"=>"adgadgadg"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "adgadgadg"], ["event_id", 1], ["created_at", "2017-12-29 03:03:21.707319"], ["updated_at", "2017-12-29 03:03:21.707319"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:04:13 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (3.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/events/1" for ::1 at 2017-12-28 22:04:13 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (4.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mSong Load (4.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mVerse Load (4.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (4.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (3.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (47.7ms)
+  [1m[36mVerse Load (12.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (4.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+[Webpacker] Compiling…
+  [1m[36mVerse Load (6.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (63.8ms)
+Completed 200 OK in 104ms (Views: 44.6ms | ActiveRecord: 44.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:04:14 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-28 22:04:14 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (3.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 54ms (Views: 31.9ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-28 22:04:14 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:04:14 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3813ms (Views: 3773.3ms | ActiveRecord: 31.1ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:04:19 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"adgadgasdgasdg", "song"=>{"id"=>1, "title"=>"adgadgasdgasdg"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "adgadgasdgasdg"], ["event_id", 1], ["created_at", "2017-12-29 03:04:19.092788"], ["updated_at", "2017-12-29 03:04:19.092788"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:04:42 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/events/1" for ::1 at 2017-12-28 22:04:42 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSong Load (3.2ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mEvent Load (2.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mSong Load (4.7ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (10.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (6.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (59.2ms)
+  [1m[36mVerse Load (24.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (64.6ms)
+[Webpacker] Compiling…
+Completed 200 OK in 124ms (Views: 59.2ms | ActiveRecord: 49.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:04:42 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:04:43 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:04:43 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3334ms (Views: 3278.8ms | ActiveRecord: 35.8ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:04:50 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"asd234234234", "song"=>{"id"=>1, "title"=>"asd234234234"}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asd234234234"], ["event_id", 1], ["created_at", "2017-12-29 03:04:50.355885"], ["updated_at", "2017-12-29 03:04:50.355885"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:06:46 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+Started GET "/events/1" for ::1 at 2017-12-28 22:06:46 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (1.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mSong Load (5.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (34.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (6.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (3.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (6.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (80.0ms)
+  [1m[36mVerse Load (4.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (6.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+[Webpacker] Compiling…
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (98.6ms)
+Completed 200 OK in 144ms (Views: 81.0ms | ActiveRecord: 45.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:06:46 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:06:47 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:06:47 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3533ms (Views: 3453.5ms | ActiveRecord: 59.8ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:06:51 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"123", "song"=>{"id"=>1, "title"=>"123"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "123"], ["event_id", 1], ["created_at", "2017-12-29 03:06:51.851845"], ["updated_at", "2017-12-29 03:06:51.851845"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:07:50 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (17.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3642ms (Views: 3629.9ms | ActiveRecord: 6.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:07:54 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:07:54 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:07:54 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:08:00 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"12345", "song"=>{"id"=>1, "title"=>"12345"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "12345"], ["event_id", 1], ["created_at", "2017-12-29 03:08:00.962327"], ["updated_at", "2017-12-29 03:08:00.962327"]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:10:24 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (27.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2809ms (Views: 2794.6ms | ActiveRecord: 9.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:10:27 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:10:27 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:10:27 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:10:35 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"7890", "song"=>{"id"=>1, "title"=>"7890"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "7890"], ["event_id", 1], ["created_at", "2017-12-29 03:10:35.232364"], ["updated_at", "2017-12-29 03:10:35.232364"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:10:50 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 20 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 41ms (Views: 24.7ms | ActiveRecord: 11.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:10:50 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:10:50 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:10:50 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:11:03 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"234234", "song"=>{"id"=>1, "title"=>"234234"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "234234"], ["event_id", 1], ["created_at", "2017-12-29 03:11:03.289815"], ["updated_at", "2017-12-29 03:11:03.289815"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 15ms (Views: 0.9ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:12:47 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"098098098234234", "song"=>{"id"=>1, "title"=>"098098098234234"}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "098098098234234"], ["event_id", 1], ["created_at", "2017-12-29 03:12:47.631877"], ["updated_at", "2017-12-29 03:12:47.631877"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-28 22:16:05 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.4ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 20 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 21 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 22 ORDER BY "verses"."id" ASC[0m
+  Rendered events/show.html.erb within layouts/application (23.7ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3485ms (Views: 3470.7ms | ActiveRecord: 9.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-28 22:16:09 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-28 22:16:12 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-28 22:16:12 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-28 22:16:18 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"eeee", "song"=>{"id"=>1, "title"=>"eeee"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "eeee"], ["event_id", 1], ["created_at", "2017-12-29 03:16:18.448135"], ["updated_at", "2017-12-29 03:16:18.448135"]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:02:02 -0500
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (233.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 6422ms (Views: 6372.6ms | ActiveRecord: 21.5ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:02:34 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 45ms (Views: 14.5ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:03:39 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3446ms (Views: 3437.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:05:52 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (1.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: 91048efc7611dd436663
+Version: webpack 3.10.0
+Time: 1900ms
+                                     Asset      Size  Chunks                    Chunk Names
+application-bundle-85175896001ca382406c.js   2.59 MB       0  [emitted]  [big]  application-bundle
+                             manifest.json  82 bytes          [emitted]         
+  [22] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [79] ./app/javascript/packs/application-bundle.js 545 bytes {0} [built]
+ [148] ./app/javascript/bundles/containers/VersesContainer.js 3.27 kB {0} [built]
+ [161] (webpack)/buildin/module.js 517 bytes {0} [built]
+ [178] ./app/javascript/bundles/reducers/index.js 2.75 kB {0} [built]
+ [180] ./app/javascript/bundles/containers/EventShowContainer.js 250 bytes {0} [built] [failed] [1 error]
+ [182] ./app/javascript/bundles/containers/SongShowContainer.js 4.12 kB {0} [built]
+ [184] ./app/javascript/bundles/actions/index.js 2.94 kB {0} [built]
+    + 178 hidden modules
+
+ERROR in ./app/javascript/bundles/containers/EventShowContainer.js
+Module build failed: SyntaxError: Unexpected token, expected , (20:0)
+
+  18 |     verses: verses
+  19 |   }
+> 20 | }
+     | ^
+  21 | 
+  22 | const mapDispatchToProps = (dispatch) => {
+  23 |   return bindActionCreators({
+
+ @ ./app/javascript/bundles/components/EventShowStore.js 7:0-66
+ @ ./app/javascript/packs/application-bundle.js
+
+
+Completed 200 OK in 2958ms (Views: 2954.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:06:15 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (3.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2629ms (Views: 2626.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-29 00:06:36 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:06:36 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:06:40 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2569ms (Views: 2566.8ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:06:43 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:06:43 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:06:43 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:07:04 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 4138ms (Views: 4135.0ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:07:09 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:07:09 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:07:09 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/events/api/v1/events/%7Bid%7D" for ::1 at 2017-12-29 00:07:09 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/events/api/v1/events/%7Bid%7D"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.0.2) lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:07:35 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2789ms (Views: 2786.2ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:07:38 -0500
+VersesChannel stopped streaming from verses
+Started GET "/events/api/v1/events/1" for ::1 at 2017-12-29 00:07:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/events/api/v1/events/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.0.2) lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cable" for ::1 at 2017-12-29 00:07:39 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:07:39 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:07:59 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 25ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-29 00:07:59 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:07:59 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/events/api/v1/events/1" for ::1 at 2017-12-29 00:07:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/events/api/v1/events/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.0.2) lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:08:09 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:08:09 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:08:09 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:08:09 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/events/api/v1/events/1" for ::1 at 2017-12-29 00:08:09 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/events/api/v1/events/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.0.2) lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:08:42 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:08:42 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:08:58 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (118.7ms)
+Completed 200 OK in 1552ms (Views: 1497.8ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:09:00 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:09:00 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:09:00 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:09:00 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/events/api/v1/events/1" for ::1 at 2017-12-29 00:09:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/events/api/v1/events/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.0.2) lib/webpacker/dev_server_proxy.rb:17:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started GET "/events/1" for ::1 at 2017-12-29 00:10:02 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.2ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 3026ms (Views: 3022.4ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:10:05 -0500
+VersesChannel stopped streaming from verses
+Started GET "/api/v1/events/1" for ::1 at 2017-12-29 00:10:05 -0500
+Processing by Api::V1::EventsController#show as */*
+Started GET "/cable" for ::1 at 2017-12-29 00:10:05 -0500
+  Parameters: {"id"=>"1"}
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:10:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 20 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 21 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 22 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.1ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 23 ORDER BY "verses"."id" ASC[0m
+Completed 200 OK in 4785ms (Views: 26.9ms | ActiveRecord: 27.6ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:10:33 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"maybe it works?", "song"=>{"id"=>1, "title"=>"maybe it works?"}}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "maybe it works?"], ["event_id", 1], ["created_at", "2017-12-29 05:10:33.176436"], ["updated_at", "2017-12-29 05:10:33.176436"]]
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 24[0m
+Completed 200 OK in 58ms (Views: 1.5ms | ActiveRecord: 34.3ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-29 00:10:42 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:10:42 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:12:05 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"maybe this time?", "song"=>{"id"=>1, "title"=>"maybe this time?"}}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "maybe this time?"], ["event_id", 1], ["created_at", "2017-12-29 05:12:05.738106"], ["updated_at", "2017-12-29 05:12:05.738106"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 25[0m
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:13:48 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"now?", "song"=>{"id"=>1, "title"=>"now?"}}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "now?"], ["event_id", 1], ["created_at", "2017-12-29 05:13:48.587964"], ["updated_at", "2017-12-29 05:13:48.587964"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/cable" for ::1 at 2017-12-29 00:13:57 -0500
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 26[0m
+Completed 200 OK in 16606ms (Views: 1.7ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:14:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for ::1 at 2017-12-29 00:14:05 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:14:05 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:14:05 -0500
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:14:31 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"now now?", "song"=>{"id"=>1, "title"=>"now now?"}}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "now now?"], ["event_id", 1], ["created_at", "2017-12-29 05:14:31.371334"], ["updated_at", "2017-12-29 05:14:31.371334"]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 27[0m
+Started GET "/events/1" for ::1 at 2017-12-29 00:15:10 -0500
+Completed 200 OK in 53866ms (Views: 0.4ms | ActiveRecord: 10.1ms)
+
+
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (1.6ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2607ms (Views: 2594.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cable" for ::1 at 2017-12-29 00:15:28 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:15:28 -0500
+Started GET "/api/v1/events/1" for ::1 at 2017-12-29 00:15:28 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.8ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (3.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+  [1m[36mVerse Load (1.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 20 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 21 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.6ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 22 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 23 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 24 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 25 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 26 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 27 ORDER BY "verses"."id" ASC[0m
+Completed 200 OK in 133ms (Views: 46.3ms | ActiveRecord: 45.3ms)
+
+
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:15:51 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"kj", "song"=>{"id"=>1, "title"=>"kj"}}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "kj"], ["event_id", 1], ["created_at", "2017-12-29 05:15:51.840103"], ["updated_at", "2017-12-29 05:15:51.840103"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.4ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 28[0m
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/events/1" for ::1 at 2017-12-29 00:17:51 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (2.9ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/cbrennan/challenges/lyrics-viewer/public/packs
+Completed 200 OK in 2569ms (Views: 2565.5ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2017-12-29 00:17:54 -0500
+VersesChannel stopped streaming from verses
+Started GET "/cable" for ::1 at 2017-12-29 00:17:54 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2017-12-29 00:17:54 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/api/v1/events/1" for ::1 at 2017-12-29 00:17:54 -0500
+Processing by Api::V1::EventsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.9ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."event_id" = 1[0m
+  [1m[36mVerse Load (3.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 1 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.0ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 2 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 4 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 5 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (4.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 6 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 7 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 8 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 9 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 10 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 11 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 12 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (2.2ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 13 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (6.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 14 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 15 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (1.3ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 16 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 17 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 18 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 19 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.9ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 20 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 21 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 22 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 23 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 24 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 25 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 26 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.7ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 27 ORDER BY "verses"."id" ASC[0m
+  [1m[36mVerse Load (0.8ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 28 ORDER BY "verses"."id" ASC[0m
+Completed 200 OK in 77ms (Views: 32.2ms | ActiveRecord: 36.5ms)
+
+
+VersesChannel is transmitting the subscription confirmation
+VersesChannel is streaming from verses
+Started POST "/api/v1/songs" for ::1 at 2017-12-29 00:18:00 -0500
+Processing by Api::V1::SongsController#create as */*
+  Parameters: {"id"=>1, "title"=>"let's do it", "song"=>{"id"=>1, "title"=>"let's do it"}}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.8ms)[0m  [1m[32mINSERT INTO "songs" ("title", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "let's do it"], ["event_id", 1], ["created_at", "2017-12-29 05:18:00.959720"], ["updated_at", "2017-12-29 05:18:00.959720"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mVerse Load (0.5ms)[0m  [1m[34mSELECT "verses".* FROM "verses" WHERE "verses"."song_id" = 29[0m
+Completed 200 OK in 16ms (Views: 1.1ms | ActiveRecord: 10.4ms)
+
+

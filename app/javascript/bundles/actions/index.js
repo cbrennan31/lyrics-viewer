@@ -1,3 +1,5 @@
+import fetch from 'cross-fetch'
+
 export const selectSong = (id) => ({
   type: 'SELECT_SONG',
   id
@@ -12,7 +14,7 @@ export const subscribe = (cable) => ({
 
 export const setVerseIDs = (verses) => ({
   type: 'SET_VERSE_IDS',
-  verseIDs: verses.map((verse) => verse.id)
+  verseIDs: verses.map((verse) => verse.id) || []
 })
 
 export const handlePrevious = (verseIDs, currentVerse, callback) => {
@@ -68,5 +70,53 @@ export const endEvent = (callback) => {
 }
 
 export const addSong = () => ({
-  type: 'ADD SONG'
+  type: 'ADD_SONG'
 })
+
+const submitSong = () => {
+  return {
+    type: 'SUBMIT_SONG'
+  }
+}
+
+export const receiveSongsOnMount = (data) => ({
+  type: 'RECEIVE_SONGS_ON_MOUNT',
+  data
+})
+
+const receiveSong = (data) => ({
+  type: 'RECEIVE_SONG',
+  data
+})
+
+export const submitSongRequest = (song) => {
+  return (dispatch) => {
+    dispatch(submitSong())
+    return fetch('/api/v1/songs', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(song),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveSong(json))
+    })
+  }
+}
+
+export const requestSongsOnMount = (id) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/events/${id}`)
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveSongsOnMount(json))
+    })
+  }
+}

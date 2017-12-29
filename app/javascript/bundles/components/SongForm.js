@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 
-class Verse extends Component{
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    }
-  }
-
-  render() {
-    return(
-      <form>
-        <label htmlfor="song">
-          Song Title
-          <input type="text" id="song" />
+const SongForm = (props) => {
+  let input;
+  
+  return (
+    <div>
+      <form onSubmit = {(e) => {
+          e.preventDefault();
+          props.onSubmit({
+            id: props.eventid,
+            title: input.value
+          });
+          input.value = ''
+        }}
+      >
+        <label value="Song Title">
+          <input
+            type="text"
+            ref={(node) => {
+              input = node
+            }}
+          />
           <input type="submit" id="Submit" />
         </label>
       </form>
-    )
-  }
+    </div>
+  )
 }
 
-export default Verse;
+export default SongForm;

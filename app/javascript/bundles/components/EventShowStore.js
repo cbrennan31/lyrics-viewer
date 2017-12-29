@@ -1,15 +1,17 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import React from 'react'
 import reducer from '../reducers'
+import thunkMiddleware from 'redux-thunk'
+
 import EventShowContainer from '../containers/EventShowContainer'
 
 const EventShowStore = (props) => {
 
-  const store = createStore(reducer)
+  const store = createStore(reducer, applyMiddleware(thunkMiddleware))
   return (
     <Provider store={store} >
-      <EventShowContainer songs = {props.songs} verses = {props.verses} event = {props.event} />
+      <EventShowContainer event = {props.event} />
     </Provider>
   )
 }

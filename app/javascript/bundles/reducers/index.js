@@ -45,15 +45,39 @@ const eventInProgress = (state = 0, action) => {
 
 const songFormRevealed = (state = false, action) => {
   switch (action.type){
-    case 'ADD SONG':
+    case 'ADD_SONG':
       return true
+    case 'SUBMIT_SONG':
+      return false
+    default:
+      return state
+  }
+}
+
+const receiveSongs = (state = {}, action) => {
+  switch (action.type){
+    case 'RECEIVE_SONGS_ON_MOUNT':
+      return Object.assign({}, state, {
+        songs: action.data.songs,
+        verses: action.data.verses
+      })
+    case 'RECEIVE_SONG':
+      return Object.assign({}, state, {
+        songs: [...state.songs, action.data.song],
+        verses: [...state.verses, action.data.verses]
+      })
     default:
       return state
   }
 }
 
 const EventShowReducer = combineReducers({
-  selectedSong, cable, verseSelection, eventInProgress, songFormRevealed
+  selectedSong,
+  cable,
+  verseSelection,
+  eventInProgress,
+  songFormRevealed,
+  receiveSongs
 })
 
 export default EventShowReducer
