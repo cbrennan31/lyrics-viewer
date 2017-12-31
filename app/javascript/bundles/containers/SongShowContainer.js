@@ -8,7 +8,8 @@ import ActionCable from 'actioncable'
 const mapStateToProps = (state) => ({
   cable: state.cable,
   currentVerse: state.verseSelection.currentVerse,
-  verseIDs: state.verseSelection.verseIDs
+  verseIDs: state.verseSelection.verseIDs,
+  songTitleEdit: state.songTitleEdit
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -16,7 +17,8 @@ const mapDispatchToProps = (dispatch) => {
     setVerseIDs: Actions.setVerseIDs,
     subscribe: Actions.subscribe,
     handlePrevious: Actions.handlePrevious,
-    handleNext: Actions.handleNext
+    handleNext: Actions.handleNext,
+    editSong: Actions.editSong
   }, dispatch)
 }
 
@@ -28,6 +30,18 @@ class SongShowContainer extends Component{
   }
 
   render() {
+    let editSong = this.props.songTitleEdit ?
+      <div>
+        <input type="text" defaultValue={this.props.title}/>
+        <input type="submit" value="Submit New Title" />
+        <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+      </div>
+      :
+      <div>
+        <span>{this.props.title}</span>
+        <input type="button" value="Edit Title" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+      </div>
+
     let verses
 
     if (this.props.verses) {
@@ -40,8 +54,10 @@ class SongShowContainer extends Component{
         />
       })
     }
+
     return(
       <div>
+        {editSong}
         {verses}
         <input
           type="button"

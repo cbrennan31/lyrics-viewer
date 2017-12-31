@@ -52,6 +52,7 @@ class EventShowContainer extends Component{
     this.props.songs.forEach((song) => {
       if (song.id == this.props.selectedSong) {
         songContainer = <SongShowContainer
+          title = {song.title}
           verses = {this.props.verses[song.id - 1]}
           subscribe = {this.props.subscribe}
           cable = {this.props.cable}

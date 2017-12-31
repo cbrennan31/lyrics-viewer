@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const SongForm = (props) => {
   let input;
-  
+
   return (
     <div>
       <form onSubmit = {(e) => {
