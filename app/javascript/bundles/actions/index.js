@@ -120,3 +120,8 @@ export const requestSongsOnMount = (id) => {
     })
   }
 }
+
+export const editSong = (boolean) => ({
+  type: "EDIT_SONG",
+  boolean
+})

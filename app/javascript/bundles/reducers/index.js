@@ -71,13 +71,23 @@ const receiveSongs = (state = {}, action) => {
   }
 }
 
+const songTitleEdit = (state = false, action) => {
+  switch (action.type){
+    case 'EDIT_SONG':
+      return !action.boolean
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
   selectedSong,
   cable,
   verseSelection,
   eventInProgress,
   songFormRevealed,
-  receiveSongs
+  receiveSongs,
+  songTitleEdit
 })
 
 export default EventShowReducer
