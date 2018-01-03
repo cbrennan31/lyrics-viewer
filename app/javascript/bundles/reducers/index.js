@@ -66,6 +66,13 @@ const receiveSongs = (state = {}, action) => {
         songs: [...state.songs, action.data.song],
         verses: [...state.verses, action.data.verses]
       })
+    case 'RECEIVE_EDITED_TITLE':
+      let index = state.songs.findIndex((el) => el.id == action.data.song.id)
+      let newSongs = state.songs.slice()
+      newSongs[index] = action.data.song
+      return Object.assign({}, state, {
+        songs: newSongs
+      })
     default:
       return state
   }

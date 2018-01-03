@@ -125,3 +125,28 @@ export const editSong = (boolean) => ({
   type: "EDIT_SONG",
   boolean
 })
+
+
+const receiveEditedTitle = (data) => ({
+  type: "RECEIVE_EDITED_TITLE",
+  data
+})
+
+export const editTitleRequest = (song, boolean) => {
+  return (dispatch) => {
+    dispatch(editSong(boolean))
+    return fetch(`/api/v1/songs/${song.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(song),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveEditedTitle(json))
+    })
+  }
+}

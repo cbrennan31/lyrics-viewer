@@ -10,4 +10,11 @@ class Api::V1::SongsController < ApplicationController
     verses = Verse.where(song: song)
     render json: {song: song, verses: verses}
   end
+
+  def update
+    song = Song.find(params[:id])
+    song.update(title: params[:title])
+
+    render json: {song: song}
+  end
 end

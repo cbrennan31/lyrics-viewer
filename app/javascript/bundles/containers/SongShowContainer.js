@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
     subscribe: Actions.subscribe,
     handlePrevious: Actions.handlePrevious,
     handleNext: Actions.handleNext,
+    editTitleRequest: Actions.editTitleRequest,
     editSong: Actions.editSong
   }, dispatch)
 }
@@ -30,11 +31,21 @@ class SongShowContainer extends Component{
   }
 
   render() {
+    let that = this
     let editSong = this.props.songTitleEdit ?
       <div>
-        <input type="text" defaultValue={this.props.title}/>
-        <input type="submit" value="Submit New Title" />
-        <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            this.props.editTitleRequest(
+              {id: this.props.id, title: that.input.value},
+              this.props.songTitleEdit
+            )
+          }
+        }>
+          <input type="text" defaultValue={this.props.title} ref={(node) => { this.input = node }} />
+          <input type="submit" value="Submit New Title" />
+          <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+        </form>
       </div>
       :
       <div>
