@@ -10,7 +10,7 @@ const VerseForm = (props) => {
           e.preventDefault();
           props.onSubmit({
             song_id: props.songid,
-            lyrics: textarea.value
+            lyrics: textarea.value.replace(/\r?\n/g, '<br />')
           });
           textarea.value = ''
         }}
@@ -18,6 +18,7 @@ const VerseForm = (props) => {
         <label value="Lyrics">
           <textarea
             type="textarea"
+            placeholder={`Press \"Enter\" to add a new line`}
             ref={(node) => {
               textarea = node
             }}

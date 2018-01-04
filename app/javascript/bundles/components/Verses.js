@@ -9,8 +9,18 @@ class Verse extends Component{
   }
 
   render() {
+    let lyricsArray = this.props.lyrics.split("<br />")
+    
+    let displayLyrics = lyricsArray.map((lyric) => {
+      if (lyricsArray.indexOf(lyric) != lyricsArray.length - 1) {
+        return <div><span>{lyric}</span><br /></div>
+      } else {
+        return <span>{lyric}</span>
+      }
+    })
+
     return(
-      <div>{this.props.lyrics}</div>
+      <div>{displayLyrics}</div>
     )
   }
 }
