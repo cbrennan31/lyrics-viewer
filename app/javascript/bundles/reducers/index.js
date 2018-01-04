@@ -63,8 +63,7 @@ const receiveSongs = (state = {}, action) => {
       })
     case 'RECEIVE_SONG':
       return Object.assign({}, state, {
-        songs: [...state.songs, action.data.song],
-        verses: [...state.verses, action.data.verses]
+        songs: [...state.songs, action.data.song]
       })
     case 'RECEIVE_EDITED_TITLE':
       let index = state.songs.findIndex((el) => el.id == action.data.song.id)
@@ -72,6 +71,13 @@ const receiveSongs = (state = {}, action) => {
       newSongs[index] = action.data.song
       return Object.assign({}, state, {
         songs: newSongs
+      })
+    case 'RECEIVE_VERSE':
+      let versesIndex = state.verses.findIndex((el) => el[0].id == action.data.verse.song_id)
+      let newVerses = state.verses.slice()
+      newVerses[versesIndex] = newVerses[versesIndex].concat(action.data.verse)
+        return Object.assign({}, state, {
+          verses: newVerses
       })
     default:
       return state
@@ -87,6 +93,17 @@ const songTitleEdit = (state = false, action) => {
   }
 }
 
+const verseFormRevealed = (state = false, action) => {
+  switch (action.type) {
+    case 'ADD_VERSE':
+      return true
+    case 'SUBMIT_VERSE':
+      return false
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
   selectedSong,
   cable,
@@ -94,7 +111,8 @@ const EventShowReducer = combineReducers({
   eventInProgress,
   songFormRevealed,
   receiveSongs,
-  songTitleEdit
+  songTitleEdit,
+  verseFormRevealed
 })
 
 export default EventShowReducer

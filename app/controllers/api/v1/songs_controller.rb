@@ -7,8 +7,7 @@ class Api::V1::SongsController < ApplicationController
       event: Event.find(params[:id])
     })
 
-    verses = Verse.where(song: song)
-    render json: {song: song, verses: verses}
+    render json: {song: song}
   end
 
   def update

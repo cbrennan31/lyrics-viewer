@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SongVerse from '../components/SongVerse'
+import VerseForm from '../components/VerseForm'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
@@ -9,7 +10,8 @@ const mapStateToProps = (state) => ({
   cable: state.cable,
   currentVerse: state.verseSelection.currentVerse,
   verseIDs: state.verseSelection.verseIDs,
-  songTitleEdit: state.songTitleEdit
+  songTitleEdit: state.songTitleEdit,
+  verseFormRevealed: state.verseFormRevealed
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,7 +21,9 @@ const mapDispatchToProps = (dispatch) => {
     handlePrevious: Actions.handlePrevious,
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
-    editSong: Actions.editSong
+    editSong: Actions.editSong,
+    addVerse: Actions.addVerse,
+    submitVerseRequest: Actions.submitVerseRequest
   }, dispatch)
 }
 
@@ -31,7 +35,17 @@ class SongShowContainer extends Component{
   }
 
   render() {
-    let that = this
+    let addVerse = this.props.verseFormRevealed ?
+      <VerseForm onSubmit = {this.props.submitVerseRequest} songid={this.props.id} /> :
+      <input
+        type="button"
+        value="Add Verse"
+        onClick={this.props.addVerse}
+      />
+
+
+    let input
+
     let editSong = this.props.songTitleEdit ?
       <div>
         <form onSubmit={(e) => {
@@ -42,7 +56,7 @@ class SongShowContainer extends Component{
             )
           }
         }>
-          <input type="text" defaultValue={this.props.title} ref={(node) => { this.input = node }} />
+          <input type="text" defaultValue={this.props.title} ref={(node) => {input = node }} />
           <input type="submit" value="Submit New Title" />
           <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
         </form>
@@ -92,6 +106,8 @@ class SongShowContainer extends Component{
             })
           }}
         />
+        <br/>
+        {addVerse}
       </div>
     )
   }
