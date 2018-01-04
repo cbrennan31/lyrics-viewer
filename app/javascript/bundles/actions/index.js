@@ -150,3 +150,37 @@ export const editTitleRequest = (song, boolean) => {
     })
   }
 }
+
+export const addVerse = () => ({
+  type: 'ADD_VERSE'
+})
+
+const submitVerse = () => {
+  return {
+    type: 'SUBMIT_VERSE'
+  }
+}
+
+const receiveVerse = (data) => ({
+  type: 'RECEIVE_VERSE',
+  data
+})
+
+export const submitVerseRequest = (verse) => {
+  return (dispatch) => {
+    dispatch(submitVerse())
+    return fetch('/api/v1/verses', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(verse),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveVerse(json))
+    })
+  }
+}
