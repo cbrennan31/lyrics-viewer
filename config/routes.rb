@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :songs, only: [:create, :update]
       resources :events, only: [:show]
+      resources :translations, only: [:create]
       resources :verses, only: [:create]
     end
   end
