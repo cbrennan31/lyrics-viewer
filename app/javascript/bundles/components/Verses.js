@@ -35,6 +35,8 @@ class Verse extends Component{
   componentWillReceiveProps(newProps) {
     if (this.state.translate) {
       this.translate(newProps.lyrics)
+    } else {
+      this.setState({lyrics: newProps.lyrics})
     }
   }
 
