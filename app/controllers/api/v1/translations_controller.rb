@@ -9,4 +9,12 @@ class Api::V1::TranslationsController < ApplicationController
 
     render json: {translation: translation}
   end
+
+  def index
+    require "google/cloud/translate"
+
+    translate = Google::Cloud::Translate.new project: ENV["TRANSLATE_PROJECT"]
+    languages = translate.languages 'en'
+    render json: {languages: languages}
+  end
 end

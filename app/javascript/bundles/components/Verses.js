@@ -6,35 +6,48 @@ class Verse extends Component{
 
     this.state = {
       lyrics: this.props.lyrics,
-      translate: false
+      translate: false,
+      languages: null,
+      code: null
     }
 
     this.translate = this.translate.bind(this)
   }
 
-  translate(lyrics) {
-    console.log('fired')
+  translate(lyrics, code) {
     fetch(`/api/v1/translations`, {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify({
-        code: 'de',
+        code: code,
         text: lyrics
       }),
       headers: { 'Content-Type': 'application/json' }
     })
     .then(
-      response => response.json(),
-      error => console.log('An error occurred.', error)
+      response => response.json()
     )
     .then(json => {
       this.setState({lyrics: json.translation.text, translate: true})
+    })
+    .catch(
+      error => console.log('An error occurred.', error)
+    )
+  }
+
+  componentDidMount() {
+    fetch('api/v1/translations')
+    .then(
+      response => response.json()
+    )
+    .then(json => {
+      this.setState({languages: json.languages})
     })
   }
 
   componentWillReceiveProps(newProps) {
     if (this.state.translate) {
-      this.translate(newProps.lyrics)
+      this.translate(newProps.lyrics, this.state.code)
     } else {
       this.setState({lyrics: newProps.lyrics})
     }
@@ -54,10 +67,20 @@ class Verse extends Component{
       })
     }
 
+    let selectLang
+
+    if (this.state.languages) {
+      let langOptions = this.state.languages.map(lang => {
+        return <option value={lang.code}>{lang.name}</option>
+      })
+
+      selectLang = <select onChange = {(e) => this.translate(this.state.lyrics, e.target.value)}>{langOptions}</select>
+    }
+
     return(
       <div>
+        {selectLang}
         {displayLyrics}
-        <input type="button" value="Translate" onClick={() => this.translate(this.state.lyrics)}/>
       </div>
     )
   }
