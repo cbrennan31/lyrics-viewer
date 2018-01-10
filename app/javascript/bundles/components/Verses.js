@@ -6,9 +6,8 @@ class Verse extends Component{
 
     this.state = {
       lyrics: this.props.lyrics,
-      translate: false,
       languages: null,
-      code: null
+      code: 'en'
     }
 
     this.translate = this.translate.bind(this)
@@ -28,7 +27,7 @@ class Verse extends Component{
       response => response.json()
     )
     .then(json => {
-      this.setState({lyrics: json.translation.text, translate: true})
+      this.setState({lyrics: json.translation.text, code: code})
     })
     .catch(
       error => console.log('An error occurred.', error)
@@ -46,11 +45,7 @@ class Verse extends Component{
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.state.translate) {
-      this.translate(newProps.lyrics, this.state.code)
-    } else {
-      this.setState({lyrics: newProps.lyrics})
-    }
+    this.translate(newProps.lyrics, this.state.code)
   }
 
   render() {
@@ -74,7 +69,13 @@ class Verse extends Component{
         return <option value={lang.code}>{lang.name}</option>
       })
 
-      selectLang = <select onChange = {(e) => this.translate(this.state.lyrics, e.target.value)}>{langOptions}</select>
+      selectLang =
+        <select
+          onChange = {(e) => this.translate(this.state.lyrics, e.target.value)}
+          value = {this.state.code}
+        >
+          {langOptions}
+        </select>
     }
 
     return(
