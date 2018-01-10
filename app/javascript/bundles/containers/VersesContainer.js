@@ -7,13 +7,14 @@ class VersesContainer extends Component{
     super(props);
 
     let text
+    let defaultText = "Welcome to BCE Lyrics. There are no events currently in progress."
 
     if (this.props.lyrics) {
       text = this.props.lyrics
     } else if (this.props.current_event){
       text = this.props.current_event
     } else {
-      text = null
+      text = defaultText
     }
 
     this.state = {
@@ -21,7 +22,9 @@ class VersesContainer extends Component{
       subscription: false,
       text: text,
       languages: null,
-      code: 'en'
+      enText: text,
+      code: 'en',
+      defaultText: defaultText
     }
 
     this.translate = this.translate.bind(this)
@@ -37,7 +40,7 @@ class VersesContainer extends Component{
           } else if (data.current_event){
             this.translate(data.current_event, this.state.code)
           } else {
-            this.setState({text: null})
+            this.translate(this.state.defaultText, this.state.code)
           }
       }
     })
@@ -50,13 +53,13 @@ class VersesContainer extends Component{
     })
   }
 
-  translate(lyrics, code) {
+  translate(text, code) {
     fetch(`/api/v1/translations`, {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify({
         code: code,
-        text: lyrics
+        text: text
       }),
       headers: { 'Content-Type': 'application/json' }
     })
@@ -64,7 +67,7 @@ class VersesContainer extends Component{
       response => response.json()
     )
     .then(json => {
-      this.setState({text: json.translation.text, code: code})
+      this.setState({text: json.translation.text, enText: text, code: code})
     })
     .catch(
       error => console.log('An error occurred.', error)
@@ -72,23 +75,19 @@ class VersesContainer extends Component{
   }
 
   render() {
-    let displayText, content, selectLang
+    let textArray = this.state.text.split("<br />")
 
-    if (this.state.text) {
-      let textArray = this.state.text.split("<br />")
+    let displayText = textArray.map((line) => {
+      if (textArray.indexOf(line) != textArray.length - 1) {
+        return <div><span>{line}</span><br /></div>
+      } else {
+        return <span>{line}</span>
+      }
+    })
 
-      displayText = textArray.map((line) => {
-        if (textArray.indexOf(line) != textArray.length - 1) {
-          return <div><span>{line}</span><br /></div>
-        } else {
-          return <span>{line}</span>
-        }
-      })
+    let content = <Verse text={displayText} languages={this.state.languages}/>
 
-      content = <Verse lyrics={displayText} languages={this.state.languages}/>
-    } else {
-      content = <p>{this.translate("Welcome to BCE Lyrics. There are no events currently in progress.", this.state.code)}</p>
-    }
+    let selectLang
 
     if (this.state.languages) {
       let langOptions = this.state.languages.map(lang => {
@@ -97,7 +96,7 @@ class VersesContainer extends Component{
 
       selectLang =
         <select
-          onChange = {(e) => this.translate(this.state.text, e.target.value)}
+          onChange = {(e) => this.translate(this.state.enText, e.target.value)}
           value = {this.state.code}
         >
           {langOptions}
