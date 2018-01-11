@@ -54,24 +54,28 @@ class VersesContainer extends Component{
   }
 
   translate(text, code) {
-    fetch(`/api/v1/translations`, {
-      credentials: 'same-origin',
-      method: 'POST',
-      body: JSON.stringify({
-        code: code,
-        text: text
-      }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(
-      response => response.json()
-    )
-    .then(json => {
-      this.setState({text: json.translation.text, enText: text, code: code})
-    })
-    .catch(
-      error => console.log('An error occurred.', error)
-    )
+    if (code != 'en' || this.state.code != 'en') {
+      fetch(`/api/v1/translations`, {
+        credentials: 'same-origin',
+        method: 'POST',
+        body: JSON.stringify({
+          code: code,
+          text: text
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(
+        response => response.json()
+      )
+      .then(json => {
+        this.setState({text: json.translation.text, enText: text, code: code})
+      })
+      .catch(
+        error => console.log('An error occurred.', error)
+      )
+    } else {
+      this.setState({text: text, enText: text})
+    }
   }
 
   render() {
