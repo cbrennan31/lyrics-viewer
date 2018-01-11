@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'verses#index'
 
   resources :events, only: [:index, :show]
-  resources :verses, only: [:index]
+  resources :text, only: [:index]
   resources :songs, only: [:show]
 
   namespace :api do

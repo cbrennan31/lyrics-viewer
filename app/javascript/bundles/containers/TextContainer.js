@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Verse from '../components/Verses'
+import Text from '../components/Text'
 import ActionCable from 'actioncable'
 
-class VersesContainer extends Component{
+class TextContainer extends Component{
   constructor(props) {
     super(props);
 
@@ -89,7 +89,7 @@ class VersesContainer extends Component{
       }
     })
 
-    let content = <Verse text={displayText} languages={this.state.languages}/>
+    let content = <Text text={displayText} languages={this.state.languages}/>
 
     let selectLang
 
@@ -116,4 +116,4 @@ class VersesContainer extends Component{
   }
 }
 
-export default VersesContainer;
+export default TextContainer;

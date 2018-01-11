@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Verse extends Component{
+class Text extends Component{
   constructor(props) {
     super(props);
   }
@@ -13,4 +13,4 @@ class Verse extends Component{
   }
 }
 
-export default Verse;
+export default Text;
