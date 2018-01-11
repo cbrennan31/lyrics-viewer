@@ -28,8 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     endEvent: Actions.endEvent,
     addSong: Actions.addSong,
     submitSongRequest: Actions.submitSongRequest,
-    requestSongsOnMount: Actions.requestSongsOnMount
-
+    requestSongsOnMount: Actions.requestSongsOnMount,
   }, dispatch)
 }
 
@@ -56,7 +55,14 @@ class EventShowContainer extends Component{
           eventID = {this.props.id}
           id = {song.id}
           title = {song.title}
-          verses = {this.props.verses[song.id - 1]}
+          verses = { this.props.verses.find((el) => {
+              if(el[0]) {
+                return el[0].song_id == song.id
+              } else {
+                return false
+              }
+            })
+          }
           subscribe = {this.props.subscribe}
           cable = {this.props.cable}
         />

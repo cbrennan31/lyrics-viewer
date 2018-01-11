@@ -16,4 +16,18 @@ class Api::V1::SongsController < ApplicationController
 
     render json: {song: song}
   end
+
+  def destroy
+    song = Song.find(params[:id])
+    id = song.id
+    verses = Verse.find_by(song: song)
+
+    if verses
+      verses.each {|v| v.destroy}
+    end
+
+    song.destroy
+
+    render json: {id: id}
+  end
 end
