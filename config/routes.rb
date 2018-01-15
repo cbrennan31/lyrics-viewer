@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :songs, only: [:create, :update]
+      resources :songs, only: [:create, :update, :destroy]
       resources :events, only: [:show]
       resources :translations, only: [:create, :index]
       resources :verses, only: [:create]

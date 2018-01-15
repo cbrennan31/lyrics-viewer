@@ -23,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
     editTitleRequest: Actions.editTitleRequest,
     editSong: Actions.editSong,
     addVerse: Actions.addVerse,
-    submitVerseRequest: Actions.submitVerseRequest
+    submitVerseRequest: Actions.submitVerseRequest,
+    deleteSongRequest: Actions.deleteSongRequest
   }, dispatch)
 }
 
@@ -51,7 +52,7 @@ class SongShowContainer extends Component{
         <form onSubmit={(e) => {
             e.preventDefault();
             this.props.editTitleRequest(
-              {id: this.props.id, title: that.input.value},
+              {id: this.props.id, title: input.value},
               this.props.songTitleEdit
             )
           }
@@ -83,6 +84,11 @@ class SongShowContainer extends Component{
     return(
       <div>
         {editSong}
+        <input
+          type='button'
+          value='Delete Song'
+          onClick={() => this.props.deleteSongRequest(this.props.id)}
+        />
         {verses}
         <input
           type="button"

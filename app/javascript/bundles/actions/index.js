@@ -12,10 +12,20 @@ export const subscribe = (cable) => ({
   })
 })
 
-export const setVerseIDs = (verses) => ({
-  type: 'SET_VERSE_IDS',
-  verseIDs: verses.map((verse) => verse.id) || []
-})
+export const setVerseIDs = (verses) => {
+  let versesArray
+  if (verses) {
+    versesArray = verses.map((verse) => verse.id) || []
+  } else {
+    versesArray = []
+  }
+
+  return {
+    type: 'SET_VERSE_IDS',
+    verseIDs: versesArray
+  }
+}
+
 
 export const handlePrevious = (verseIDs, currentVerse, callback) => {
   let newVerse = 0
@@ -181,6 +191,31 @@ export const submitVerseRequest = (verse) => {
     )
     .then(json => {
       return dispatch(receiveVerse(json))
+    })
+  }
+}
+
+const handleDeletedSong = (data) => ({
+  type: 'HANDLE_DELETED_SONG',
+  data
+})
+
+
+
+export const deleteSongRequest = (id) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/songs/${id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      body: JSON.stringify(id),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(handleDeletedSong(json))
     })
   }
 }

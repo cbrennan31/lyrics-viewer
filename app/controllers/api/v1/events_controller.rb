@@ -3,9 +3,10 @@ class Api::V1::EventsController < ApplicationController
   def show
     event = Event.find(params[:id])
     songs = Song.where(event: event).order(:id)
-    verses = []
+    verses = {}
+
     songs.each do |song|
-      verses << Verse.where(song: song).order(:id)
+      verses[song.id] = Verse.where(song_id: song.id)
     end
 
     render json: {songs: songs, verses: verses}
