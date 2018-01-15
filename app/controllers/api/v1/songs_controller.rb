@@ -20,7 +20,7 @@ class Api::V1::SongsController < ApplicationController
   def destroy
     song = Song.find(params[:id])
     id = song.id
-    verses = Verse.find_by(song: song)
+    verses = Verse.where(song: song)
 
     if verses
       verses.each {|v| v.destroy}

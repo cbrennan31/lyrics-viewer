@@ -84,11 +84,17 @@ const receiveSongs = (state = {}, action) => {
         verses: newVerses
       })
     case 'HANDLE_DELETED_SONG':
-      let deleteIndex = state.songs.findIndex((el) => el.id == action.data.id)
+      let deletedSongId = action.data.id
+
+      let deleteIndex = state.songs.findIndex((el) => el.id == deletedSongId)
       let fewerSongs = state.songs.slice()
       fewerSongs.splice(deleteIndex, 1)
+
+      let fewerVerses = Object.assign({}, state.verses)
+      delete fewerVerses[deletedSongId]
       return Object.assign({}, state, {
-        songs: fewerSongs
+        songs: fewerSongs,
+        verses: fewerVerses
       })
     default:
       return state

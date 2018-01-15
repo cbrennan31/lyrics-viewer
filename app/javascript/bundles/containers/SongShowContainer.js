@@ -52,7 +52,7 @@ class SongShowContainer extends Component{
         <form onSubmit={(e) => {
             e.preventDefault();
             this.props.editTitleRequest(
-              {id: this.props.id, title: that.input.value},
+              {id: this.props.id, title: input.value},
               this.props.songTitleEdit
             )
           }
