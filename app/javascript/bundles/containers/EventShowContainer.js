@@ -55,14 +55,7 @@ class EventShowContainer extends Component{
           eventID = {this.props.id}
           id = {song.id}
           title = {song.title}
-          verses = { this.props.verses.find((el) => {
-              if(el[0]) {
-                return el[0].song_id == song.id
-              } else {
-                return false
-              }
-            })
-          }
+          verses = { this.props.verses[song.id] }
           subscribe = {this.props.subscribe}
           cable = {this.props.cable}
         />

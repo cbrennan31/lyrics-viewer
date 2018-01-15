@@ -62,8 +62,11 @@ const receiveSongs = (state = {}, action) => {
         verses: action.data.verses
       })
     case 'RECEIVE_SONG':
+      let id = action.data.song.id
+
       return Object.assign({}, state, {
-        songs: [...state.songs, action.data.song]
+        songs: [...state.songs, action.data.song],
+        verses: Object.assign({}, state.verses, {[id]: []})
       })
     case 'RECEIVE_EDITED_TITLE':
       let index = state.songs.findIndex((el) => el.id == action.data.song.id)
@@ -73,17 +76,12 @@ const receiveSongs = (state = {}, action) => {
         songs: newSongs
       })
     case 'RECEIVE_VERSE':
-      let versesIndex = state.verses.findIndex((el) => {
-        if(el[0]) {
-          return el[0].song_id == action.data.verse.song_id
-        } else {
-          return false
-        }
-      })
-      let newVerses = state.verses.slice()
-      newVerses[versesIndex] = newVerses[versesIndex].concat(action.data.verse)
-        return Object.assign({}, state, {
-          verses: newVerses
+      let song_id = action.data.verse.song_id
+      let newVerses = Object.assign({}, state.verses)
+      newVerses[song_id] = newVerses[song_id].concat(action.data.verse)
+
+      return Object.assign({}, state, {
+        verses: newVerses
       })
     case 'HANDLE_DELETED_SONG':
       let deleteIndex = state.songs.findIndex((el) => el.id == action.data.id)
