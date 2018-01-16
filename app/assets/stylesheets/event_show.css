@@ -1,1 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Muli');
 
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0;
+}
+
+.event-side-menu {
+  width: 300px;
+  float: left;
+  height: 100vh;
+  font-family: 'Muli', sans-serif !important;
+  padding: 0px 10px 10px 10px !important;
+}
+
+#event-title {
+  font-size: 24px;
+  font-weight: bold;
+}

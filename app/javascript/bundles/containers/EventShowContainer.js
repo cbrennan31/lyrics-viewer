@@ -5,6 +5,8 @@ import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable';
 import SongForm from '../components/SongForm'
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 const mapStateToProps = (state) => {
   let songs = state.receiveSongs.songs ? state.receiveSongs.songs : []
@@ -62,40 +64,52 @@ class EventShowContainer extends Component{
       }
     })
     let songTitles = this.props.songs.map((song) => {
-      return <p
+      return <MenuItem
         key={song.id}
         id={song.id}
+        checked={song.id == this.props.selectedSong}
         onClick = { () => {
           this.props.selectSong(song.id)
           if (this.props.verses) {
             this.props.setVerseIDs(this.props.verses[this.props.songs.indexOf(song)])
           }
         }}
+        style={{
+          margin: '0px -8px 0px -8px'
+        }}
       >
         {song.title}
-      </p>
+      </MenuItem>
     })
 
     return(
       <div>
-        <p>{this.props.event.title}</p>
-        {eventMessage}
-        <input
-          type="button"
-          value="Start Event"
-          onClick={() =>
-            this.props.startEvent(this.props.event.id, (id) => {
-              this.props.cable.subscription.send({current_event: id})
-            })
-          }
-        />
-        <input type="button" value="End Event" onClick={() => this.props.endEvent(() => {
-              this.props.cable.subscription.send({current_event: 0})
-            })
-          }
-        />
-        {songTitles}
-        {addSong}
+        <Drawer
+          open={true}
+          containerClassName='event-side-menu'
+          className='event-side-menu'
+          width={300}
+        >
+          <p id='event-title'>{this.props.event.title}</p>
+          {eventMessage}
+          <input
+            type="button"
+            value="Start Event"
+            onClick={() =>
+              this.props.startEvent(this.props.event.id, (id) => {
+                this.props.cable.subscription.send({current_event: id})
+              })
+            }
+          />
+          <input type="button" value="End Event" onClick={() => this.props.endEvent(() => {
+                this.props.cable.subscription.send({current_event: 0})
+              })
+            }
+          />
+          {songTitles}
+          {addSong}
+        </Drawer>
+
         {songContainer}
       </div>
     )
