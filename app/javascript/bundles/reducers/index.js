@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import ActionCable from 'actioncable'
 
-const selectedSong = (state = 1, action) => {
+const selectedSong = (state = null, action) => {
   switch (action.type) {
     case 'SELECT_SONG':
       return action.id
+    case 'RECEIVE_SONGS_ON_MOUNT':
+      return action.data.songs[0].id
     default:
       return state
   }
