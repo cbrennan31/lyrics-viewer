@@ -7,6 +7,9 @@ import ActionCable from 'actioncable';
 import SongForm from '../components/SongForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import StartEndEventDiv from "../components/StartEndEventDiv"
+import FlatButton from 'material-ui/FlatButton';
+
 
 const mapStateToProps = (state) => {
   let songs = state.receiveSongs.songs ? state.receiveSongs.songs : []
@@ -28,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     subscribe: Actions.subscribe,
     startEvent: Actions.startEvent,
     endEvent: Actions.endEvent,
-    addSong: Actions.addSong,
+    revealSongForm: Actions.revealSongForm,
     submitSongRequest: Actions.submitSongRequest,
     requestSongsOnMount: Actions.requestSongsOnMount,
   }, dispatch)
@@ -42,15 +45,26 @@ class EventShowContainer extends Component{
 
   render() {
     let addSong = this.props.songFormRevealed ?
-      <SongForm onSubmit = {this.props.submitSongRequest} eventid={this.props.event.id} /> :
-      <input
-        type="button"
-        value="Add Song"
-        onClick={this.props.addSong}
+      <SongForm
+        onSubmit = {this.props.submitSongRequest}
+        eventid={this.props.event.id}
+        revealSongForm={this.props.revealSongForm}
+        songFormRevealed={this.props.songFormRevealed}
+      /> :
+      <FlatButton
+        label="Add Song"
+        onClick={() => this.props.revealSongForm(this.props.songFormRevealed)}
+        secondary={true}
+        backgroundColor='#f2f2f2'
+        labelStyle={{
+          textTransform: 'none',
+          fontSize: '16'
+        }}
       />
 
     let eventMessage = this.props.eventInProgress > 0 ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
     let songContainer
+
     this.props.songs.forEach((song) => {
       if (song.id == this.props.selectedSong) {
         songContainer = <SongShowContainer
@@ -64,19 +78,22 @@ class EventShowContainer extends Component{
       }
     })
     let songTitles = this.props.songs.map((song) => {
+      let className = "event-menu-song-title"
+
+      if (song.id == this.props.selectedSong) {
+        className = className + " selected"
+      }
+
       return <MenuItem
         key={song.id}
         id={song.id}
-        checked={song.id == this.props.selectedSong}
         onClick = { () => {
           this.props.selectSong(song.id)
           if (this.props.verses) {
             this.props.setVerseIDs(this.props.verses[this.props.songs.indexOf(song)])
           }
         }}
-        style={{
-          margin: '0px -8px 0px -8px'
-        }}
+        className={className}
       >
         {song.title}
       </MenuItem>
@@ -91,23 +108,21 @@ class EventShowContainer extends Component{
           width={300}
         >
           <p id='event-title'>{this.props.event.title}</p>
+
           {eventMessage}
-          <input
-            type="button"
-            value="Start Event"
-            onClick={() =>
-              this.props.startEvent(this.props.event.id, (id) => {
-                this.props.cable.subscription.send({current_event: id})
-              })
-            }
+
+          <StartEndEventDiv
+            startEvent={this.props.startEvent}
+            endEvent={this.props.endEvent}
+            event={this.props.event}
+            subscription={this.props.cable.subscription}
           />
-          <input type="button" value="End Event" onClick={() => this.props.endEvent(() => {
-                this.props.cable.subscription.send({current_event: 0})
-              })
-            }
-          />
+
           {songTitles}
-          {addSong}
+
+          <div id='add-song-div'>
+            {addSong}
+          </div>
         </Drawer>
 
         {songContainer}

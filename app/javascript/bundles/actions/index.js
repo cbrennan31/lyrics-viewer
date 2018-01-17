@@ -79,8 +79,9 @@ export const endEvent = (callback) => {
   }
 }
 
-export const addSong = () => ({
-  type: 'ADD_SONG'
+export const revealSongForm = (boolean) => ({
+  type: 'REVEAL_SONG_FORM',
+  boolean
 })
 
 const submitSong = () => {

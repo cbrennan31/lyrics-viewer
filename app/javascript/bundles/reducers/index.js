@@ -7,6 +7,8 @@ const selectedSong = (state = null, action) => {
       return action.id
     case 'RECEIVE_SONGS_ON_MOUNT':
       return action.data.songs[0].id
+    case 'HANDLE_DELETED_SONG':
+      return action.data.selected_song_id
     default:
       return state
   }
@@ -47,8 +49,8 @@ const eventInProgress = (state = 0, action) => {
 
 const songFormRevealed = (state = false, action) => {
   switch (action.type){
-    case 'ADD_SONG':
-      return true
+    case 'REVEAL_SONG_FORM':
+      return !action.boolean
     case 'SUBMIT_SONG':
       return false
     default:

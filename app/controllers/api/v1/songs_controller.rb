@@ -28,6 +28,6 @@ class Api::V1::SongsController < ApplicationController
 
     song.destroy
 
-    render json: {id: id}
+    render json: {id: id, selected_song_id: Song.first.id}
   end
 end
