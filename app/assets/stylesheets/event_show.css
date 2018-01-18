@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  margin: 0;
+}
+
+.event-side-menu {
+  width: 300px;
+  float: left;
+  height: 100vh;
+  font-family: 'Fira Sans', sans-serif !important;
+  padding: 0px 10px 10px 10px !important;
+  overflow: scroll !important;
+}
+
+.event-menu-song-title {
+  margin: 0px -10px 0px -10px !important;
+  font-family: 'Fira Sans', sans-serif !important;
+}
+
+.event-menu-song-title.selected {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#event-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#start-end-event-div {
+  text-align: center;
+}
+
+.event-button {
+  margin: 0px 5px 20px 5px !important;
+}
+
+#add-song-div {
+  text-align: center;
+  padding: 10px;
+}
+
+.song-form-button {
+  margin: 0px 5px 0px 5px !important;
+}

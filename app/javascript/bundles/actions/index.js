@@ -79,8 +79,9 @@ export const endEvent = (callback) => {
   }
 }
 
-export const addSong = () => ({
-  type: 'ADD_SONG'
+export const revealSongForm = (boolean) => ({
+  type: 'REVEAL_SONG_FORM',
+  boolean
 })
 
 const submitSong = () => {
@@ -101,20 +102,22 @@ const receiveSong = (data) => ({
 
 export const submitSongRequest = (song) => {
   return (dispatch) => {
-    dispatch(submitSong())
-    return fetch('/api/v1/songs', {
-      credentials: 'same-origin',
-      method: 'POST',
-      body: JSON.stringify(song),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    .then(
-      response => response.json(),
-      error => console.log('An error occurred.', error)
-    )
-    .then(json => {
-      return dispatch(receiveSong(json))
-    })
+    if (song.title) {
+      dispatch(submitSong())
+      return fetch('/api/v1/songs', {
+        credentials: 'same-origin',
+        method: 'POST',
+        body: JSON.stringify(song),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => {
+        return dispatch(receiveSong(json))
+      })
+    }
   }
 }
 
