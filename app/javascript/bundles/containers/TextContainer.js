@@ -54,28 +54,24 @@ class TextContainer extends Component{
   }
 
   translate(text, code) {
-    if (code) {
-      fetch(`/api/v1/translations`, {
-        credentials: 'same-origin',
-        method: 'POST',
-        body: JSON.stringify({
-          code: code,
-          text: text
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(
-        response => response.json()
-      )
-      .then(json => {
-        this.setState({text: json.translation.text, origText: text, code: code})
-      })
-      .catch(
-        error => console.log('An error occurred.', error)
-      )
-    } else {
-      this.setState({text: text, origText: text, code: code})
-    }
+    fetch(`/api/v1/translations`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify({
+        code: code,
+        text: text
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json()
+    )
+    .then(json => {
+      this.setState({text: json.translation.text, origText: text, code: code})
+    })
+    .catch(
+      error => console.log('An error occurred.', error)
+    )
   }
 
   render() {
