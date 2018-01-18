@@ -6,6 +6,7 @@ class VersesChannel < ApplicationCable::Channel
   def receive(data)
     lyrics = nil
     event_title = nil
+    code = nil
 # change id to a diff variable name
     if data['id']
 
@@ -19,6 +20,7 @@ class VersesChannel < ApplicationCable::Channel
         verse = Verse.find(data['id'])
         verse.update(current: true)
         lyrics = verse.lyrics
+        code = verse.code
       end
     end
 
@@ -35,7 +37,8 @@ class VersesChannel < ApplicationCable::Channel
 
     ActionCable.server.broadcast("verses", {
       lyrics: lyrics,
-      current_event: event_title
+      current_event: event_title,
+      code: code
     })
   end
 end

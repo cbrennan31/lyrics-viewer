@@ -27,6 +27,8 @@ const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
   switch (action.type){
     case 'SET_VERSE_IDS':
       return Object.assign({}, state, {verseIDs: action.verseIDs})
+    case 'RECEIVE_VERSE':
+      return Object.assign({}, state, {verseIDs: state.verseIDs.concat(action.data.verse.id)})
     case 'HANDLE_PREVIOUS':
       return Object.assign({}, state, {currentVerse: action.currentVerse})
     case 'HANDLE_NEXT':

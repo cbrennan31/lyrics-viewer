@@ -22,8 +22,8 @@ class TextContainer extends Component{
       subscription: false,
       text: text,
       languages: null,
-      enText: text,
-      code: 'en',
+      origText: text,
+      code: this.props.code,
       defaultText: defaultText
     }
 
@@ -36,7 +36,7 @@ class TextContainer extends Component{
       }, {
         received: (data) => {
           if (data.lyrics) {
-            this.translate(data.lyrics, this.state.code)
+            this.translate(data.lyrics, data.code)
           } else if (data.current_event){
             this.translate(data.current_event, this.state.code)
           } else {
@@ -54,7 +54,7 @@ class TextContainer extends Component{
   }
 
   translate(text, code) {
-    if (code != 'en' || this.state.code != 'en') {
+    if (code) {
       fetch(`/api/v1/translations`, {
         credentials: 'same-origin',
         method: 'POST',
@@ -68,13 +68,13 @@ class TextContainer extends Component{
         response => response.json()
       )
       .then(json => {
-        this.setState({text: json.translation.text, enText: text, code: code})
+        this.setState({text: json.translation.text, origText: text, code: code})
       })
       .catch(
         error => console.log('An error occurred.', error)
       )
     } else {
-      this.setState({text: text, enText: text})
+      this.setState({text: text, origText: text, code: code})
     }
   }
 
@@ -100,7 +100,7 @@ class TextContainer extends Component{
 
       selectLang =
         <select
-          onChange = {(e) => this.translate(this.state.enText, e.target.value)}
+          onChange = {(e) => this.translate(this.state.origText, e.target.value)}
           value = {this.state.code}
         >
           {langOptions}
