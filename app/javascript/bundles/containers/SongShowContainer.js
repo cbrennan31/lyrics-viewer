@@ -5,6 +5,8 @@ import VerseForm from '../components/VerseForm'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
+import { GridList } from 'material-ui/GridList';
+
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
@@ -82,38 +84,47 @@ class SongShowContainer extends Component{
     }
 
     return(
-      <div>
-        {editSong}
-        <input
-          type='button'
-          value='Delete Song'
-          onClick={() => this.props.deleteSongRequest(this.props.id)}
-        />
-        {verses}
-        <input
-          type="button"
-          value="Previous"
-          onClick={() => {
-            this.props.handlePrevious(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
-              this.props.cable.subscription.send({
-                id: newVerse
+      <div id='verses-grid-container'>
+        <div id='song-header'>
+          {editSong}
+
+          <input
+            type='button'
+            value='Delete Song'
+            onClick={() => this.props.deleteSongRequest(this.props.id)}
+          />
+          <input
+            type="button"
+            value="Previous"
+            onClick={() => {
+              this.props.handlePrevious(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
+                this.props.cable.subscription.send({
+                  id: newVerse
+                })
               })
-            })
-          }}
-        />
-        <input
-          type="button"
-          value="Next"
-          onClick={() => {
-            this.props.handleNext(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
-              this.props.cable.subscription.send({
-                id: newVerse
+            }}
+          />
+
+          <input
+            type="button"
+            value="Next"
+            onClick={() => {
+              this.props.handleNext(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
+                this.props.cable.subscription.send({
+                  id: newVerse
+                })
               })
-            })
-          }}
-        />
-        <br/>
-        {addVerse}
+            }}
+          />
+
+          <br/>
+
+          {addVerse}
+        </div>
+
+        <div id='verses-grid'>
+          {verses}
+        </div>
       </div>
     )
   }

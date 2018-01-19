@@ -44,3 +44,36 @@ body {
 .song-form-button {
   margin: 0px 5px 0px 5px !important;
 }
+
+#verses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#verses-grid-container {
+  width: 100%;
+}
+
+.song-verse{
+  min-height: 200px;
+  width: 200px;
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px gray;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.song-verse.selected{
+  box-shadow: 4px 4px 4px gray;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+#song-header {
+  top: 0;
+  left: 0;
+  text-align: center;
+}
