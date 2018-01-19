@@ -69,7 +69,6 @@ body {
 .song-verse.selected{
   box-shadow: 4px 4px 4px gray;
   border: 2px solid black;
-  font-weight: bold;
 }
 
 #song-header {
