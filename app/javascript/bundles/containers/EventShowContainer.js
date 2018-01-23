@@ -58,7 +58,7 @@ class EventShowContainer extends Component{
         backgroundColor='#f2f2f2'
         labelStyle={{
           textTransform: 'none',
-          fontSize: '16'
+          fontSize: '16',
         }}
       />
 

@@ -6,7 +6,8 @@ import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
 import { GridList } from 'material-ui/GridList';
-
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton'
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
@@ -65,9 +66,30 @@ class SongShowContainer extends Component{
         </form>
       </div>
       :
-      <div>
-        <span>{this.props.title}</span>
-        <input type="button" value="Edit Title" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+      <div id='song-title-edit'>
+        <span id='song-title'>{this.props.title}</span>
+        <FlatButton
+          label="Edit"
+          onClick={() => this.props.editSong(this.props.songTitleEdit)}
+          secondary={true}
+          backgroundColor='#f2f2f2'
+          fullWidth={false}
+          labelStyle={{
+            textTransform: 'none',
+            fontSize: '14px',
+            verticalAlign: 'none',
+            marginTop: '-17.5px',
+            marginLeft: '-28.5px',
+            position: 'absolute',
+          }}
+          style={{
+            verticalAlign: 'middle',
+            margin: '10px',
+            width: '40px',
+            minWidth: '0px',
+            height: '20px',
+          }}
+        />
       </div>
 
     let verses
@@ -86,13 +108,31 @@ class SongShowContainer extends Component{
     return(
       <div id='verses-grid-container'>
         <div id='song-header'>
-          {editSong}
+          <div>
+            {editSong}
+            <RaisedButton
+              secondary={true}
+              label="Delete"
+              onClick={() => this.props.deleteSongRequest(this.props.id)}
+              labelStyle={{
+                textTransform: 'none',
+                fontSize: '14px',
+                verticalAlign: 'none',
+                marginTop: '-17.5px',
+                marginLeft: '-6px',
+              }}
+              style={{
+                verticalAlign: 'middle',
+                margin: '0px 5px 0px 0px',
+                width: '60px',
+                minWidth: '0px',
+                height: '20px',
+                textAlign: 'center',
+                boxShadow: '0px'
+              }}
+            />
+          </div>
 
-          <input
-            type='button'
-            value='Delete Song'
-            onClick={() => this.props.deleteSongRequest(this.props.id)}
-          />
           <input
             type="button"
             value="Previous"
