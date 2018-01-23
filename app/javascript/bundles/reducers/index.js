@@ -111,6 +111,8 @@ const songTitleEdit = (state = false, action) => {
   switch (action.type){
     case 'EDIT_SONG':
       return !action.boolean
+    case 'SELECT_SONG':
+      return false
     default:
       return state
   }

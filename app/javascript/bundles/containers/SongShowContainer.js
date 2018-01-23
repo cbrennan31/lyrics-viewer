@@ -37,16 +37,19 @@ class SongShowContainer extends Component{
     super (props)
 
     this.state = {
-      editTitleValue: props.title
+      editTitleValue: ''
     }
 
     this.handleTitleChange = this.handleTitleChange.bind(this)
-
   }
 
   componentDidMount() {
     this.props.subscribe(this.props.cable)
     this.props.setVerseIDs(this.props.verses)
+  }
+
+  componentWillReceiveProps() {
+    this.setState({editTitleValue: this.props.title})
   }
 
   handleTitleChange(e) {
@@ -62,7 +65,6 @@ class SongShowContainer extends Component{
         onClick={this.props.addVerse}
       />
 
-
     let input
 
     let editSong = this.props.songTitleEdit ?
@@ -70,18 +72,39 @@ class SongShowContainer extends Component{
         <form onSubmit={(e) => {
             e.preventDefault();
             this.props.editTitleRequest(
-              {id: this.props.id, title: input.value},
+              {id: this.props.id, title: this.state.editTitleValue},
               this.props.songTitleEdit
             )
           }
         }>
-        <TextField
-          id="editSongTitle"
-          value={this.state.editTitleValue}
-          onChange={this.handleTitleChange}
-        />
-          <input type="submit" value="Submit New Title" />
-          <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+          <TextField
+            id="editSongTitle"
+            value={this.state.editTitleValue}
+            onChange={this.handleTitleChange}
+            style={{
+              fontSize: '20px'
+            }}
+          />
+          <RaisedButton
+            default={true}
+            type="submit"
+            id="submitEditSong"
+            label='Submit'
+            labelStyle={{
+              textTransform: 'none'
+            }}
+            className="song-form-button"
+          />
+          <RaisedButton
+            secondary={true}
+            id="cancelEditSong"
+            label='Cancel'
+            onClick={() => this.props.editSong(this.props.songTitleEdit)}
+            labelStyle={{
+              textTransform: 'none'
+            }}
+            className="song-form-button"
+          />
         </form>
       </div>
       :
@@ -109,6 +132,27 @@ class SongShowContainer extends Component{
             height: '20px',
           }}
         />
+        <RaisedButton
+          secondary={true}
+          label="Delete"
+          onClick={() => this.props.deleteSongRequest(this.props.id)}
+          labelStyle={{
+            textTransform: 'none',
+            fontSize: '14px',
+            verticalAlign: 'none',
+            marginTop: '-17.5px',
+            marginLeft: '-6px',
+          }}
+          style={{
+            verticalAlign: 'middle',
+            margin: '0px 5px 0px 0px',
+            width: '60px',
+            minWidth: '0px',
+            height: '20px',
+            textAlign: 'center',
+            boxShadow: '0px'
+          }}
+        />
       </div>
 
     let verses
@@ -129,27 +173,6 @@ class SongShowContainer extends Component{
         <div id='song-header'>
           <div>
             {editSong}
-            <RaisedButton
-              secondary={true}
-              label="Delete"
-              onClick={() => this.props.deleteSongRequest(this.props.id)}
-              labelStyle={{
-                textTransform: 'none',
-                fontSize: '14px',
-                verticalAlign: 'none',
-                marginTop: '-17.5px',
-                marginLeft: '-6px',
-              }}
-              style={{
-                verticalAlign: 'middle',
-                margin: '0px 5px 0px 0px',
-                width: '60px',
-                minWidth: '0px',
-                height: '20px',
-                textAlign: 'center',
-                boxShadow: '0px'
-              }}
-            />
           </div>
 
           <input
