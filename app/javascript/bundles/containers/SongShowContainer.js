@@ -5,9 +5,9 @@ import VerseForm from '../components/VerseForm'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
-import { GridList } from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField';
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
@@ -33,9 +33,24 @@ const mapDispatchToProps = (dispatch) => {
 
 class SongShowContainer extends Component{
 
+  constructor (props) {
+    super (props)
+
+    this.state = {
+      editTitleValue: props.title
+    }
+
+    this.handleTitleChange = this.handleTitleChange.bind(this)
+
+  }
+
   componentDidMount() {
     this.props.subscribe(this.props.cable)
     this.props.setVerseIDs(this.props.verses)
+  }
+
+  handleTitleChange(e) {
+    this.setState({editTitleValue: e.target.value})
   }
 
   render() {
@@ -60,7 +75,11 @@ class SongShowContainer extends Component{
             )
           }
         }>
-          <input type="text" defaultValue={this.props.title} ref={(node) => {input = node }} />
+        <TextField
+          id="editSongTitle"
+          value={this.state.editTitleValue}
+          onChange={this.handleTitleChange}
+        />
           <input type="submit" value="Submit New Title" />
           <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
         </form>

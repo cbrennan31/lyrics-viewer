@@ -8,6 +8,7 @@ class TextContainer extends Component{
 
     let text
     let defaultText = "Welcome to BCE Lyrics. There are no events currently in progress."
+    let code = this.props.code
 
     if (this.props.lyrics) {
       text = this.props.lyrics
@@ -15,6 +16,7 @@ class TextContainer extends Component{
       text = this.props.current_event
     } else {
       text = defaultText
+      code = this.state.codeChange ? this.state.code : 'en'
     }
 
     this.state = {
@@ -24,6 +26,7 @@ class TextContainer extends Component{
       languages: null,
       origText: text,
       code: this.props.code,
+      codeChange: false,
       defaultText: defaultText
     }
 
@@ -35,12 +38,13 @@ class TextContainer extends Component{
         channel: "VersesChannel"
       }, {
         received: (data) => {
+          let code = this.state.codeChange ? this.state.code : data.code
           if (data.lyrics) {
-            this.translate(data.lyrics, data.code)
+            this.translate(data.lyrics, code)
           } else if (data.current_event){
-            this.translate(data.current_event, this.state.code)
+            this.translate(data.current_event, code)
           } else {
-            this.translate(this.state.defaultText, this.state.code)
+            this.translate(this.state.defaultText, code)
           }
       }
     })
@@ -53,29 +57,25 @@ class TextContainer extends Component{
     })
   }
 
-  translate(text, code) {
-    if (code) {
-      fetch(`/api/v1/translations`, {
-        credentials: 'same-origin',
-        method: 'POST',
-        body: JSON.stringify({
-          code: code,
-          text: text
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      })
-      .then(
-        response => response.json()
-      )
-      .then(json => {
-        this.setState({text: json.translation.text, origText: text, code: code})
-      })
-      .catch(
-        error => console.log('An error occurred.', error)
-      )
-    } else {
-      this.setState({text: text, origText: text, code: code})
-    }
+  translate(text, code, codeChange = this.state.codeChange) {
+    fetch(`/api/v1/translations`, {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify({
+        code: code,
+        text: text
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json()
+    )
+    .then(json => {
+      this.setState({text: json.translation.text, origText: text, code: code, codeChange: codeChange})
+    })
+    .catch(
+      error => console.log('An error occurred.', error)
+    )
   }
 
   render() {
@@ -100,7 +100,9 @@ class TextContainer extends Component{
 
       selectLang =
         <select
-          onChange = {(e) => this.translate(this.state.origText, e.target.value)}
+          onChange = {
+            (e) => this.translate(this.state.origText, e.target.value, true)
+          }
           value = {this.state.code}
         >
           {langOptions}
