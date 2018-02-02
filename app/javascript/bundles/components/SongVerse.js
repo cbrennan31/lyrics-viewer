@@ -1,5 +1,6 @@
 import React from 'react';
 import EditDeleteButtons from './EditDeleteButtons'
+
 const SongVerse = (props) => {
   let className = props.selected ? 'song-verse selected' : 'song-verse'
   let displayLyrics
@@ -20,11 +21,11 @@ const SongVerse = (props) => {
       <div>
         {displayLyrics}
       </div>
-      
-      <div id="edit-delete-verse">
+
+      <div className="edit-delete-verse">
         <EditDeleteButtons
-          onDeleteClick={() => null}
-          onEditClick={() => null}
+          onClickDelete={() => null}
+          onClickEdit={props.toggleVerseForm}
         />
       </div>
     </div>

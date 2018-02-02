@@ -125,54 +125,10 @@ class SongShowContainer extends Component{
       :
       <div id='song-title-edit'>
         <span id='song-title'>{this.props.title}</span>
-
         <EditDeleteButtons
           onClickEdit={() => this.props.editSong(this.props.songTitleEdit)}
           onClickDelete={() => this.props.deleteSongRequest(this.props.id)}
         />
-        {/* <FlatButton
-          label="Edit"
-          onClick={() => this.props.editSong(this.props.songTitleEdit)}
-          secondary={true}
-          backgroundColor='hsl(0, 0%, 92%)'
-          fullWidth={false}
-          labelStyle={{
-            textTransform: 'none',
-            fontSize: '14px',
-            verticalAlign: 'none',
-            marginTop: '-17.5px',
-            marginLeft: '-28.5px',
-            position: 'absolute',
-          }}
-          style={{
-            verticalAlign: 'middle',
-            margin: '10px',
-            width: '40px',
-            minWidth: '0px',
-            height: '20px',
-          }}
-        />
-        <RaisedButton
-          secondary={true}
-          label="Delete"
-          onClick={() => this.props.deleteSongRequest(this.props.id)}
-          labelStyle={{
-            textTransform: 'none',
-            fontSize: '14px',
-            verticalAlign: 'none',
-            marginTop: '-17.5px',
-            marginLeft: '-6px',
-          }}
-          style={{
-            verticalAlign: 'middle',
-            margin: '0px 5px 0px 0px',
-            width: '60px',
-            minWidth: '0px',
-            height: '20px',
-            textAlign: 'center',
-            boxShadow: '0px'
-          }}
-        /> */}
       </div>
 
     let verses
@@ -183,7 +139,8 @@ class SongShowContainer extends Component{
           key={verse.id}
           id={verse.id}
           lyrics={verse.lyrics}
-          selected = {this.props.currentVerse == verse.id}
+          selected={this.props.currentVerse == verse.id}
+          toggleVerseForm={this.props.toggleVerseForm}
         />
       })
     }
