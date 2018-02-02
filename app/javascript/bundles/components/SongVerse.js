@@ -1,7 +1,7 @@
 import React from 'react';
-
+import EditDeleteButtons from './EditDeleteButtons'
 const SongVerse = (props) => {
-  let fontColor = props.selected ? 'red' : 'black'
+  let className = props.selected ? 'song-verse selected' : 'song-verse'
   let displayLyrics
 
   if (props.lyrics) {
@@ -16,7 +16,18 @@ const SongVerse = (props) => {
   }
 
   return(
-    <div style = {{color: fontColor}}>{displayLyrics}</div>
+    <div className={className}>
+      <div>
+        {displayLyrics}
+      </div>
+      
+      <div id="edit-delete-verse">
+        <EditDeleteButtons
+          onDeleteClick={() => null}
+          onEditClick={() => null}
+        />
+      </div>
+    </div>
   )
 }
 

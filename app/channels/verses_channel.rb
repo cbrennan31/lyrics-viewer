@@ -6,7 +6,7 @@ class VersesChannel < ApplicationCable::Channel
   def receive(data)
     lyrics = nil
     event_title = nil
-    code = nil
+    code = 'en'
 # change id to a diff variable name
     if data['id']
 

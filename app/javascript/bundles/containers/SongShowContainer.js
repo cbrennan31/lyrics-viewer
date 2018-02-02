@@ -5,6 +5,11 @@ import VerseForm from '../components/VerseForm'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField';
+import RedGreenButtonDiv from '../components/RedGreenButtonDiv'
+import EditDeleteButtons from '../components/EditDeleteButtons'
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
@@ -16,13 +21,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    setVerseIDs: Actions.setVerseIDs,
     subscribe: Actions.subscribe,
     handlePrevious: Actions.handlePrevious,
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
     editSong: Actions.editSong,
-    addVerse: Actions.addVerse,
+    toggleVerseForm: Actions.toggleVerseForm,
     submitVerseRequest: Actions.submitVerseRequest,
     deleteSongRequest: Actions.deleteSongRequest
   }, dispatch)
@@ -30,20 +34,47 @@ const mapDispatchToProps = (dispatch) => {
 
 class SongShowContainer extends Component{
 
+  constructor (props) {
+    super (props)
+
+    this.state = {
+      editTitleValue: ''
+    }
+
+    this.handleTitleChange = this.handleTitleChange.bind(this)
+  }
+
   componentDidMount() {
     this.props.subscribe(this.props.cable)
-    this.props.setVerseIDs(this.props.verses)
+  }
+
+  componentWillReceiveProps() {
+    this.setState({editTitleValue: this.props.title})
+  }
+
+  handleTitleChange(e) {
+    this.setState({editTitleValue: e.target.value})
   }
 
   render() {
     let addVerse = this.props.verseFormRevealed ?
-      <VerseForm onSubmit = {this.props.submitVerseRequest} songid={this.props.id} /> :
-      <input
-        type="button"
-        value="Add Verse"
-        onClick={this.props.addVerse}
+      <VerseForm
+        onSubmit = {this.props.submitVerseRequest}
+        songid={this.props.id}
+        open={this.props.verseFormRevealed}
+        cancel={this.props.toggleVerseForm}
       />
-
+      :
+      <FlatButton
+        label="Add Verse"
+        onClick={this.props.toggleVerseForm}
+        secondary={true}
+        backgroundColor='hsl(0, 0%, 92%)'
+        labelStyle={{
+          textTransform: 'none',
+          fontSize: '16',
+        }}
+      />
 
     let input
 
@@ -52,20 +83,96 @@ class SongShowContainer extends Component{
         <form onSubmit={(e) => {
             e.preventDefault();
             this.props.editTitleRequest(
-              {id: this.props.id, title: input.value},
+              {id: this.props.id, title: this.state.editTitleValue},
               this.props.songTitleEdit
             )
           }
         }>
-          <input type="text" defaultValue={this.props.title} ref={(node) => {input = node }} />
-          <input type="submit" value="Submit New Title" />
-          <input type="button" value="Cancel" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+          <TextField
+            id="editSongTitle"
+            value={this.state.editTitleValue}
+            onChange={this.handleTitleChange}
+            style={{
+              fontSize: '20px'
+            }}
+          />
+
+          <div id="edit-song-title-container">
+            <RaisedButton
+              default={true}
+              type="submit"
+              id="submitEditSong"
+              label='Submit'
+              labelStyle={{
+                textTransform: 'none'
+              }}
+              className="song-form-button"
+            />
+            <RaisedButton
+              secondary={true}
+              id="cancelEditSong"
+              label='Cancel'
+              onClick={() => this.props.editSong(this.props.songTitleEdit)}
+              labelStyle={{
+                textTransform: 'none'
+              }}
+              className="song-form-button"
+            />
+
+          </div>
         </form>
       </div>
       :
-      <div>
-        <span>{this.props.title}</span>
-        <input type="button" value="Edit Title" onClick={() => this.props.editSong(this.props.songTitleEdit)}/>
+      <div id='song-title-edit'>
+        <span id='song-title'>{this.props.title}</span>
+
+        <EditDeleteButtons
+          onClickEdit={() => this.props.editSong(this.props.songTitleEdit)}
+          onClickDelete={() => this.props.deleteSongRequest(this.props.id)}
+        />
+        {/* <FlatButton
+          label="Edit"
+          onClick={() => this.props.editSong(this.props.songTitleEdit)}
+          secondary={true}
+          backgroundColor='hsl(0, 0%, 92%)'
+          fullWidth={false}
+          labelStyle={{
+            textTransform: 'none',
+            fontSize: '14px',
+            verticalAlign: 'none',
+            marginTop: '-17.5px',
+            marginLeft: '-28.5px',
+            position: 'absolute',
+          }}
+          style={{
+            verticalAlign: 'middle',
+            margin: '10px',
+            width: '40px',
+            minWidth: '0px',
+            height: '20px',
+          }}
+        />
+        <RaisedButton
+          secondary={true}
+          label="Delete"
+          onClick={() => this.props.deleteSongRequest(this.props.id)}
+          labelStyle={{
+            textTransform: 'none',
+            fontSize: '14px',
+            verticalAlign: 'none',
+            marginTop: '-17.5px',
+            marginLeft: '-6px',
+          }}
+          style={{
+            verticalAlign: 'middle',
+            margin: '0px 5px 0px 0px',
+            width: '60px',
+            minWidth: '0px',
+            height: '20px',
+            textAlign: 'center',
+            boxShadow: '0px'
+          }}
+        /> */}
       </div>
 
     let verses
@@ -82,38 +189,39 @@ class SongShowContainer extends Component{
     }
 
     return(
-      <div>
-        {editSong}
-        <input
-          type='button'
-          value='Delete Song'
-          onClick={() => this.props.deleteSongRequest(this.props.id)}
-        />
-        {verses}
-        <input
-          type="button"
-          value="Previous"
-          onClick={() => {
-            this.props.handlePrevious(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
-              this.props.cable.subscription.send({
-                id: newVerse
+      <div id='verses-grid-container'>
+        <div id='song-header'>
+          <div>
+            {editSong}
+          </div>
+
+          <RedGreenButtonDiv
+            labelRed="Previous"
+            labelGreen="Next"
+            onClickRed={() => {
+              this.props.handlePrevious(this.props.verses, this.props.currentVerse, (newVerse) => {
+                this.props.cable.subscription.send({
+                  id: newVerse
+                })
               })
-            })
-          }}
-        />
-        <input
-          type="button"
-          value="Next"
-          onClick={() => {
-            this.props.handleNext(this.props.verseIDs, this.props.currentVerse, (newVerse) => {
-              this.props.cable.subscription.send({
-                id: newVerse
+            }}
+            onClickGreen={() => {
+              this.props.handleNext(this.props.verses, this.props.currentVerse, (newVerse) => {
+                this.props.cable.subscription.send({
+                  id: newVerse
+                })
               })
-            })
-          }}
-        />
-        <br/>
-        {addVerse}
+            }}
+          />
+        </div>
+
+        <div id='verses-grid'>
+          {verses}
+        </div>
+
+        <div id='add-verse-container'>
+          {addVerse}
+        </div>
       </div>
     )
   }
