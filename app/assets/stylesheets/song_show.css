@@ -1,0 +1,62 @@
+#song-title-edit {
+  display: inline;
+}
+
+#song-title {
+  font-size: 20px;
+}
+
+#verses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#verses-grid-container {
+  width: 100%;
+}
+
+.song-verse{
+  min-height: 200px;
+  width: 200px;
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px gray;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.song-verse.selected{
+  box-shadow: 4px 4px 4px gray;
+  border: 2px solid black;
+}
+
+#song-header {
+  padding-top: 10px;
+  top: 0;
+  text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: hsl(0, 0%, 98%);
+}
+
+#add-verse-container {
+  float: right;
+  width: calc(100vw - 310px);
+  text-align: center;
+  margin: 10px 0px 20px 0px;
+}
+
+#edit-song-title-container {
+  display: inline-block;
+  padding: 10px;
+}
+
+#edit-delete-verse {
+  text-align: center;
+  z-index: -1;
+}

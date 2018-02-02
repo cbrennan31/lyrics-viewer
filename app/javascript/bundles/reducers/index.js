@@ -25,8 +25,6 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
 
 const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
   switch (action.type){
-    case 'SET_VERSE_IDS':
-      return Object.assign({}, state, {verseIDs: action.verseIDs})
     case 'RECEIVE_VERSE':
       return Object.assign({}, state, {verseIDs: state.verseIDs.concat(action.data.verse.id)})
     case 'HANDLE_PREVIOUS':
@@ -111,6 +109,8 @@ const songTitleEdit = (state = false, action) => {
   switch (action.type){
     case 'EDIT_SONG':
       return !action.boolean
+    case 'SELECT_SONG':
+      return false
     default:
       return state
   }
@@ -118,10 +118,8 @@ const songTitleEdit = (state = false, action) => {
 
 const verseFormRevealed = (state = false, action) => {
   switch (action.type) {
-    case 'ADD_VERSE':
-      return true
-    case 'SUBMIT_VERSE':
-      return false
+    case 'TOGGLE_VERSE_FORM':
+      return !state
     default:
       return state
   }

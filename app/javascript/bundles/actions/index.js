@@ -12,22 +12,8 @@ export const subscribe = (cable) => ({
   })
 })
 
-export const setVerseIDs = (verses) => {
-  let versesArray
-  if (verses) {
-    versesArray = verses.map((verse) => verse.id) || []
-  } else {
-    versesArray = []
-  }
-
-  return {
-    type: 'SET_VERSE_IDS',
-    verseIDs: versesArray
-  }
-}
-
-
-export const handlePrevious = (verseIDs, currentVerse, callback) => {
+export const handlePrevious = (verses, currentVerse, callback) => {
+  let verseIDs = verses.map(verse => verse.id)
   let newVerse = 0
 
   if (currentVerse != verseIDs[0]) {
@@ -44,7 +30,8 @@ export const handlePrevious = (verseIDs, currentVerse, callback) => {
   }
 }
 
-export const handleNext = (verseIDs, currentVerse, callback) => {
+export const handleNext = (verses, currentVerse, callback) => {
+  let verseIDs = verses.map(verse => verse.id)
   let newVerse = 0
 
   if (currentVerse != verseIDs[verseIDs.length - 1]) {
@@ -164,15 +151,9 @@ export const editTitleRequest = (song, boolean) => {
   }
 }
 
-export const addVerse = () => ({
-  type: 'ADD_VERSE'
+export const toggleVerseForm = () => ({
+  type: 'TOGGLE_VERSE_FORM'
 })
-
-const submitVerse = () => {
-  return {
-    type: 'SUBMIT_VERSE'
-  }
-}
 
 const receiveVerse = (data) => ({
   type: 'RECEIVE_VERSE',
@@ -181,7 +162,7 @@ const receiveVerse = (data) => ({
 
 export const submitVerseRequest = (verse) => {
   return (dispatch) => {
-    dispatch(submitVerse())
+    dispatch(toggleVerseForm())
     return fetch('/api/v1/verses', {
       credentials: 'same-origin',
       method: 'POST',
@@ -202,8 +183,6 @@ const handleDeletedSong = (data) => ({
   type: 'HANDLE_DELETED_SONG',
   data
 })
-
-
 
 export const deleteSongRequest = (id) => {
   return (dispatch) => {

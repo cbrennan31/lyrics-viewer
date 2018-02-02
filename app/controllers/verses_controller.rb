@@ -2,7 +2,7 @@ class VersesController < ApplicationController
   def index
     @lyrics = nil
     @current_event = nil
-    @code = nil
+    @code = 'en'
 
     verse = Verse.find_by(current: true)
 

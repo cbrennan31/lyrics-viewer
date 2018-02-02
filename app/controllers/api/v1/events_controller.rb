@@ -6,7 +6,7 @@ class Api::V1::EventsController < ApplicationController
     verses = {}
 
     songs.each do |song|
-      verses[song.id] = Verse.where(song_id: song.id)
+      verses[song.id] = Verse.where(song_id: song.id).order(:id)
     end
 
     render json: {songs: songs, verses: verses}

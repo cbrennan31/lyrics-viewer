@@ -7,7 +7,7 @@ import ActionCable from 'actioncable';
 import SongForm from '../components/SongForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import StartEndEventDiv from "../components/StartEndEventDiv"
+import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
 import FlatButton from 'material-ui/FlatButton';
 
 
@@ -26,7 +26,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    setVerseIDs: Actions.setVerseIDs,
     selectSong: Actions.selectSong,
     subscribe: Actions.subscribe,
     startEvent: Actions.startEvent,
@@ -55,10 +54,10 @@ class EventShowContainer extends Component{
         label="Add Song"
         onClick={() => this.props.revealSongForm(this.props.songFormRevealed)}
         secondary={true}
-        backgroundColor='#f2f2f2'
+        backgroundColor='hsl(0, 0%, 92%)'
         labelStyle={{
           textTransform: 'none',
-          fontSize: '16'
+          fontSize: '16',
         }}
       />
 
@@ -89,9 +88,6 @@ class EventShowContainer extends Component{
         id={song.id}
         onClick = { () => {
           this.props.selectSong(song.id)
-          if (this.props.verses) {
-            this.props.setVerseIDs(this.props.verses[this.props.songs.indexOf(song)])
-          }
         }}
         className={className}
       >
@@ -111,11 +107,18 @@ class EventShowContainer extends Component{
 
           {eventMessage}
 
-          <StartEndEventDiv
-            startEvent={this.props.startEvent}
-            endEvent={this.props.endEvent}
-            event={this.props.event}
-            subscription={this.props.cable.subscription}
+          <RedGreenButtonDiv
+            labelRed="Start Event"
+            labelGreen="End Event"
+            onClickRed={() =>
+              this.props.startEvent(this.props.event.id, (id) => {
+                this.props.cable.subscription.send({current_event: id})
+              })
+            }
+            onClickGreen={() => this.props.endEvent(() => {
+                this.props.cable.subscription.send({current_event: 0})
+              })
+            }
           />
 
           {songTitles}

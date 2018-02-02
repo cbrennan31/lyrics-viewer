@@ -1,33 +1,87 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import Dialog from 'material-ui/Dialog';
 
-const VerseForm = (props) => {
-  let textarea
+class VerseForm extends Component {
 
-  return(
-    <div>
-      <form
-        onSubmit = {(e) => {
-          e.preventDefault();
-          props.onSubmit({
-            song_id: props.songid,
-            lyrics: textarea.value.replace(/\r?\n/g, '<br />')
-          });
-          textarea.value = ''
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      value: '',
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(e) {
+    this.setState({value: e.target.value})
+  }
+  render () {
+
+    const actions = [
+      <RaisedButton
+        default={true}
+        type="submit"
+        id="submit"
+        label='Submit'
+        labelStyle={{
+          textTransform: 'none'
         }}
-      >
-        <label value="Lyrics">
-          <textarea
-            type="textarea"
-            placeholder={`Press \"Enter\" to add a new line`}
-            ref={(node) => {
-              textarea = node
-            }}
-          />
-          <input type="submit" id="Submit" />
-        </label>
-      </form>
-    </div>
-  )
+        className="song-form-button"
+        onClick={(e) => {
+          e.preventDefault();
+          this.props.onSubmit({
+            song_id: this.props.songid,
+            lyrics: this.state.value.replace(/\r?\n/g, '<br />')
+          });
+        }}
+      />,
+      <RaisedButton
+        secondary={true}
+        id="cancel"
+        label='Cancel'
+        labelStyle={{
+          textTransform: 'none'
+        }}
+        className="song-form-button"
+        onClick={this.props.cancel}
+      />
+    ]
+    return(
+      <div>
+        <Dialog
+          actions= {actions}
+          open = {this.props.open}
+          actionsContainerStyle = {{
+            textAlign: 'center',
+            marginTop: '-30px',
+            paddingBottom: '24px'
+          }}
+          contentStyle = {{
+            width: '450px',
+            textAlign: 'center'
+          }}
+        >
+          <form>
+            <label value="Lyrics">
+              <TextField
+                id="newVerse"
+                placeholder={`Press \"Enter\" to add a new line`}
+                value={this.state.value}
+                onChange={this.handleChange}
+                multiLine={true}
+                style={{
+                  width: '400px'
+                }}
+              />
+            </label>
+          </form>
+        </Dialog>
+      </div>
+    )
+  }
+
 }
 
 export default VerseForm;
