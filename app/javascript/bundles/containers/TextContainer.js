@@ -6,7 +6,7 @@ class TextContainer extends Component{
   constructor(props) {
     super(props);
 
-    let text
+    let text = null
     let defaultText = "Welcome to BCE Lyrics. There are no events currently in progress."
     let code = this.props.code
 
@@ -14,9 +14,6 @@ class TextContainer extends Component{
       text = this.props.lyrics
     } else if (this.props.current_event){
       text = this.props.current_event
-    } else {
-      text = defaultText
-      code = this.state.codeChange ? this.state.code : 'en'
     }
 
     this.state = {
@@ -27,7 +24,7 @@ class TextContainer extends Component{
       origText: text,
       code: this.props.code,
       codeChange: false,
-      defaultText: defaultText
+      defaultText: "Welcome to BCE Lyrics. There are no events currently in progress."
     }
 
     this.translate = this.translate.bind(this)
@@ -79,7 +76,19 @@ class TextContainer extends Component{
   }
 
   render() {
-    let textArray = this.state.text.split("<br />")
+    let text
+
+    if (this.state.text) {
+      text = this.state.text
+    } else {
+      if (this.state.codeChange) {
+        text = this.translate(this.state.defaultText, this.state.code)
+      } else {
+        text = this.state.defaultText
+      }
+    }
+
+    let textArray = text.split("<br />")
 
     let displayText = textArray.map((line) => {
       if (textArray.indexOf(line) != textArray.length - 1) {

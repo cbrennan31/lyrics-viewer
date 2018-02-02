@@ -14,7 +14,6 @@
 
 #verses-grid-container {
   width: 100%;
-  margin-top: 10px;
 }
 
 .song-verse{
@@ -26,6 +25,9 @@
   box-shadow: 1px 1px 1px gray;
   border-radius: 2px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .song-verse.selected{
@@ -34,7 +36,27 @@
 }
 
 #song-header {
+  padding-top: 10px;
   top: 0;
-  left: 0;
   text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: hsl(0, 0%, 98%);
+}
+
+#add-verse-container {
+  float: right;
+  width: calc(100vw - 310px);
+  text-align: center;
+  margin: 10px 0px 20px 0px;
+}
+
+#edit-song-title-container {
+  display: inline-block;
+  padding: 10px;
+}
+
+#edit-delete-verse {
+  text-align: center;
+  z-index: -1;
 }

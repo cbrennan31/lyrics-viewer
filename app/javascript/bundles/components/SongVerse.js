@@ -1,5 +1,5 @@
 import React from 'react';
-import GridTile from 'material-ui/GridList'
+import EditDeleteButtons from './EditDeleteButtons'
 const SongVerse = (props) => {
   let className = props.selected ? 'song-verse selected' : 'song-verse'
   let displayLyrics
@@ -17,7 +17,16 @@ const SongVerse = (props) => {
 
   return(
     <div className={className}>
-      {displayLyrics}
+      <div>
+        {displayLyrics}
+      </div>
+      
+      <div id="edit-delete-verse">
+        <EditDeleteButtons
+          onDeleteClick={() => null}
+          onEditClick={() => null}
+        />
+      </div>
     </div>
   )
 }
