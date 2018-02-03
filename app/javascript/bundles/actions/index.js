@@ -154,7 +154,7 @@ const receiveVerse = (data) => ({
 
 export const submitVerseRequest = (verse) => {
   return (dispatch) => {
-    dispatch(toggleVerseForm())
+    dispatch(toggleAddVerseForm())
     return fetch('/api/v1/verses', {
       credentials: 'same-origin',
       method: 'POST',
