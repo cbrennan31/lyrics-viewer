@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField';
 
-class SongForm extends Component{
+class AddSongForm extends Component{
 
   constructor(props) {
     super(props);
@@ -55,7 +55,7 @@ class SongForm extends Component{
               secondary={true}
               id="cancel"
               label='Cancel'
-              onClick={() => this.props.revealSongForm(this.props.songFormRevealed)}
+              onClick={() => this.props.toggleAddSongForm(this.props.songFormRevealed)}
               labelStyle={{
                 textTransform: 'none'
               }}
@@ -68,4 +68,4 @@ class SongForm extends Component{
   }
 }
 
-export default SongForm;
+export default AddSongForm;

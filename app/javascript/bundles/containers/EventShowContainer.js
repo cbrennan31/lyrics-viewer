@@ -4,7 +4,7 @@ import SongShowContainer from './SongShowContainer'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable';
-import SongForm from '../components/SongForm'
+import AddSongForm from '../components/AddSongForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
     selectedSong: state.selectedSong,
     cable: state.cable,
     eventInProgress: state.eventInProgress,
-    songFormRevealed: state.songFormRevealed,
+    showAddSongForm: state.showAddSongForm,
     songs: songs,
     verses: verses
   })
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
     subscribe: Actions.subscribe,
     startEvent: Actions.startEvent,
     endEvent: Actions.endEvent,
-    revealSongForm: Actions.revealSongForm,
+    toggleAddSongForm: Actions.toggleAddSongForm,
     submitSongRequest: Actions.submitSongRequest,
     requestSongsOnMount: Actions.requestSongsOnMount,
   }, dispatch)
@@ -43,16 +43,16 @@ class EventShowContainer extends Component{
   }
 
   render() {
-    let addSong = this.props.songFormRevealed ?
-      <SongForm
+    let addSong = this.props.showAddSongForm ?
+      <AddSongForm
         onSubmit = {this.props.submitSongRequest}
         eventid={this.props.event.id}
-        revealSongForm={this.props.revealSongForm}
-        songFormRevealed={this.props.songFormRevealed}
+        toggleAddSongForm={this.props.toggleAddSongForm}
+        showAddSongForm={this.props.showAddSongForm}
       /> :
       <FlatButton
         label="Add Song"
-        onClick={() => this.props.revealSongForm(this.props.songFormRevealed)}
+        onClick={() => this.props.toggleAddSongForm()}
         secondary={true}
         backgroundColor='hsl(0, 0%, 92%)'
         labelStyle={{

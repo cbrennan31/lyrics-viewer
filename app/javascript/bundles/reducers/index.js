@@ -47,12 +47,10 @@ const eventInProgress = (state = 0, action) => {
   }
 }
 
-const songFormRevealed = (state = false, action) => {
+const showAddSongForm = (state = false, action) => {
   switch (action.type){
-    case 'REVEAL_SONG_FORM':
-      return !action.boolean
-    case 'SUBMIT_SONG':
-      return false
+    case 'TOGGLE_ADD_SONG_FORM':
+      return !state
     default:
       return state
   }
@@ -105,10 +103,10 @@ const receiveSongs = (state = {}, action) => {
   }
 }
 
-const songTitleEdit = (state = false, action) => {
+const showEditSongForm = (state = false, action) => {
   switch (action.type){
-    case 'EDIT_SONG':
-      return !action.boolean
+    case 'TOGGLE_EDIT_SONG_FORM':
+      return !state
     case 'SELECT_SONG':
       return false
     default:
@@ -130,9 +128,9 @@ const EventShowReducer = combineReducers({
   cable,
   verseSelection,
   eventInProgress,
-  songFormRevealed,
+  showAddSongForm,
   receiveSongs,
-  songTitleEdit,
+  showEditSongForm,
   verseFormRevealed
 })
 

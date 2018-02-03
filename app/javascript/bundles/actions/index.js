@@ -66,16 +66,9 @@ export const endEvent = (callback) => {
   }
 }
 
-export const revealSongForm = (boolean) => ({
-  type: 'REVEAL_SONG_FORM',
-  boolean
+export const toggleAddSongForm = () => ({
+  type: 'TOGGLE_ADD_SONG_FORM'
 })
-
-const submitSong = () => {
-  return {
-    type: 'SUBMIT_SONG'
-  }
-}
 
 export const receiveSongsOnMount = (data) => ({
   type: 'RECEIVE_SONGS_ON_MOUNT',
@@ -87,14 +80,14 @@ const receiveSong = (data) => ({
   data
 })
 
-export const submitSongRequest = (song) => {
+export const submitSongRequest = (data) => {
   return (dispatch) => {
-    if (song.title) {
-      dispatch(submitSong())
+    if (data.title) {
+      dispatch(toggleAddSongForm())
       return fetch('/api/v1/songs', {
         credentials: 'same-origin',
         method: 'POST',
-        body: JSON.stringify(song),
+        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
       })
       .then(
@@ -121,9 +114,8 @@ export const requestSongsOnMount = (id) => {
   }
 }
 
-export const editSong = (boolean) => ({
-  type: "EDIT_SONG",
-  boolean
+export const toggleEditSongForm = () => ({
+  type: "TOGGLE_EDIT_SONG_FORM"
 })
 
 
@@ -134,7 +126,7 @@ const receiveEditedTitle = (data) => ({
 
 export const editTitleRequest = (song, boolean) => {
   return (dispatch) => {
-    dispatch(editSong(boolean))
+    dispatch(toggleEditSongForm())
     return fetch(`/api/v1/songs/${song.id}`, {
       credentials: 'same-origin',
       method: 'PATCH',

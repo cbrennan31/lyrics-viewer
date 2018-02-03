@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
   cable: state.cable,
   currentVerse: state.verseSelection.currentVerse,
   verseIDs: state.verseSelection.verseIDs,
-  songTitleEdit: state.songTitleEdit,
+  showEditSongForm: state.showEditSongForm,
   verseFormRevealed: state.verseFormRevealed
 })
 
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
     handlePrevious: Actions.handlePrevious,
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
-    editSong: Actions.editSong,
+    toggleEditSongForm: Actions.toggleEditSongForm,
     toggleVerseForm: Actions.toggleVerseForm,
     submitVerseRequest: Actions.submitVerseRequest,
     deleteSongRequest: Actions.deleteSongRequest
@@ -78,13 +78,13 @@ class SongShowContainer extends Component{
 
     let input
 
-    let editSong = this.props.songTitleEdit ?
+    let editSong = this.props.showEditSongForm ?
       <div>
         <form onSubmit={(e) => {
             e.preventDefault();
             this.props.editTitleRequest(
               {id: this.props.id, title: this.state.editTitleValue},
-              this.props.songTitleEdit
+              this.props.showEditSongForm
             )
           }
         }>
@@ -112,7 +112,7 @@ class SongShowContainer extends Component{
               secondary={true}
               id="cancelEditSong"
               label='Cancel'
-              onClick={() => this.props.editSong(this.props.songTitleEdit)}
+              onClick={this.props.toggleEditSongForm}
               labelStyle={{
                 textTransform: 'none'
               }}
@@ -126,7 +126,7 @@ class SongShowContainer extends Component{
       <div id='song-title-edit'>
         <span id='song-title'>{this.props.title}</span>
         <EditDeleteButtons
-          onClickEdit={() => this.props.editSong(this.props.songTitleEdit)}
+          onClickEdit={this.props.toggleEditSongForm}
           onClickDelete={() => this.props.deleteSongRequest(this.props.id)}
         />
       </div>
