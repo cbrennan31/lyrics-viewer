@@ -143,8 +143,8 @@ export const editTitleRequest = (song, boolean) => {
   }
 }
 
-export const toggleVerseForm = () => ({
-  type: 'TOGGLE_VERSE_FORM'
+export const toggleAddVerseForm = () => ({
+  type: 'TOGGLE_ADD_VERSE_FORM'
 })
 
 const receiveVerse = (data) => ({

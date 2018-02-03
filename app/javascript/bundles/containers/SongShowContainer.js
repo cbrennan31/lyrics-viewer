@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
   currentVerse: state.verseSelection.currentVerse,
   verseIDs: state.verseSelection.verseIDs,
   showEditSongForm: state.showEditSongForm,
-  verseFormRevealed: state.verseFormRevealed
+  showAddVerseForm: state.showAddVerseForm
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
     toggleEditSongForm: Actions.toggleEditSongForm,
-    toggleVerseForm: Actions.toggleVerseForm,
+    toggleAddVerseForm: Actions.toggleAddVerseForm,
     submitVerseRequest: Actions.submitVerseRequest,
     deleteSongRequest: Actions.deleteSongRequest
   }, dispatch)
@@ -57,17 +57,17 @@ class SongShowContainer extends Component{
   }
 
   render() {
-    let addVerse = this.props.verseFormRevealed ?
+    let addVerse = this.props.showAddVerseForm ?
       <VerseForm
         onSubmit = {this.props.submitVerseRequest}
         songid={this.props.id}
-        open={this.props.verseFormRevealed}
-        cancel={this.props.toggleVerseForm}
+        open={this.props.showAddVerseForm}
+        cancel={this.props.toggleAddVerseForm}
       />
       :
       <FlatButton
         label="Add Verse"
-        onClick={this.props.toggleVerseForm}
+        onClick={this.props.toggleAddVerseForm}
         secondary={true}
         backgroundColor='hsl(0, 0%, 92%)'
         labelStyle={{
@@ -140,7 +140,7 @@ class SongShowContainer extends Component{
           id={verse.id}
           lyrics={verse.lyrics}
           selected={this.props.currentVerse == verse.id}
-          toggleVerseForm={this.props.toggleVerseForm}
+          toggleAddVerseForm={this.props.toggleAddVerseForm}
         />
       })
     }

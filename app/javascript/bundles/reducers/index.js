@@ -114,9 +114,9 @@ const showEditSongForm = (state = false, action) => {
   }
 }
 
-const verseFormRevealed = (state = false, action) => {
+const showAddVerseForm = (state = false, action) => {
   switch (action.type) {
-    case 'TOGGLE_VERSE_FORM':
+    case 'TOGGLE_ADD_VERSE_FORM':
       return !state
     default:
       return state
@@ -131,7 +131,7 @@ const EventShowReducer = combineReducers({
   showAddSongForm,
   receiveSongs,
   showEditSongForm,
-  verseFormRevealed
+  showAddVerseForm
 })
 
 export default EventShowReducer
