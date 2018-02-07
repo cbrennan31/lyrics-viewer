@@ -124,7 +124,7 @@ const receiveEditedTitle = (data) => ({
   data
 })
 
-export const editTitleRequest = (song, boolean) => {
+export const editTitleRequest = (song) => {
   return (dispatch) => {
     dispatch(toggleEditSongForm())
     return fetch(`/api/v1/songs/${song.id}`, {

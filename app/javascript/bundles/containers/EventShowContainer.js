@@ -4,12 +4,11 @@ import SongShowContainer from './SongShowContainer'
 import * as Actions from '../actions'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable';
-import AddSongForm from '../components/AddSongForm'
+import SongTitleForm from '../components/SongTitleForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
 import FlatButton from 'material-ui/FlatButton';
-
 
 const mapStateToProps = (state) => {
   let songs = state.receiveSongs.songs ? state.receiveSongs.songs : []
@@ -44,11 +43,12 @@ class EventShowContainer extends Component{
 
   render() {
     let addSong = this.props.showAddSongForm ?
-      <AddSongForm
+      <SongTitleForm
         onSubmit = {this.props.submitSongRequest}
-        eventid={this.props.event.id}
-        toggleAddSongForm={this.props.toggleAddSongForm}
-        showAddSongForm={this.props.showAddSongForm}
+        id={this.props.event.id}
+        toggleForm={this.props.toggleAddSongForm}
+        placeholder={'Enter title'}
+        textValue=''
       /> :
       <FlatButton
         label="Add Song"

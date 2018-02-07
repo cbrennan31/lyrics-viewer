@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton'
+import SongTitleForm from '../components/SongTitleForm'
 import TextField from 'material-ui/TextField';
 import RedGreenButtonDiv from '../components/RedGreenButtonDiv'
 import EditDeleteButtons from '../components/EditDeleteButtons'
@@ -80,47 +81,13 @@ class SongShowContainer extends Component{
 
     let editSong = this.props.showEditSongForm ?
       <div>
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            this.props.editTitleRequest(
-              {id: this.props.id, title: this.state.editTitleValue},
-              this.props.showEditSongForm
-            )
-          }
-        }>
-          <TextField
-            id="editSongTitle"
-            value={this.state.editTitleValue}
-            onChange={this.handleTitleChange}
-            style={{
-              fontSize: '20px'
-            }}
-          />
-
-          <div id="edit-song-title-container">
-            <RaisedButton
-              default={true}
-              type="submit"
-              id="submitEditSong"
-              label='Submit'
-              labelStyle={{
-                textTransform: 'none'
-              }}
-              className="song-form-button"
-            />
-            <RaisedButton
-              secondary={true}
-              id="cancelEditSong"
-              label='Cancel'
-              onClick={this.props.toggleEditSongForm}
-              labelStyle={{
-                textTransform: 'none'
-              }}
-              className="song-form-button"
-            />
-
-          </div>
-        </form>
+        <SongTitleForm
+          id={this.props.id}
+          toggleForm={this.props.toggleEditSongForm}
+          placeholder={null}
+          textValue={this.state.editTitleValue}
+          onSubmit={this.props.editTitleRequest}
+        />
       </div>
       :
       <div id='song-title-edit'>
