@@ -143,8 +143,8 @@ export const editTitleRequest = (song) => {
   }
 }
 
-export const toggleAddVerseForm = () => ({
-  type: 'TOGGLE_ADD_VERSE_FORM'
+export const toggleVerseForm = () => ({
+  type: 'TOGGLE_VERSE_FORM'
 })
 
 const receiveVerse = (data) => ({
@@ -154,7 +154,7 @@ const receiveVerse = (data) => ({
 
 export const submitVerseRequest = (verse) => {
   return (dispatch) => {
-    dispatch(toggleAddVerseForm())
+    dispatch(toggleVerseForm())
     return fetch('/api/v1/verses', {
       credentials: 'same-origin',
       method: 'POST',
@@ -167,6 +167,36 @@ export const submitVerseRequest = (verse) => {
     )
     .then(json => {
       return dispatch(receiveVerse(json))
+    })
+  }
+}
+
+export const toggleEditVerseForm = (id, defaultValue) => ({
+  type: 'TOGGLE_EDIT_VERSE_FORM',
+  id,
+  defaultValue
+})
+
+const receiveEditedVerse = (data) => ({
+  type: "RECEIVE_EDITED_VERSE",
+  data
+})
+
+export const editVerseRequest = (verse) => {
+  return (dispatch) => {
+    dispatch(toggleEditVerseForm())
+    return fetch(`/api/v1/verses/${verse.verse_id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(verse),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveEditedVerse(json))
     })
   }
 }

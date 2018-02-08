@@ -59,10 +59,7 @@ const showAddSongForm = (state = false, action) => {
 const receiveSongs = (state = {}, action) => {
   switch (action.type){
     case 'RECEIVE_SONGS_ON_MOUNT':
-      return Object.assign({}, state, {
-        songs: action.data.songs,
-        verses: action.data.verses
-      })
+      return Object.assign({}, state, {songs: action.data.songs})
     case 'RECEIVE_SONG':
       let id = action.data.song.id
 
@@ -76,14 +73,6 @@ const receiveSongs = (state = {}, action) => {
       newSongs[index] = action.data.song
       return Object.assign({}, state, {
         songs: newSongs
-      })
-    case 'RECEIVE_VERSE':
-      let song_id = action.data.verse.song_id
-      let newVerses = Object.assign({}, state.verses)
-      newVerses[song_id] = newVerses[song_id].concat(action.data.verse)
-
-      return Object.assign({}, state, {
-        verses: newVerses
       })
     case 'HANDLE_DELETED_SONG':
       let deletedSongId = action.data.id
@@ -114,10 +103,48 @@ const showEditSongForm = (state = false, action) => {
   }
 }
 
-const showAddVerseForm = (state = false, action) => {
+const showVerseForm = (state = false, action) => {
   switch (action.type) {
-    case 'TOGGLE_ADD_VERSE_FORM':
+    case 'TOGGLE_VERSE_FORM':
       return !state
+    default:
+      return state
+  }
+}
+
+const showEditVerseForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_EDIT_VERSE_FORM':
+      if (!state) {
+        return Object.assign({}, state, {id: action.id, defaultValue: action.defaultValue})
+      } else {
+        return false
+      }
+    default:
+      return state
+  }
+}
+
+const receiveVerses = (state = {}, action) => {
+  switch (action.type) {
+    case 'RECEIVE_SONGS_ON_MOUNT':
+      return Object.assign({}, state, {verses: action.data.verses})
+    case 'RECEIVE_VERSE':
+      let songId = action.data.verse.song_id
+      let versesCopy = Object.assign({}, state.verses)
+
+      versesCopy[songId] = versesCopy[songId].concat(action.data.verse)
+
+      return Object.assign({}, state, {verses: versesCopy})
+    case 'RECEIVE_EDITED_VERSE':
+      let updatedVerseSongId = action.data.verse.song_id
+      let editedVersesCopy = Object.assign({}, state.verses)
+
+      let editedVerseIndex = editedVersesCopy[updatedVerseSongId].findIndex((el) => el.id == action.data.verse.id)
+      editedVersesCopy[updatedVerseSongId][editedVerseIndex] = action.data.verse
+      return Object.assign({}, state, {
+        verses: editedVersesCopy
+      })
     default:
       return state
   }
@@ -130,8 +157,10 @@ const EventShowReducer = combineReducers({
   eventInProgress,
   showAddSongForm,
   receiveSongs,
+  receiveVerses,
   showEditSongForm,
-  showAddVerseForm
+  showVerseForm,
+  showEditVerseForm
 })
 
 export default EventShowReducer

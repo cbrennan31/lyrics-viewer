@@ -8,8 +8,11 @@ class VerseForm extends Component {
   constructor (props) {
     super(props)
 
+    let lyricsArray = props.defaultValue.split("<br />")
+    let defaultValue = lyricsArray.join('\n')
+
     this.state = {
-      value: '',
+      value: `${defaultValue}`
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -17,6 +20,7 @@ class VerseForm extends Component {
   handleChange(e) {
     this.setState({value: e.target.value})
   }
+
   render () {
 
     const actions = [
@@ -32,7 +36,8 @@ class VerseForm extends Component {
         onClick={(e) => {
           e.preventDefault();
           this.props.onSubmit({
-            song_id: this.props.songid,
+            song_id: this.props.songId,
+            verse_id: this.props.verseId,
             lyrics: this.state.value.replace(/\r?\n/g, '<br />')
           });
         }}

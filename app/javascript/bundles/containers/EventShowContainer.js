@@ -11,8 +11,8 @@ import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
 import FlatButton from 'material-ui/FlatButton';
 
 const mapStateToProps = (state) => {
-  let songs = state.receiveSongs.songs ? state.receiveSongs.songs : []
-  let verses = state.receiveSongs.verses ? state.receiveSongs.verses : []
+  let songs = state.receiveSongs.songs || []
+  let verses = state.receiveVerses.verses || []
   return ({
     selectedSong: state.selectedSong,
     cable: state.cable,
@@ -48,7 +48,7 @@ class EventShowContainer extends Component{
         id={this.props.event.id}
         toggleForm={this.props.toggleAddSongForm}
         placeholder={'Enter title'}
-        textValue=''
+        defaultValue=''
       /> :
       <FlatButton
         label="Add Song"

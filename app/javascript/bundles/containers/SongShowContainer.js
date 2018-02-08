@@ -17,7 +17,8 @@ const mapStateToProps = (state) => ({
   currentVerse: state.verseSelection.currentVerse,
   verseIDs: state.verseSelection.verseIDs,
   showEditSongForm: state.showEditSongForm,
-  showAddVerseForm: state.showAddVerseForm
+  showVerseForm: state.showVerseForm,
+  showEditVerseForm: state.showEditVerseForm
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -27,9 +28,11 @@ const mapDispatchToProps = (dispatch) => {
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
     toggleEditSongForm: Actions.toggleEditSongForm,
-    toggleAddVerseForm: Actions.toggleAddVerseForm,
+    toggleVerseForm: Actions.toggleVerseForm,
     submitVerseRequest: Actions.submitVerseRequest,
-    deleteSongRequest: Actions.deleteSongRequest
+    deleteSongRequest: Actions.deleteSongRequest,
+    editVerseRequest: Actions.editVerseRequest,
+    toggleEditVerseForm: Actions.toggleEditVerseForm
   }, dispatch)
 }
 
@@ -39,7 +42,7 @@ class SongShowContainer extends Component{
     super (props)
 
     this.state = {
-      editTitleValue: ''
+      editTitleValue: '',
     }
 
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -49,7 +52,7 @@ class SongShowContainer extends Component{
     this.props.subscribe(this.props.cable)
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(newProps) {
     this.setState({editTitleValue: this.props.title})
   }
 
@@ -58,17 +61,19 @@ class SongShowContainer extends Component{
   }
 
   render() {
-    let addVerse = this.props.showAddVerseForm ?
+    let addVerse = this.props.showVerseForm ?
       <VerseForm
-        onSubmit = {this.props.submitVerseRequest}
-        songid={this.props.id}
-        open={this.props.showAddVerseForm}
-        cancel={this.props.toggleAddVerseForm}
+        onSubmit={this.props.submitVerseRequest}
+        songId={this.props.id}
+        verseId={null}
+        open={this.props.showVerseForm}
+        cancel={this.props.toggleVerseForm}
+        defaultValue=''
       />
       :
       <FlatButton
         label="Add Verse"
-        onClick={this.props.toggleAddVerseForm}
+        onClick={this.props.toggleVerseForm}
         secondary={true}
         backgroundColor='hsl(0, 0%, 92%)'
         labelStyle={{
@@ -77,15 +82,13 @@ class SongShowContainer extends Component{
         }}
       />
 
-    let input
-
     let editSong = this.props.showEditSongForm ?
       <div>
         <SongTitleForm
           id={this.props.id}
           toggleForm={this.props.toggleEditSongForm}
           placeholder={null}
-          textValue={this.state.editTitleValue}
+          defaultValue={this.state.editTitleValue}
           onSubmit={this.props.editTitleRequest}
         />
       </div>
@@ -107,9 +110,23 @@ class SongShowContainer extends Component{
           id={verse.id}
           lyrics={verse.lyrics}
           selected={this.props.currentVerse == verse.id}
-          toggleAddVerseForm={this.props.toggleAddVerseForm}
+          toggleEditVerseForm={this.props.toggleEditVerseForm}
         />
       })
+    }
+
+    let editVerse
+
+    if (this.props.showEditVerseForm) {
+      editVerse =
+        <VerseForm
+          verseId={this.props.showEditVerseForm.id}
+          songId={null}
+          onSubmit={this.props.editVerseRequest}
+          open={!!this.props.showEditVerseForm}
+          cancel={this.props.toggleEditVerseForm}
+          defaultValue={this.props.showEditVerseForm.defaultValue}
+        />
     }
 
     return(
@@ -146,6 +163,8 @@ class SongShowContainer extends Component{
         <div id='add-verse-container'>
           {addVerse}
         </div>
+
+        {editVerse}
       </div>
     )
   }

@@ -8,7 +8,7 @@ class SongTitleForm extends Component{
     super(props);
 
     this.state = {
-      value: this.props.textValue
+      value: this.props.defaultValue
     };
 
     this.handleChange = this.handleChange.bind(this)
