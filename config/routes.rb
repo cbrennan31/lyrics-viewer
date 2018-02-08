@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :songs, only: [:create, :update, :destroy]
       resources :events, only: [:show]
       resources :translations, only: [:create, :index]
-      resources :verses, only: [:create, :update]
+      resources :verses, only: [:create, :update, :destroy]
     end
   end
 end

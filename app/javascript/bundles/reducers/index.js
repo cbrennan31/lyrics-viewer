@@ -145,6 +145,16 @@ const receiveVerses = (state = {}, action) => {
       return Object.assign({}, state, {
         verses: versesCopy
       })
+    case 'HANDLE_DELETED_VERSE':
+      songId = action.data.song_id
+      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.id)
+      updatedVersesArray = versesCopy[songId].slice()
+      updatedVersesArray.splice(deletedVerseIndex, 1)
+      versesCopy[songId] = updatedVersesArray
+
+      return Object.assign({}, state, {
+        verses: versesCopy
+      })
     default:
       return state
   }

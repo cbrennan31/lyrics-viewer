@@ -223,3 +223,26 @@ export const deleteSongRequest = (id) => {
     })
   }
 }
+
+const handleDeletedVerse = (data) => ({
+  type: 'HANDLE_DELETED_VERSE',
+  data
+})
+
+export const deleteVerseRequest = (data) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/verses/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(handleDeletedVerse(json))
+    })
+  }
+}

@@ -31,7 +31,8 @@ const mapDispatchToProps = (dispatch) => {
     submitVerseRequest: Actions.submitVerseRequest,
     deleteSongRequest: Actions.deleteSongRequest,
     editVerseRequest: Actions.editVerseRequest,
-    toggleEditVerseForm: Actions.toggleEditVerseForm
+    toggleEditVerseForm: Actions.toggleEditVerseForm,
+    deleteVerseRequest: Actions.deleteVerseRequest
   }, dispatch)
 }
 
@@ -107,9 +108,11 @@ class SongShowContainer extends Component{
         return <SongVerse
           key={verse.id}
           id={verse.id}
+          songId={this.props.id}
           lyrics={verse.lyrics}
           selected={this.props.currentVerse == verse.id}
           toggleEditVerseForm={this.props.toggleEditVerseForm}
+          deleteVerseRequest={this.props.deleteVerseRequest}
         />
       })
     }
