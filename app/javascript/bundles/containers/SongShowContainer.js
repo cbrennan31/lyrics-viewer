@@ -15,9 +15,8 @@ import EditDeleteButtons from '../components/EditDeleteButtons'
 const mapStateToProps = (state) => ({
   cable: state.cable,
   currentVerse: state.verseSelection.currentVerse,
-  verseIDs: state.verseSelection.verseIDs,
   showEditSongForm: state.showEditSongForm,
-  showVerseForm: state.showVerseForm,
+  showAddVerseForm: state.showAddVerseForm,
   showEditVerseForm: state.showEditVerseForm
 })
 
@@ -28,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
     handleNext: Actions.handleNext,
     editTitleRequest: Actions.editTitleRequest,
     toggleEditSongForm: Actions.toggleEditSongForm,
-    toggleVerseForm: Actions.toggleVerseForm,
+    toggleAddVerseForm: Actions.toggleAddVerseForm,
     submitVerseRequest: Actions.submitVerseRequest,
     deleteSongRequest: Actions.deleteSongRequest,
     editVerseRequest: Actions.editVerseRequest,
@@ -61,19 +60,19 @@ class SongShowContainer extends Component{
   }
 
   render() {
-    let addVerse = this.props.showVerseForm ?
+    let addVerse = this.props.showAddVerseForm ?
       <VerseForm
         onSubmit={this.props.submitVerseRequest}
         songId={this.props.id}
         verseId={null}
-        open={this.props.showVerseForm}
-        cancel={this.props.toggleVerseForm}
+        open={this.props.showAddVerseForm}
+        cancel={this.props.toggleAddVerseForm}
         defaultValue=''
       />
       :
       <FlatButton
         label="Add Verse"
-        onClick={this.props.toggleVerseForm}
+        onClick={this.props.toggleAddVerseForm}
         secondary={true}
         backgroundColor='hsl(0, 0%, 92%)'
         labelStyle={{

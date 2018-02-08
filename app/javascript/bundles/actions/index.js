@@ -143,8 +143,8 @@ export const editTitleRequest = (song) => {
   }
 }
 
-export const toggleVerseForm = () => ({
-  type: 'TOGGLE_VERSE_FORM'
+export const toggleAddVerseForm = () => ({
+  type: 'TOGGLE_ADD_VERSE_FORM'
 })
 
 const receiveVerse = (data) => ({
@@ -154,7 +154,7 @@ const receiveVerse = (data) => ({
 
 export const submitVerseRequest = (verse) => {
   return (dispatch) => {
-    dispatch(toggleVerseForm())
+    dispatch(toggleAddVerseForm())
     return fetch('/api/v1/verses', {
       credentials: 'same-origin',
       method: 'POST',
