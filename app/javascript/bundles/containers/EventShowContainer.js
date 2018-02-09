@@ -10,16 +10,17 @@ import MenuItem from 'material-ui/MenuItem';
 import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
 import FlatButton from 'material-ui/FlatButton';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   let songs = state.receiveSongs.songs || []
   let verses = state.receiveVerses.verses || []
+  let eventInProgress = state.eventInProgress != null ? state.eventInProgress : ownProps.event.in_progress
   return ({
     selectedSong: state.selectedSong,
     cable: state.cable,
-    eventInProgress: state.eventInProgress,
     showAddSongForm: state.showAddSongForm,
-    songs: songs,
-    verses: verses
+    eventInProgress,
+    songs,
+    verses
   })
 }
 
@@ -27,8 +28,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     selectSong: Actions.selectSong,
     subscribe: Actions.subscribe,
-    startEvent: Actions.startEvent,
-    endEvent: Actions.endEvent,
+    updateEventStatus: Actions.updateEventStatus,
     toggleAddSongForm: Actions.toggleAddSongForm,
     submitSongRequest: Actions.submitSongRequest,
     requestSongsOnMount: Actions.requestSongsOnMount,
@@ -61,7 +61,7 @@ class EventShowContainer extends Component{
         }}
       />
 
-    let eventMessage = this.props.eventInProgress > 0 ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
+    let eventMessage = this.props.eventInProgress ? <p>Event In Progress</p> : <p>Click "Start Event" to Begin</p>
     let songContainer
 
     this.props.songs.forEach((song) => {
@@ -111,11 +111,18 @@ class EventShowContainer extends Component{
             labelRed="Start Event"
             labelGreen="End Event"
             onClickRed={() =>
-              this.props.startEvent(this.props.event.id, (id) => {
+              this.props.updateEventStatus({
+                id: this.props.event.id,
+                in_progress: true
+              }, (id) => {
                 this.props.cable.subscription.send({current_event: id})
               })
             }
-            onClickGreen={() => this.props.endEvent(() => {
+            onClickGreen={() =>
+              this.props.updateEventStatus({
+                id: this.props.event.id,
+                in_progress: false
+              }, (id) => {
                 this.props.cable.subscription.send({current_event: 0})
               })
             }

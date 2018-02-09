@@ -26,12 +26,8 @@ class VersesChannel < ApplicationCable::Channel
 
     if data['current_event']
       if data['current_event'] > 0
-        current_event = Event.find(data['current_event'])
-        current_event.update(in_progress: true)
+        current_event = Event.find_by(in_progress: true)
         event_title = current_event.title
-      else
-        Event.all.each { |v| v.update(in_progress: false) }
-        Verse.all.each { |v| v.update(current: false) }
       end
     end
 

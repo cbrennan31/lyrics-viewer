@@ -51,18 +51,30 @@ export const handleNext = (verses, currentVerse, callback) => {
   }
 }
 
-export const startEvent = (id, callback) => {
-  callback(id)
+const handleUpdatedEventStatus = (event, callback) => {
+  callback(event.id)
   return {
-    type: 'START_EVENT',
-    id
+    type: 'HANDLE_UPDATED_EVENT_STATUS',
+    event
   }
 }
 
-export const endEvent = (callback) => {
-  callback()
-  return {
-    type: 'END_EVENT'
+export const updateEventStatus = (data, callback) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/events/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then((json) => {
+        return dispatch(handleUpdatedEventStatus(json.event, callback))
+      }
+    )
   }
 }
 

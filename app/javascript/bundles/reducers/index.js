@@ -14,6 +14,15 @@ const selectedSong = (state = null, action) => {
   }
 }
 
+const eventInProgress = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_UPDATED_EVENT_STATUS':
+      return action.event.in_progress
+    default:
+      return state
+  }
+}
+
 const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   switch (action.type){
     case 'SUBSCRIBE_TO_CHANNEL':
@@ -23,25 +32,12 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   }
 }
 
-const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
+const verseSelection = (state = {currentVerse: 0}, action) => {
   switch (action.type){
-    case 'RECEIVE_VERSE':
-      return Object.assign({}, state, {verseIDs: state.verseIDs.concat(action.data.verse.id)})
     case 'HANDLE_PREVIOUS':
       return Object.assign({}, state, {currentVerse: action.currentVerse})
     case 'HANDLE_NEXT':
       return Object.assign({}, state, {currentVerse: action.currentVerse})
-    default:
-      return state
-  }
-}
-
-const eventInProgress = (state = 0, action) => {
-  switch (action.type){
-    case 'START_EVENT':
-      return action.id
-    case 'END_EVENT':
-      return 0
     default:
       return state
   }
