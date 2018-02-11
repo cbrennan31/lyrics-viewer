@@ -14,6 +14,15 @@ const selectedSong = (state = null, action) => {
   }
 }
 
+const eventInProgress = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_UPDATED_EVENT_STATUS':
+      return action.event.in_progress
+    default:
+      return state
+  }
+}
+
 const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   switch (action.type){
     case 'SUBSCRIBE_TO_CHANNEL':
@@ -23,10 +32,8 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   }
 }
 
-const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
+const verseSelection = (state = {currentVerse: 0}, action) => {
   switch (action.type){
-    case 'RECEIVE_VERSE':
-      return Object.assign({}, state, {verseIDs: state.verseIDs.concat(action.data.verse.id)})
     case 'HANDLE_PREVIOUS':
       return Object.assign({}, state, {currentVerse: action.currentVerse})
     case 'HANDLE_NEXT':
@@ -36,23 +43,10 @@ const verseSelection = (state = {verseIDs: [], currentVerse: 0}, action) => {
   }
 }
 
-const eventInProgress = (state = 0, action) => {
+const showAddSongForm = (state = false, action) => {
   switch (action.type){
-    case 'START_EVENT':
-      return action.id
-    case 'END_EVENT':
-      return 0
-    default:
-      return state
-  }
-}
-
-const songFormRevealed = (state = false, action) => {
-  switch (action.type){
-    case 'REVEAL_SONG_FORM':
-      return !action.boolean
-    case 'SUBMIT_SONG':
-      return false
+    case 'TOGGLE_ADD_SONG_FORM':
+      return !state
     default:
       return state
   }
@@ -61,54 +55,43 @@ const songFormRevealed = (state = false, action) => {
 const receiveSongs = (state = {}, action) => {
   switch (action.type){
     case 'RECEIVE_SONGS_ON_MOUNT':
-      return Object.assign({}, state, {
-        songs: action.data.songs,
-        verses: action.data.verses
-      })
+      return Object.assign({}, state, {songs: action.data.songs})
     case 'RECEIVE_SONG':
-      let id = action.data.song.id
+      let songId = action.data.song.id
 
       return Object.assign({}, state, {
         songs: [...state.songs, action.data.song],
-        verses: Object.assign({}, state.verses, {[id]: []})
+        verses: Object.assign({}, state.verses, {[songId]: []})
       })
     case 'RECEIVE_EDITED_TITLE':
-      let index = state.songs.findIndex((el) => el.id == action.data.song.id)
-      let newSongs = state.songs.slice()
-      newSongs[index] = action.data.song
+      let editedIndex = state.songs.findIndex((el) => el.id == action.data.song.id)
+      let updatedSongs = state.songs.slice()
+      updatedSongs[editedIndex] = action.data.song
       return Object.assign({}, state, {
-        songs: newSongs
-      })
-    case 'RECEIVE_VERSE':
-      let song_id = action.data.verse.song_id
-      let newVerses = Object.assign({}, state.verses)
-      newVerses[song_id] = newVerses[song_id].concat(action.data.verse)
-
-      return Object.assign({}, state, {
-        verses: newVerses
+        songs: updatedSongs
       })
     case 'HANDLE_DELETED_SONG':
       let deletedSongId = action.data.id
 
       let deleteIndex = state.songs.findIndex((el) => el.id == deletedSongId)
-      let fewerSongs = state.songs.slice()
-      fewerSongs.splice(deleteIndex, 1)
+      updatedSongs = state.songs.slice()
+      updatedSongs.splice(deleteIndex, 1)
 
-      let fewerVerses = Object.assign({}, state.verses)
-      delete fewerVerses[deletedSongId]
+      let updatedVerses = Object.assign({}, state.verses)
+      delete updatedVerses[deletedSongId]
       return Object.assign({}, state, {
-        songs: fewerSongs,
-        verses: fewerVerses
+        songs: updatedSongs,
+        verses: updatedVerses
       })
     default:
       return state
   }
 }
 
-const songTitleEdit = (state = false, action) => {
+const showEditSongForm = (state = false, action) => {
   switch (action.type){
-    case 'EDIT_SONG':
-      return !action.boolean
+    case 'TOGGLE_EDIT_SONG_FORM':
+      return !state
     case 'SELECT_SONG':
       return false
     default:
@@ -116,10 +99,58 @@ const songTitleEdit = (state = false, action) => {
   }
 }
 
-const verseFormRevealed = (state = false, action) => {
+const showAddVerseForm = (state = false, action) => {
   switch (action.type) {
-    case 'TOGGLE_VERSE_FORM':
+    case 'TOGGLE_ADD_VERSE_FORM':
       return !state
+    default:
+      return state
+  }
+}
+
+const showEditVerseForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_EDIT_VERSE_FORM':
+      if (!state) {
+        return Object.assign({}, state, {id: action.id, defaultValue: action.defaultValue})
+      } else {
+        return false
+      }
+    default:
+      return state
+  }
+}
+
+const receiveVerses = (state = {}, action) => {
+  let versesCopy = Object.assign({}, state.verses)
+  switch (action.type) {
+    case 'RECEIVE_SONGS_ON_MOUNT':
+      return Object.assign({}, state, {verses: action.data.verses})
+    case 'RECEIVE_VERSE':
+      let songId = action.data.verse.song_id
+      versesCopy[songId] = versesCopy[songId].concat(action.data.verse)
+
+      return Object.assign({}, state, {verses: versesCopy})
+    case 'RECEIVE_EDITED_VERSE':
+      songId = action.data.verse.song_id
+      let editedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.verse.id)
+      let updatedVersesArray = versesCopy[songId].slice()
+      updatedVersesArray[editedVerseIndex] = action.data.verse
+      versesCopy[songId] = updatedVersesArray
+
+      return Object.assign({}, state, {
+        verses: versesCopy
+      })
+    case 'HANDLE_DELETED_VERSE':
+      songId = action.data.song_id
+      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.id)
+      updatedVersesArray = versesCopy[songId].slice()
+      updatedVersesArray.splice(deletedVerseIndex, 1)
+      versesCopy[songId] = updatedVersesArray
+
+      return Object.assign({}, state, {
+        verses: versesCopy
+      })
     default:
       return state
   }
@@ -130,10 +161,12 @@ const EventShowReducer = combineReducers({
   cable,
   verseSelection,
   eventInProgress,
-  songFormRevealed,
+  showAddSongForm,
   receiveSongs,
-  songTitleEdit,
-  verseFormRevealed
+  receiveVerses,
+  showEditSongForm,
+  showAddVerseForm,
+  showEditVerseForm
 })
 
 export default EventShowReducer

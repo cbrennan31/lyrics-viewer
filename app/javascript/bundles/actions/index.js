@@ -51,31 +51,36 @@ export const handleNext = (verses, currentVerse, callback) => {
   }
 }
 
-export const startEvent = (id, callback) => {
-  callback(id)
+const handleUpdatedEventStatus = (event, callback) => {
+  callback(event.id)
   return {
-    type: 'START_EVENT',
-    id
+    type: 'HANDLE_UPDATED_EVENT_STATUS',
+    event
   }
 }
 
-export const endEvent = (callback) => {
-  callback()
-  return {
-    type: 'END_EVENT'
+export const updateEventStatus = (data, callback) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/events/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then((json) => {
+        return dispatch(handleUpdatedEventStatus(json.event, callback))
+      }
+    )
   }
 }
 
-export const revealSongForm = (boolean) => ({
-  type: 'REVEAL_SONG_FORM',
-  boolean
+export const toggleAddSongForm = () => ({
+  type: 'TOGGLE_ADD_SONG_FORM'
 })
-
-const submitSong = () => {
-  return {
-    type: 'SUBMIT_SONG'
-  }
-}
 
 export const receiveSongsOnMount = (data) => ({
   type: 'RECEIVE_SONGS_ON_MOUNT',
@@ -87,14 +92,14 @@ const receiveSong = (data) => ({
   data
 })
 
-export const submitSongRequest = (song) => {
+export const submitSongRequest = (data) => {
   return (dispatch) => {
-    if (song.title) {
-      dispatch(submitSong())
+    if (data.title) {
+      dispatch(toggleAddSongForm())
       return fetch('/api/v1/songs', {
         credentials: 'same-origin',
         method: 'POST',
-        body: JSON.stringify(song),
+        body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' }
       })
       .then(
@@ -121,9 +126,8 @@ export const requestSongsOnMount = (id) => {
   }
 }
 
-export const editSong = (boolean) => ({
-  type: "EDIT_SONG",
-  boolean
+export const toggleEditSongForm = () => ({
+  type: "TOGGLE_EDIT_SONG_FORM"
 })
 
 
@@ -132,9 +136,9 @@ const receiveEditedTitle = (data) => ({
   data
 })
 
-export const editTitleRequest = (song, boolean) => {
+export const editTitleRequest = (song) => {
   return (dispatch) => {
-    dispatch(editSong(boolean))
+    dispatch(toggleEditSongForm())
     return fetch(`/api/v1/songs/${song.id}`, {
       credentials: 'same-origin',
       method: 'PATCH',
@@ -151,8 +155,8 @@ export const editTitleRequest = (song, boolean) => {
   }
 }
 
-export const toggleVerseForm = () => ({
-  type: 'TOGGLE_VERSE_FORM'
+export const toggleAddVerseForm = () => ({
+  type: 'TOGGLE_ADD_VERSE_FORM'
 })
 
 const receiveVerse = (data) => ({
@@ -162,7 +166,7 @@ const receiveVerse = (data) => ({
 
 export const submitVerseRequest = (verse) => {
   return (dispatch) => {
-    dispatch(toggleVerseForm())
+    dispatch(toggleAddVerseForm())
     return fetch('/api/v1/verses', {
       credentials: 'same-origin',
       method: 'POST',
@@ -175,6 +179,36 @@ export const submitVerseRequest = (verse) => {
     )
     .then(json => {
       return dispatch(receiveVerse(json))
+    })
+  }
+}
+
+export const toggleEditVerseForm = (id, defaultValue) => ({
+  type: 'TOGGLE_EDIT_VERSE_FORM',
+  id,
+  defaultValue
+})
+
+const receiveEditedVerse = (data) => ({
+  type: "RECEIVE_EDITED_VERSE",
+  data
+})
+
+export const editVerseRequest = (verse) => {
+  return (dispatch) => {
+    dispatch(toggleEditVerseForm())
+    return fetch(`/api/v1/verses/${verse.verse_id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(verse),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(receiveEditedVerse(json))
     })
   }
 }
@@ -198,6 +232,29 @@ export const deleteSongRequest = (id) => {
     )
     .then(json => {
       return dispatch(handleDeletedSong(json))
+    })
+  }
+}
+
+const handleDeletedVerse = (data) => ({
+  type: 'HANDLE_DELETED_VERSE',
+  data
+})
+
+export const deleteVerseRequest = (data) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/verses/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(handleDeletedVerse(json))
     })
   }
 }

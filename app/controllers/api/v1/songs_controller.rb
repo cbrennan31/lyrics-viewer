@@ -19,7 +19,6 @@ class Api::V1::SongsController < ApplicationController
 
   def destroy
     song = Song.find(params[:id])
-    id = song.id
     verses = Verse.where(song: song)
 
     if verses
@@ -28,6 +27,6 @@ class Api::V1::SongsController < ApplicationController
 
     song.destroy
 
-    render json: {id: id, selected_song_id: Song.first.id}
+    render json: {id: song.id, selected_song_id: Song.first.id}
   end
 end

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField';
 
-class SongForm extends Component{
+class SongTitleForm extends Component{
 
   constructor(props) {
     super(props);
 
     this.state = {
-      value: ''
+      value: this.props.defaultValue
     };
 
     this.handleChange = this.handleChange.bind(this)
@@ -27,7 +27,7 @@ class SongForm extends Component{
         <form onSubmit = {(e) => {
             e.preventDefault();
             this.props.onSubmit({
-              id: this.props.eventid,
+              id: this.props.id,
               title: this.state.value
             });
           }}
@@ -35,7 +35,7 @@ class SongForm extends Component{
           <label value="Song Title">
             <TextField
               id="songTitle"
-              placeholder="Enter title"
+              placeholder={this.props.placeholder}
               value={this.state.value}
               onChange={this.handleChange}
             />
@@ -55,7 +55,7 @@ class SongForm extends Component{
               secondary={true}
               id="cancel"
               label='Cancel'
-              onClick={() => this.props.revealSongForm(this.props.songFormRevealed)}
+              onClick={() => this.props.toggleForm()}
               labelStyle={{
                 textTransform: 'none'
               }}
@@ -68,4 +68,4 @@ class SongForm extends Component{
   }
 }
 
-export default SongForm;
+export default SongTitleForm;

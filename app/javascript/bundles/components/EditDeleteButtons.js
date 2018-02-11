@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 
 const EditDeleteButtons = (props) => {
   return (
-    <div id='edit-delete-buttons'>
+    <div className='edit-delete-buttons'>
       <FlatButton
         label="Edit"
         onClick={props.onClickEdit}
