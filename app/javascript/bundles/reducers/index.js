@@ -6,7 +6,11 @@ const selectedSong = (state = null, action) => {
     case 'SELECT_SONG':
       return action.id
     case 'RECEIVE_SONGS_ON_MOUNT':
-      return action.data.songs[0].id
+      if (action.data.songs[0]) {
+        return action.data.songs[0].id
+      } else {
+        return state
+      }
     case 'HANDLE_DELETED_SONG':
       return action.data.selected_song_id
     default:
