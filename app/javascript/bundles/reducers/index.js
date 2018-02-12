@@ -57,9 +57,13 @@ const showAddSongForm = (state = false, action) => {
 }
 
 const receiveSongs = (state = {}, action) => {
+  let versesCopy = Object.assign({}, state.verses)
   switch (action.type){
     case 'RECEIVE_SONGS_ON_MOUNT':
-      return Object.assign({}, state, {songs: action.data.songs})
+      return Object.assign({}, state, {
+        songs: action.data.songs,
+        verses: action.data.verses
+      })
     case 'RECEIVE_SONG':
       let songId = action.data.song.id
 
@@ -87,6 +91,33 @@ const receiveSongs = (state = {}, action) => {
         songs: updatedSongs,
         verses: updatedVerses
       })
+    case 'RECEIVE_VERSE':
+      songId = action.data.verse.song_id
+      // debugger
+      versesCopy[songId] = versesCopy[songId].concat(action.data.verse)
+
+      return Object.assign({}, state, {verses: versesCopy})
+    case 'RECEIVE_EDITED_VERSE':
+      songId = action.data.verse.song_id
+      let editedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.verse.id)
+      let updatedVersesArray = versesCopy[songId].slice()
+      updatedVersesArray[editedVerseIndex] = action.data.verse
+      versesCopy[songId] = updatedVersesArray
+
+      return Object.assign({}, state, {
+        verses: versesCopy
+      })
+    case 'HANDLE_DELETED_VERSE':
+      songId = action.data.song_id
+      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.id)
+      updatedVersesArray = versesCopy[songId].slice()
+      updatedVersesArray.splice(deletedVerseIndex, 1)
+      versesCopy[songId] = updatedVersesArray
+
+      return Object.assign({}, state, {
+        verses: versesCopy
+      })
+
     default:
       return state
   }
@@ -125,40 +156,6 @@ const showEditVerseForm = (state = false, action) => {
   }
 }
 
-const receiveVerses = (state = {}, action) => {
-  let versesCopy = Object.assign({}, state.verses)
-  switch (action.type) {
-    case 'RECEIVE_SONGS_ON_MOUNT':
-      return Object.assign({}, state, {verses: action.data.verses})
-    case 'RECEIVE_VERSE':
-      let songId = action.data.verse.song_id
-      versesCopy[songId] = versesCopy[songId].concat(action.data.verse)
-
-      return Object.assign({}, state, {verses: versesCopy})
-    case 'RECEIVE_EDITED_VERSE':
-      songId = action.data.verse.song_id
-      let editedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.verse.id)
-      let updatedVersesArray = versesCopy[songId].slice()
-      updatedVersesArray[editedVerseIndex] = action.data.verse
-      versesCopy[songId] = updatedVersesArray
-
-      return Object.assign({}, state, {
-        verses: versesCopy
-      })
-    case 'HANDLE_DELETED_VERSE':
-      songId = action.data.song_id
-      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.id)
-      updatedVersesArray = versesCopy[songId].slice()
-      updatedVersesArray.splice(deletedVerseIndex, 1)
-      versesCopy[songId] = updatedVersesArray
-
-      return Object.assign({}, state, {
-        verses: versesCopy
-      })
-    default:
-      return state
-  }
-}
 
 const EventShowReducer = combineReducers({
   selectedSong,
@@ -167,7 +164,6 @@ const EventShowReducer = combineReducers({
   eventInProgress,
   showAddSongForm,
   receiveSongs,
-  receiveVerses,
   showEditSongForm,
   showAddVerseForm,
   showEditVerseForm

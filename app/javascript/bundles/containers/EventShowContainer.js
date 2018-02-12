@@ -12,7 +12,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 const mapStateToProps = (state, ownProps) => {
   let songs = state.receiveSongs.songs || []
-  let verses = state.receiveVerses.verses || []
+  let verses = state.receiveSongs.verses || []
   let eventInProgress = state.eventInProgress != null ? state.eventInProgress : ownProps.event.in_progress
   return ({
     selectedSong: state.selectedSong,
