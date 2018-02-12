@@ -5,8 +5,6 @@ const selectedSong = (state = null, action) => {
   switch (action.type) {
     case 'SELECT_SONG':
       return action.id
-    case 'HANDLE_DELETED_SONG':
-      return action.data.selected_song_id
     default:
       return state
   }
@@ -73,7 +71,7 @@ const receiveSongs = (state = {}, action) => {
         songs: updatedSongs
       })
     case 'HANDLE_DELETED_SONG':
-      let deletedSongId = action.data.id
+      let deletedSongId = action.data.song.id
 
       let deleteIndex = state.songs.findIndex((el) => el.id == deletedSongId)
       updatedSongs = state.songs.slice()
@@ -87,7 +85,6 @@ const receiveSongs = (state = {}, action) => {
       })
     case 'RECEIVE_VERSE':
       songId = action.data.verse.song_id
-      // debugger
       versesCopy[songId] = versesCopy[songId].concat(action.data.verse)
 
       return Object.assign({}, state, {verses: versesCopy})

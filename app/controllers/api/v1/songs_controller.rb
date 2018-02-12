@@ -33,7 +33,6 @@ class Api::V1::SongsController < ApplicationController
       selected_song_id = Song.first.id
     end
 
-
-    render json: {id: song.id, selected_song_id: selected_song_id}
+    render json: {song: song, selected_song_id: selected_song_id}
   end
 end

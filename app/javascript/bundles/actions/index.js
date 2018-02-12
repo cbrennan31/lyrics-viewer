@@ -126,11 +126,13 @@ export const submitSongRequest = (data) => {
         error => console.log('An error occurred.', error)
       )
       .then(json => {
-        // dispatch(updateSelectedSong({
-        //   id: json.song.event_id,
-        //   song_id: json.song.id
-        // }))
-        return dispatch(receiveSong(json))
+        dispatch(updateSelectedSong({
+          id: json.song.event_id,
+          selected_song_id: json.song.id
+        }))
+        return(
+          dispatch(receiveSong(json))
+        )
       })
     }
   }
@@ -254,6 +256,10 @@ export const deleteSongRequest = (id) => {
       error => console.log('An error occurred.', error)
     )
     .then(json => {
+      dispatch(updateSelectedSong({
+        id: json.song.event_id,
+        selected_song_id: json.selected_song_id
+      }))
       return dispatch(handleDeletedSong(json))
     })
   }

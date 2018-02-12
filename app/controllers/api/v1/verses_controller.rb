@@ -26,8 +26,6 @@ class Api::V1::VersesController < ApplicationController
     verse = Verse.find(params[:id])
 
     verse.destroy
-
-    render json: {id: verse.id, song_id: verse.song_id}
   end
 
   private
