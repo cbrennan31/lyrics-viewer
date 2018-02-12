@@ -1,9 +1,28 @@
 import fetch from 'cross-fetch'
 
-export const selectSong = (id) => ({
+const selectSong = (id) => ({
   type: 'SELECT_SONG',
   id
 })
+
+export const updateSelectedSong = (data) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/events/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then((json) => {
+        return dispatch(selectSong(json.event.selected_song_id))
+    })
+  }
+}
+
 
 export const subscribe = (cable) => ({
   type: 'SUBSCRIBE_TO_CHANNEL',
@@ -107,6 +126,10 @@ export const submitSongRequest = (data) => {
         error => console.log('An error occurred.', error)
       )
       .then(json => {
+        // dispatch(updateSelectedSong({
+        //   id: json.song.event_id,
+        //   song_id: json.song.id
+        // }))
         return dispatch(receiveSong(json))
       })
     }

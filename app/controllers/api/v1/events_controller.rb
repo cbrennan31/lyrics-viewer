@@ -13,9 +13,14 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def update
-    if params[:in_progress] != nil
-      event = Event.find(params[:id])
+    event = Event.find(params[:id])
+
+    if params[:in_progress] === true || params[:in_progress] === false
       event.update(in_progress: params[:in_progress])
+    end
+
+    if params[:selected_song_id]
+      event.update(selected_song_id: params[:selected_song_id])
     end
 
     render json: {event: event}
