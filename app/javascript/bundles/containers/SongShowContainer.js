@@ -12,18 +12,15 @@ import TextField from 'material-ui/TextField';
 import RedGreenButtonDiv from '../components/RedGreenButtonDiv'
 import EditDeleteButtons from '../components/EditDeleteButtons'
 
-const mapStateToProps = (state) => (
-  let currentVerse = state.verseSelection.currentVerse || 0
-  {
-    cable: state.cable,
-    currentVerse: currentVerse,
-    showEditSongForm: state.showEditSongForm,
-    showAddVerseForm: state.showAddVerseForm,
-    showEditVerseForm: state.showEditVerseForm
+const mapStateToProps = (state) => ({
+  cable: state.cable,
+  currentVerse: state.verseSelection.currentVerse,
+  showEditSongForm: state.showEditSongForm,
+  showAddVerseForm: state.showAddVerseForm,
+  showEditVerseForm: state.showEditVerseForm
 })
 
 const mapDispatchToProps = (dispatch) => {
-  let currentVerse =
   return bindActionCreators({
     subscribe: Actions.subscribe,
     handlePrevious: Actions.handlePrevious,

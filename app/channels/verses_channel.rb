@@ -25,10 +25,8 @@ class VersesChannel < ApplicationCable::Channel
     end
 
     if data['current_event']
-      if data['current_event'] > 0
-        current_event = Event.find_by(in_progress: true)
-        event_title = current_event.title
-      end
+      current_event = Event.find_by(in_progress: true)
+      event_title = current_event.title
     end
 
     ActionCable.server.broadcast("verses", {

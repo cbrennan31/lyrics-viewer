@@ -28,13 +28,13 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   }
 }
 
-// const verseSelection = (state = {currentVerse: 0}, action) => {
-//   switch (action.type){
-//     case 'RECEIVE_EDITED_VERSE':
-//     default:
-//       return state
-//   }
-// }
+const verseSelection = (state = {currentVerse: 0}, action) => {
+  switch (action.type){
+    case 'RECEIVE_EDITED_VERSE':
+    default:
+      return state
+  }
+}
 
 // ^^ unnecessary
 

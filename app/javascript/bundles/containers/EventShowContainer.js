@@ -127,7 +127,7 @@ class EventShowContainer extends Component{
                 id: this.props.event.id,
                 in_progress: false
               }, (id) => {
-                this.props.cable.subscription.send({current_event: 0})
+                this.props.cable.subscription.send({current_event: null})
               })
             }
           />
