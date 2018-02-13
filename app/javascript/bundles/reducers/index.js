@@ -28,16 +28,15 @@ const cable = (state = ActionCable.createConsumer('/cable'), action) => {
   }
 }
 
-const verseSelection = (state = {currentVerse: 0}, action) => {
-  switch (action.type){
-    case 'HANDLE_PREVIOUS':
-      return Object.assign({}, state, {currentVerse: action.currentVerse})
-    case 'HANDLE_NEXT':
-      return Object.assign({}, state, {currentVerse: action.currentVerse})
-    default:
-      return state
-  }
-}
+// const verseSelection = (state = {currentVerse: 0}, action) => {
+//   switch (action.type){
+//     case 'RECEIVE_EDITED_VERSE':
+//     default:
+//       return state
+//   }
+// }
+
+// ^^ unnecessary
 
 const showAddSongForm = (state = false, action) => {
   switch (action.type){

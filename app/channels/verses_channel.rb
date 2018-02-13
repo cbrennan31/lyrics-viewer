@@ -14,11 +14,11 @@ class VersesChannel < ApplicationCable::Channel
         event_title = Event.find_by(in_progress: true).title
       end
 
-      Verse.all.each { |v| v.update(current: false) }
+      # Verse.all.each { |v| v.update(current: false) }
 
       if data['id'] > 0
         verse = Verse.find(data['id'])
-        verse.update(current: true)
+        # verse.update(current: true)
         lyrics = verse.lyrics
         code = verse.code
       end

@@ -12,14 +12,30 @@ class Api::V1::VersesController < ApplicationController
   end
 
   def update
-    verse = Verse.find(params[:verse_id])
+    previous_selection = Verse.find_by(current: true)
 
-    verse.update({
-      lyrics: params[:lyrics],
-      code: detected_language(params[:lyrics])
-    })
+    if previous_selection
+      previous_selection.update(current: false)
+    end
+    binding.pry
+    if params[:verse_id] != 0
+      verse = Verse.find(params[:verse_id])
 
-    render json: {verse: verse}
+      if params[:current]
+        verse.update(current: true)
+      end
+
+      if params[:lyrics]
+        verse.update({
+          lyrics: params[:lyrics],
+          code: detected_language(params[:lyrics])
+        })
+      end
+
+      render json: {verse: verse}
+    else
+      render json: {verse: nil}
+    end
   end
 
   def destroy

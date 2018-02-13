@@ -23,7 +23,6 @@ export const updateSelectedSong = (data) => {
   }
 }
 
-
 export const subscribe = (cable) => ({
   type: 'SUBSCRIBE_TO_CHANNEL',
   subscription: cable.subscriptions.create({
@@ -32,41 +31,71 @@ export const subscribe = (cable) => ({
 })
 
 export const handlePrevious = (verses, currentVerse, callback) => {
-  let verseIDs = verses.map(verse => verse.id)
-  let newVerse = 0
+  return (dispatch) => {
+    let verseIds = verses.map(verse => verse.id)
+    let newVerseId = 0
 
-  if (currentVerse != verseIDs[0]) {
-      let indexOfCurrentVerseID = verseIDs.indexOf(currentVerse)
-      indexOfCurrentVerseID -= 1
-      newVerse = verseIDs[indexOfCurrentVerseID]
-  }
-
-  callback(newVerse)
-
-  return {
-    type: 'HANDLE_PREVIOUS',
-    currentVerse: newVerse
+    if (currentVerse != verseIds[0]) {
+        let indexOfCurrentVerseId = verseIds.indexOf(currentVerse)
+        indexOfCurrentVerseId -= 1
+        newVerseId = verseIds[indexOfCurrentVerseId]
+    }
+    return fetch(`/api/v1/verses/${newVerseId}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify({
+        verse_id: newVerseId,
+        current: true
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      if (json.verse) {
+        return dispatch(receiveEditedVerse(json, callback))
+      } else {
+        return null
+      }
+    })
   }
 }
 
 export const handleNext = (verses, currentVerse, callback) => {
-  let verseIDs = verses.map(verse => verse.id)
-  let newVerse = 0
+  return (dispatch) => {
+    let verseIds = verses.map(verse => verse.id)
+    let newVerseId = 0
 
-  if (currentVerse != verseIDs[verseIDs.length - 1]) {
-    if (currentVerse == 0) {
-      newVerse = verseIDs[0]
+    if (currentVerse != verseIds[verseIds.length - 1]) {
+      if (currentVerse == 0) {
+        newVerseId = verseIds[0]
+      }
+      let indexOfCurrentVerseId = verseIds.indexOf(currentVerse)
+      indexOfCurrentVerseId += 1
+      newVerseId = verseIds[indexOfCurrentVerseId]
     }
-    let indexOfCurrentVerseId = verseIDs.indexOf(currentVerse)
-    indexOfCurrentVerseId += 1
-    newVerse = verseIDs[indexOfCurrentVerseId]
-  }
-
-  callback(newVerse)
-
-  return {
-    type: 'HANDLE_NEXT',
-    currentVerse: newVerse
+    return fetch(`/api/v1/verses/${newVerseId}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify({
+        verse_id: newVerseId,
+        current: true
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      if (json.verse) {
+        return dispatch(receiveEditedVerse(json, callback))
+      } else {
+        return null
+      }
+    })
   }
 }
 
@@ -214,10 +243,16 @@ export const toggleEditVerseForm = (id, defaultValue) => ({
   defaultValue
 })
 
-const receiveEditedVerse = (data) => ({
-  type: "RECEIVE_EDITED_VERSE",
-  data
-})
+const receiveEditedVerse = (data, callback) => {
+  if (callback) {
+    callback(data.verse.id)
+  }
+
+  return ({
+    type: "RECEIVE_EDITED_VERSE",
+    data
+  })
+}
 
 export const editVerseRequest = (verse) => {
   return (dispatch) => {
