@@ -14,10 +14,9 @@ import EditDeleteButtons from '../components/EditDeleteButtons'
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
-  currentVerse: state.verseSelection.currentVerse,
   showEditSongForm: state.showEditSongForm,
   showAddVerseForm: state.showAddVerseForm,
-  showEditVerseForm: state.showEditVerseForm
+  showEditVerseForm: state.showEditVerseForm,
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -110,7 +109,7 @@ class SongShowContainer extends Component{
           id={verse.id}
           songId={this.props.id}
           lyrics={verse.lyrics}
-          selected={this.props.currentVerse == verse.id}
+          selected={this.props.selectedVerseId == verse.id}
           toggleEditVerseForm={this.props.toggleEditVerseForm}
           deleteVerseRequest={this.props.deleteVerseRequest}
         />
@@ -142,18 +141,22 @@ class SongShowContainer extends Component{
             labelRed="Previous"
             labelGreen="Next"
             onClickRed={() => {
-              this.props.handlePrevious(this.props.verses, this.props.currentVerse, (newVerse) => {
-                this.props.cable.subscription.send({
-                  id: newVerse
-                })
-              })
+              this.props.handlePrevious(this.props.verses, this.props.id, this.props.selectedVerseId,
+                (newVerseId) => {
+                  this.props.cable.subscription.send({
+                    selected_verse_id: newVerseId
+                  })
+                }
+              )
             }}
             onClickGreen={() => {
-              this.props.handleNext(this.props.verses, this.props.currentVerse, (newVerse) => {
-                this.props.cable.subscription.send({
-                  id: newVerse
-                })
-              })
+              this.props.handleNext(this.props.verses, this.props.id, this.props.selectedVerseId,
+                (newVerseId) => {
+                  this.props.cable.subscription.send({
+                    selected_verse_id: newVerseId
+                  })
+                }
+              )
             }}
           />
         </div>

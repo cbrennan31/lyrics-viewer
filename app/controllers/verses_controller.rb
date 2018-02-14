@@ -4,9 +4,10 @@ class VersesController < ApplicationController
     @current_event = nil
     @code = 'en'
 
-    verse = Verse.find_by(current: true)
+    selected_song = Song.where("selected_verse_id > 0").last
 
-    if verse
+    if selected_song
+      verse = Verse.find(selected_song.selected_verse_id)
       @lyrics = verse.lyrics
       @code = verse.code
     end

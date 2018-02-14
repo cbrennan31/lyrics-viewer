@@ -12,7 +12,14 @@ class Api::V1::SongsController < ApplicationController
 
   def update
     song = Song.find(params[:id])
-    song.update(title: params[:title])
+
+    if params[:title]
+      song.update(title: params[:title])
+    end
+
+    if params[:selected_verse_id]
+      song.update(selected_verse_id: params[:selected_verse_id])
+    end
 
     render json: {song: song}
   end

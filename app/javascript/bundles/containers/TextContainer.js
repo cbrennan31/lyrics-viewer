@@ -14,6 +14,8 @@ class TextContainer extends Component{
       text = this.props.lyrics
     } else if (this.props.current_event){
       text = this.props.current_event
+    } else {
+      text = defaultText
     }
 
     this.state = {
