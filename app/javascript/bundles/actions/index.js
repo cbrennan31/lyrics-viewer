@@ -34,7 +34,7 @@ const receiveEditedSong = (data, callback) => {
   if (callback) {
     callback(data.song.selected_verse_id)
   }
-  
+
   return ({
     type: "RECEIVE_EDITED_SONG",
     data
@@ -88,11 +88,12 @@ export const handleNext = (verses, songId, selectedVerseId, callback) => {
   }
 }
 
-const handleUpdatedEventStatus = (event, callback) => {
-  callback(event.id)
+const handleUpdatedEventStatus = (data, callback) => {
+  callback(data.event.id)
+
   return {
     type: 'HANDLE_UPDATED_EVENT_STATUS',
-    event
+    data
   }
 }
 
@@ -109,7 +110,7 @@ export const updateEventStatus = (data, callback) => {
       error => console.log('An error occurred.', error)
     )
     .then((json) => {
-        return dispatch(handleUpdatedEventStatus(json.event, callback))
+        return dispatch(handleUpdatedEventStatus(json, callback))
       }
     )
   }

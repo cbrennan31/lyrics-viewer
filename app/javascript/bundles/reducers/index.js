@@ -13,7 +13,7 @@ const selectedSong = (state = null, action) => {
 const eventInProgress = (state = null, action) => {
   switch (action.type) {
     case 'HANDLE_UPDATED_EVENT_STATUS':
-      return action.event.in_progress
+      return action.data.event.in_progress
     default:
       return state
   }
@@ -45,6 +45,14 @@ const receiveSongs = (state = {}, action) => {
         songs: action.data.songs,
         verses: action.data.verses
       })
+    case 'HANDLE_UPDATED_EVENT_STATUS':
+      if (action.data.songs) {
+        return Object.assign({}, state, {
+          songs: action.data.songs
+        })
+      } else {
+        return state
+      }
     case 'RECEIVE_SONG':
       let songId = action.data.song.id
 
