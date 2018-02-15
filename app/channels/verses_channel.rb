@@ -7,28 +7,23 @@ class VersesChannel < ApplicationCable::Channel
     lyrics = nil
     event_title = nil
     code = 'en'
-# change id to a diff variable name
-    if data['id']
+    
+    if data['selected_verse_id']
 
       if Event.find_by(in_progress: true)
         event_title = Event.find_by(in_progress: true).title
       end
 
-      Verse.all.each { |v| v.update(current: false) }
-
-      if data['id'] > 0
-        verse = Verse.find(data['id'])
-        verse.update(current: true)
+      if data['selected_verse_id'] > 0
+        verse = Verse.find(data['selected_verse_id'])
         lyrics = verse.lyrics
         code = verse.code
       end
     end
 
     if data['current_event']
-      if data['current_event'] > 0
-        current_event = Event.find_by(in_progress: true)
-        event_title = current_event.title
-      end
+      current_event = Event.find_by(in_progress: true)
+      event_title = current_event.title
     end
 
     ActionCable.server.broadcast("verses", {

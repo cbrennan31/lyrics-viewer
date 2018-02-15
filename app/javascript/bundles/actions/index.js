@@ -1,9 +1,27 @@
 import fetch from 'cross-fetch'
 
-export const selectSong = (id) => ({
+const selectSong = (id) => ({
   type: 'SELECT_SONG',
   id
 })
+
+export const updateSelectedSong = (data) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/events/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then((json) => {
+        return dispatch(selectSong(json.event.selected_song_id))
+    })
+  }
+}
 
 export const subscribe = (cable) => ({
   type: 'SUBSCRIBE_TO_CHANNEL',
@@ -12,50 +30,70 @@ export const subscribe = (cable) => ({
   })
 })
 
-export const handlePrevious = (verses, currentVerse, callback) => {
-  let verseIDs = verses.map(verse => verse.id)
-  let newVerse = 0
-
-  if (currentVerse != verseIDs[0]) {
-      let indexOfCurrentVerseID = verseIDs.indexOf(currentVerse)
-      indexOfCurrentVerseID -= 1
-      newVerse = verseIDs[indexOfCurrentVerseID]
+const receiveEditedSong = (data, callback) => {
+  if (callback) {
+    callback(data.song.selected_verse_id)
   }
 
-  callback(newVerse)
-
-  return {
-    type: 'HANDLE_PREVIOUS',
-    currentVerse: newVerse
-  }
+  return ({
+    type: "RECEIVE_EDITED_SONG",
+    data
+  })
 }
 
-export const handleNext = (verses, currentVerse, callback) => {
-  let verseIDs = verses.map(verse => verse.id)
-  let newVerse = 0
+const fetchUpdatedVerseSelection = (dispatch, songId, newVerseId, callback) => {
+  fetch(`/api/v1/songs/${songId}`, {
+    credentials: 'same-origin',
+    method: 'PATCH',
+    body: JSON.stringify({selected_verse_id: newVerseId}),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(
+    response => response.json(),
+    error => console.log('An error occurred.', error)
+  )
+  .then(json => {
+    return dispatch(receiveEditedSong(json, callback))
+  })
+}
 
-  if (currentVerse != verseIDs[verseIDs.length - 1]) {
-    if (currentVerse == 0) {
-      newVerse = verseIDs[0]
+export const handlePrevious = (verses, songId, selectedVerseId, callback) => {
+  return (dispatch) => {
+    let verseIds = verses.map(verse => verse.id)
+    let newVerseId = 0
+
+    if (selectedVerseId != verseIds[0]) {
+        let indexOfCurrentVerseId = verseIds.indexOf(selectedVerseId)
+        indexOfCurrentVerseId -= 1
+        newVerseId = verseIds[indexOfCurrentVerseId]
     }
-    let indexOfCurrentVerseId = verseIDs.indexOf(currentVerse)
-    indexOfCurrentVerseId += 1
-    newVerse = verseIDs[indexOfCurrentVerseId]
-  }
-
-  callback(newVerse)
-
-  return {
-    type: 'HANDLE_NEXT',
-    currentVerse: newVerse
+    return fetchUpdatedVerseSelection(dispatch, songId, newVerseId, callback)
   }
 }
 
-const handleUpdatedEventStatus = (event, callback) => {
-  callback(event.id)
+export const handleNext = (verses, songId, selectedVerseId, callback) => {
+  return (dispatch) => {
+    let verseIds = verses.map(verse => verse.id)
+    let newVerseId = 0
+
+    if (selectedVerseId != verseIds[verseIds.length - 1]) {
+      if (selectedVerseId == 0) {
+        newVerseId = verseIds[0]
+      }
+      let indexOfCurrentVerseId = verseIds.indexOf(selectedVerseId)
+      indexOfCurrentVerseId += 1
+      newVerseId = verseIds[indexOfCurrentVerseId]
+    }
+    return fetchUpdatedVerseSelection(dispatch, songId, newVerseId, callback)
+  }
+}
+
+const handleUpdatedEventStatus = (data, callback) => {
+  callback(data.event.id)
+
   return {
     type: 'HANDLE_UPDATED_EVENT_STATUS',
-    event
+    data
   }
 }
 
@@ -72,7 +110,7 @@ export const updateEventStatus = (data, callback) => {
       error => console.log('An error occurred.', error)
     )
     .then((json) => {
-        return dispatch(handleUpdatedEventStatus(json.event, callback))
+        return dispatch(handleUpdatedEventStatus(json, callback))
       }
     )
   }
@@ -107,7 +145,13 @@ export const submitSongRequest = (data) => {
         error => console.log('An error occurred.', error)
       )
       .then(json => {
-        return dispatch(receiveSong(json))
+        dispatch(updateSelectedSong({
+          id: json.song.event_id,
+          selected_song_id: json.song.id
+        }))
+        return(
+          dispatch(receiveSong(json))
+        )
       })
     }
   }
@@ -130,12 +174,6 @@ export const toggleEditSongForm = () => ({
   type: "TOGGLE_EDIT_SONG_FORM"
 })
 
-
-const receiveEditedTitle = (data) => ({
-  type: "RECEIVE_EDITED_TITLE",
-  data
-})
-
 export const editTitleRequest = (song) => {
   return (dispatch) => {
     dispatch(toggleEditSongForm())
@@ -150,7 +188,7 @@ export const editTitleRequest = (song) => {
       error => console.log('An error occurred.', error)
     )
     .then(json => {
-      return dispatch(receiveEditedTitle(json))
+      return dispatch(receiveEditedSong(json))
     })
   }
 }
@@ -189,10 +227,16 @@ export const toggleEditVerseForm = (id, defaultValue) => ({
   defaultValue
 })
 
-const receiveEditedVerse = (data) => ({
-  type: "RECEIVE_EDITED_VERSE",
-  data
-})
+const receiveEditedVerse = (data, callback) => {
+  if (callback) {
+    callback(data.verse.id)
+  }
+
+  return ({
+    type: "RECEIVE_EDITED_VERSE",
+    data
+  })
+}
 
 export const editVerseRequest = (verse) => {
   return (dispatch) => {
@@ -231,6 +275,10 @@ export const deleteSongRequest = (id) => {
       error => console.log('An error occurred.', error)
     )
     .then(json => {
+      dispatch(updateSelectedSong({
+        id: json.song.event_id,
+        selected_song_id: json.selected_song_id
+      }))
       return dispatch(handleDeletedSong(json))
     })
   }

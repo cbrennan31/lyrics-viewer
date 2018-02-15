@@ -12,10 +12,11 @@ import FlatButton from 'material-ui/FlatButton';
 
 const mapStateToProps = (state, ownProps) => {
   let songs = state.receiveSongs.songs || []
-  let verses = state.receiveVerses.verses || []
+  let verses = state.receiveSongs.verses || []
   let eventInProgress = state.eventInProgress != null ? state.eventInProgress : ownProps.event.in_progress
+  let selectedSong = state.selectedSong || ownProps.event.selected_song_id
   return ({
-    selectedSong: state.selectedSong,
+    selectedSong,
     cable: state.cable,
     showAddSongForm: state.showAddSongForm,
     eventInProgress,
@@ -26,7 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    selectSong: Actions.selectSong,
+    updateSelectedSong: Actions.updateSelectedSong,
     subscribe: Actions.subscribe,
     updateEventStatus: Actions.updateEventStatus,
     toggleAddSongForm: Actions.toggleAddSongForm,
@@ -70,6 +71,7 @@ class EventShowContainer extends Component{
           eventID = {this.props.id}
           id = {song.id}
           title = {song.title}
+          selectedVerseId = {song.selected_verse_id}
           verses = { this.props.verses[song.id] }
           subscribe = {this.props.subscribe}
           cable = {this.props.cable}
@@ -87,7 +89,10 @@ class EventShowContainer extends Component{
         key={song.id}
         id={song.id}
         onClick = { () => {
-          this.props.selectSong(song.id)
+          this.props.updateSelectedSong({
+            id: this.props.event.id,
+            selected_song_id: song.id
+          })
         }}
         className={className}
       >
@@ -123,7 +128,7 @@ class EventShowContainer extends Component{
                 id: this.props.event.id,
                 in_progress: false
               }, (id) => {
-                this.props.cable.subscription.send({current_event: 0})
+                this.props.cable.subscription.send({current_event: null})
               })
             }
           />

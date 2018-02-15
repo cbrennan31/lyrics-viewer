@@ -12,7 +12,14 @@ class Api::V1::SongsController < ApplicationController
 
   def update
     song = Song.find(params[:id])
-    song.update(title: params[:title])
+
+    if params[:title]
+      song.update(title: params[:title])
+    end
+
+    if params[:selected_verse_id]
+      song.update(selected_verse_id: params[:selected_verse_id])
+    end
 
     render json: {song: song}
   end
@@ -27,6 +34,12 @@ class Api::V1::SongsController < ApplicationController
 
     song.destroy
 
-    render json: {id: song.id, selected_song_id: Song.first.id}
+    selected_song_id = nil
+
+    if Song.first
+      selected_song_id = Song.first.id
+    end
+
+    render json: {song: song, selected_song_id: selected_song_id}
   end
 end
