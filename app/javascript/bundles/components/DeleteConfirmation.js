@@ -14,7 +14,7 @@ const DeleteConfirmation = (props) => {
         color: 'white'
       }}
       className="song-form-button"
-      onClick={() => props.deleteVerseRequest({id: props.verseId})}
+      onClick={() => props.deleteRequest({id: props.id})}
     />,
     <RaisedButton
       secondary={true}

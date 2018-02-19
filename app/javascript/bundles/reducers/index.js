@@ -111,6 +111,17 @@ const receiveSongs = (state = {}, action) => {
   }
 }
 
+const showDeleteSongForm = (state = false, action) => {
+  switch (action.type){
+    case 'TOGGLE_DELETE_SONG_FORM':
+      return !state
+    case 'SELECT_SONG':
+      return false
+    default:
+      return state
+  }
+}
+
 const showEditSongForm = (state = false, action) => {
   switch (action.type){
     case 'TOGGLE_EDIT_SONG_FORM':
@@ -166,7 +177,8 @@ const EventShowReducer = combineReducers({
   showEditSongForm,
   showAddVerseForm,
   showEditVerseForm,
-  showDeleteVerseForm
+  showDeleteVerseForm,
+  showDeleteSongForm
 })
 
 export default EventShowReducer

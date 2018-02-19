@@ -18,7 +18,8 @@ const mapStateToProps = (state) => ({
   showEditSongForm: state.showEditSongForm,
   showAddVerseForm: state.showAddVerseForm,
   showEditVerseForm: state.showEditVerseForm,
-  showDeleteVerseForm: state.showDeleteVerseForm
+  showDeleteVerseForm: state.showDeleteVerseForm,
+  showDeleteSongForm: state.showDeleteSongForm,
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,7 +35,8 @@ const mapDispatchToProps = (dispatch) => {
     editVerseRequest: Actions.editVerseRequest,
     toggleEditVerseForm: Actions.toggleEditVerseForm,
     deleteVerseRequest: Actions.deleteVerseRequest,
-    toggleDeleteVerseForm: Actions.toggleDeleteVerseForm
+    toggleDeleteVerseForm: Actions.toggleDeleteVerseForm,
+    toggleDeleteSongForm: Actions.toggleDeleteSongForm
   }, dispatch)
 }
 
@@ -99,7 +101,7 @@ class SongShowContainer extends Component{
         <span id='song-title'>{this.props.title}</span>
         <EditDeleteButtons
           onClickEdit={this.props.toggleEditSongForm}
-          onClickDelete={() => this.props.deleteSongRequest(this.props.id)}
+          onClickDelete={this.props.toggleDeleteSongForm}
         />
       </div>
 
@@ -138,11 +140,24 @@ class SongShowContainer extends Component{
     if (this.props.showDeleteVerseForm) {
       deleteVerse =
         <DeleteConfirmation
-          verseId={this.props.showDeleteVerseForm}
-          deleteVerseRequest={this.props.deleteVerseRequest}
+          id={this.props.showDeleteVerseForm}
+          deleteRequest={this.props.deleteVerseRequest}
           open={!!this.props.showDeleteVerseForm}
           cancel={this.props.toggleDeleteVerseForm}
           item='verse'
+        />
+    }
+
+    let deleteSong
+
+    if (this.props.showDeleteSongForm) {
+      deleteSong =
+        <DeleteConfirmation
+          id={this.props.id}
+          deleteRequest={this.props.deleteSongRequest}
+          open={!!this.props.showDeleteSongForm}
+          cancel={this.props.toggleDeleteSongForm}
+          item='song'
         />
     }
 
@@ -187,6 +202,7 @@ class SongShowContainer extends Component{
 
         {editVerse}
         {deleteVerse}
+        {deleteSong}
       </div>
     )
   }
