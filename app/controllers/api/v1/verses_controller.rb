@@ -26,6 +26,8 @@ class Api::V1::VersesController < ApplicationController
     verse = Verse.find(params[:id])
 
     verse.destroy
+
+    render json: {verse: verse}
   end
 
   private

@@ -96,8 +96,8 @@ const receiveSongs = (state = {}, action) => {
         verses: versesCopy
       })
     case 'HANDLE_DELETED_VERSE':
-      songId = action.data.song_id
-      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.id)
+      songId = action.data.verse.song_id
+      let deletedVerseIndex = versesCopy[songId].findIndex((el) => el.id == action.data.verse.id)
       updatedVersesArray = versesCopy[songId].slice()
       updatedVersesArray.splice(deletedVerseIndex, 1)
       versesCopy[songId] = updatedVersesArray
@@ -106,6 +106,17 @@ const receiveSongs = (state = {}, action) => {
         verses: versesCopy
       })
 
+    default:
+      return state
+  }
+}
+
+const showDeleteSongForm = (state = false, action) => {
+  switch (action.type){
+    case 'TOGGLE_DELETE_SONG_FORM':
+      return !state
+    case 'SELECT_SONG':
+      return false
     default:
       return state
   }
@@ -144,6 +155,18 @@ const showEditVerseForm = (state = false, action) => {
   }
 }
 
+const showDeleteVerseForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_DELETE_VERSE_FORM':
+      if (!state) {
+        return action.id
+      } else {
+        return false
+      }
+    default:
+      return state
+  }
+}
 
 const EventShowReducer = combineReducers({
   selectedSong,
@@ -153,7 +176,9 @@ const EventShowReducer = combineReducers({
   receiveSongs,
   showEditSongForm,
   showAddVerseForm,
-  showEditVerseForm
+  showEditVerseForm,
+  showDeleteVerseForm,
+  showDeleteSongForm
 })
 
 export default EventShowReducer

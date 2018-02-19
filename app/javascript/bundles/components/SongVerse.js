@@ -25,10 +25,7 @@ const SongVerse = (props) => {
 
       <div className="edit-delete-verse">
         <EditDeleteButtons
-          onClickDelete={() => props.deleteVerseRequest({
-            id: props.id,
-            songId: props.songId
-          })}
+          onClickDelete={() => props.toggleDeleteVerseForm(props.id)}
           onClickEdit={() => props.toggleEditVerseForm(props.id, props.lyrics)}
         />
       </div>

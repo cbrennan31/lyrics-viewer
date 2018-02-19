@@ -262,12 +262,16 @@ const handleDeletedSong = (data) => ({
   data
 })
 
-export const deleteSongRequest = (id) => {
+export const toggleDeleteSongForm = () => ({
+  type: 'TOGGLE_DELETE_SONG_FORM'
+})
+
+export const deleteSongRequest = (data) => {
   return (dispatch) => {
-    return fetch(`/api/v1/songs/${id}`, {
+    return fetch(`/api/v1/songs/${data.id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
-      body: JSON.stringify(id),
+      body: JSON.stringify(data.id),
       headers: { 'Content-Type': 'application/json' }
     })
     .then(
@@ -289,8 +293,14 @@ const handleDeletedVerse = (data) => ({
   data
 })
 
+export const toggleDeleteVerseForm = (id) => ({
+  type: 'TOGGLE_DELETE_VERSE_FORM',
+  id
+})
+
 export const deleteVerseRequest = (data) => {
   return (dispatch) => {
+    dispatch(toggleDeleteVerseForm())
     return fetch(`/api/v1/verses/${data.id}`, {
       credentials: 'same-origin',
       method: 'DELETE',
