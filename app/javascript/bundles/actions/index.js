@@ -289,8 +289,14 @@ const handleDeletedVerse = (data) => ({
   data
 })
 
+export const toggleDeleteVerseForm = (id) => ({
+  type: 'TOGGLE_DELETE_VERSE_FORM',
+  id
+})
+
 export const deleteVerseRequest = (data) => {
   return (dispatch) => {
+    dispatch(toggleDeleteVerseForm())
     return fetch(`/api/v1/verses/${data.id}`, {
       credentials: 'same-origin',
       method: 'DELETE',

@@ -11,12 +11,14 @@ import SongTitleForm from '../components/SongTitleForm'
 import TextField from 'material-ui/TextField';
 import RedGreenButtonDiv from '../components/RedGreenButtonDiv'
 import EditDeleteButtons from '../components/EditDeleteButtons'
+import DeleteConfirmation from '../components/DeleteConfirmation'
 
 const mapStateToProps = (state) => ({
   cable: state.cable,
   showEditSongForm: state.showEditSongForm,
   showAddVerseForm: state.showAddVerseForm,
   showEditVerseForm: state.showEditVerseForm,
+  showDeleteVerseForm: state.showDeleteVerseForm
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -32,6 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     editVerseRequest: Actions.editVerseRequest,
     toggleEditVerseForm: Actions.toggleEditVerseForm,
     deleteVerseRequest: Actions.deleteVerseRequest,
+    toggleDeleteVerseForm: Actions.toggleDeleteVerseForm
   }, dispatch)
 }
 
@@ -111,7 +114,7 @@ class SongShowContainer extends Component{
           lyrics={verse.lyrics}
           selected={this.props.selectedVerseId == verse.id}
           toggleEditVerseForm={this.props.toggleEditVerseForm}
-          deleteVerseRequest={this.props.deleteVerseRequest}
+          toggleDeleteVerseForm={this.props.toggleDeleteVerseForm}
         />
       })
     }
@@ -127,6 +130,19 @@ class SongShowContainer extends Component{
           open={!!this.props.showEditVerseForm}
           cancel={this.props.toggleEditVerseForm}
           defaultValue={this.props.showEditVerseForm.defaultValue}
+        />
+    }
+
+    let deleteVerse
+
+    if (this.props.showDeleteVerseForm) {
+      deleteVerse =
+        <DeleteConfirmation
+          verseId={this.props.showDeleteVerseForm}
+          deleteVerseRequest={this.props.deleteVerseRequest}
+          open={!!this.props.showDeleteVerseForm}
+          cancel={this.props.toggleDeleteVerseForm}
+          item='verse'
         />
     }
 
@@ -170,6 +186,7 @@ class SongShowContainer extends Component{
         </div>
 
         {editVerse}
+        {deleteVerse}
       </div>
     )
   }
