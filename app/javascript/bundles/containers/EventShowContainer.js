@@ -7,7 +7,7 @@ import ActionCable from 'actioncable';
 import SongTitleForm from '../components/SongTitleForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RedGreenButtonDiv from "../components/RedGreenButtonDiv"
+import ControlsButton from "../components/ControlsButton"
 import FlatButton from 'material-ui/FlatButton';
 
 const mapStateToProps = (state, ownProps) => {
@@ -112,27 +112,33 @@ class EventShowContainer extends Component{
 
           {eventMessage}
 
-          <RedGreenButtonDiv
-            labelRed="Start Event"
-            labelGreen="End Event"
-            onClickRed={() =>
-              this.props.updateEventStatus({
-                id: this.props.event.id,
-                in_progress: true
-              }, (id) => {
-                this.props.cable.subscription.send({current_event: id})
-              })
-            }
-            onClickGreen={() =>
-              this.props.updateEventStatus({
-                id: this.props.event.id,
-                in_progress: false
-              }, (id) => {
-                this.props.cable.subscription.send({current_event: null})
-              })
-            }
-          />
+          <div className="green-red-button-div">
+            <ControlsButton
+              backgroundColor="#a4c639"
+              label="Start Event"
+              onClick={() =>
+                this.props.updateEventStatus({
+                  id: this.props.event.id,
+                  in_progress: true
+                }, (id) => {
+                  this.props.cable.subscription.send({current_event: id})
+                })
+              }
+            />
 
+            <ControlsButton
+              label="End Event"
+              backgroundColor="#ff0079"
+              onClick={() =>
+                this.props.updateEventStatus({
+                  id: this.props.event.id,
+                  in_progress: false
+                }, (id) => {
+                  this.props.cable.subscription.send({current_event: null})
+                })
+              }
+            />
+          </div>
           {songTitles}
 
           <div id='add-song-div'>

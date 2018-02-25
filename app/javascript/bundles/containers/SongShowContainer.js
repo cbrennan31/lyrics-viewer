@@ -9,7 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton'
 import SongTitleForm from '../components/SongTitleForm'
 import TextField from 'material-ui/TextField';
-import RedGreenButtonDiv from '../components/RedGreenButtonDiv'
+import ControlsButton from '../components/ControlsButton'
 import EditDeleteButtons from '../components/EditDeleteButtons'
 import DeleteConfirmation from '../components/DeleteConfirmation'
 
@@ -65,6 +65,48 @@ class SongShowContainer extends Component{
   }
 
   render() {
+    let rightButtonLabel
+    let rightButtonBackground = "#ff0079"
+    let leftButton = <ControlsButton
+      label="Previous Verse"
+      backgroundColor="#a4c639"
+      onClick={() => {
+        this.props.handlePrevious(this.props.verses, this.props.id, this.props.selectedVerseId,
+          (newVerseId) => {
+            this.props.cable.subscription.send({
+              selected_verse_id: newVerseId
+            })
+          }
+        )
+      }}
+    />
+
+    if (this.props.selectedVerseId === 0) {
+      rightButtonLabel = "Start Song"
+      leftButton = null
+      rightButtonBackground = "#a4c639"
+    } else if (this.props.selectedVerseId == this.props.verses[this.props.verses.length - 1].id) {
+      rightButtonLabel = "End Song"
+    } else {
+      rightButtonLabel = "Next Verse"
+    }
+
+    let rightButton = <ControlsButton
+      label={rightButtonLabel}
+      backgroundColor={rightButtonBackground}
+      onClick={() => {
+        this.props.handleNext(this.props.verses, this.props.id, this.props.selectedVerseId,
+          (newVerseId) => {
+            this.props.cable.subscription.send({
+              selected_verse_id: newVerseId
+            })
+          }
+        )
+      }}
+    />
+
+
+
     let addVerse = this.props.showAddVerseForm ?
       <VerseForm
         onSubmit={this.props.submitVerseRequest}
@@ -168,28 +210,10 @@ class SongShowContainer extends Component{
             {editSong}
           </div>
 
-          <RedGreenButtonDiv
-            labelRed="Previous"
-            labelGreen="Next"
-            onClickRed={() => {
-              this.props.handlePrevious(this.props.verses, this.props.id, this.props.selectedVerseId,
-                (newVerseId) => {
-                  this.props.cable.subscription.send({
-                    selected_verse_id: newVerseId
-                  })
-                }
-              )
-            }}
-            onClickGreen={() => {
-              this.props.handleNext(this.props.verses, this.props.id, this.props.selectedVerseId,
-                (newVerseId) => {
-                  this.props.cable.subscription.send({
-                    selected_verse_id: newVerseId
-                  })
-                }
-              )
-            }}
-          />
+          <div className='green-red-button-div'>
+            {leftButton}
+            {rightButton}
+          </div>
         </div>
 
         <div id='verses-grid'>
