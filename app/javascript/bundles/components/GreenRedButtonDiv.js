@@ -1,13 +1,13 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 
-const RedGreenButtonDiv = (props) => {
+const GreenRedButtonDiv = (props) => {
   return (
     <div id='start-end-event-div'>
       <RaisedButton
         backgroundColor="#a4c639"
-        label={props.labelRed}
-        onClick={props.onClickRed}
+        label={props.labelGreen}
+        onClick={props.onClickGreen}
         labelStyle={{
           color: 'white'
         }}
@@ -16,12 +16,12 @@ const RedGreenButtonDiv = (props) => {
 
       <RaisedButton
         secondary={true}
-        label={props.labelGreen}
-        onClick={props.onClickGreen}
+        label={props.labelRed}
+        onClick={props.onClickRed}
         className="event-button"
       />
     </div>
   )
 }
 
-export default RedGreenButtonDiv
+export default GreenRedButtonDiv
