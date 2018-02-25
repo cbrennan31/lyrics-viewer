@@ -1,18 +1,18 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 
-const GreenButton = (props) => {
+const ControlsButton = (props) => {
   return (
     <RaisedButton
-      backgroundColor="#a4c639"
+      backgroundColor={props.backgroundColor}
       label={props.label}
-      onClick={props.onClick}
       labelStyle={{
         color: 'white'
       }}
+      onClick={props.onClick}
       className="event-button"
     />
   )
 }
 
-export default GreenButton
+export default ControlsButton

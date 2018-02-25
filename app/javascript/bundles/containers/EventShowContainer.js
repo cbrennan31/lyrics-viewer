@@ -7,8 +7,7 @@ import ActionCable from 'actioncable';
 import SongTitleForm from '../components/SongTitleForm'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import GreenButton from "../components/GreenButton"
-import RedButton from "../components/RedButton"
+import ControlsButton from "../components/ControlsButton"
 import FlatButton from 'material-ui/FlatButton';
 
 const mapStateToProps = (state, ownProps) => {
@@ -114,7 +113,8 @@ class EventShowContainer extends Component{
           {eventMessage}
 
           <div className="green-red-button-div">
-            <GreenButton
+            <ControlsButton
+              backgroundColor="#a4c639"
               label="Start Event"
               onClick={() =>
                 this.props.updateEventStatus({
@@ -126,8 +126,9 @@ class EventShowContainer extends Component{
               }
             />
 
-            <RedButton
+            <ControlsButton
               label="End Event"
+              backgroundColor="#ff0079"
               onClick={() =>
                 this.props.updateEventStatus({
                   id: this.props.event.id,
