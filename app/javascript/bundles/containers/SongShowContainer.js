@@ -48,10 +48,6 @@ class SongShowContainer extends Component{
     this.props.subscribe(this.props.cable)
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   this.setState({editTitleValue: this.props.title})
-  // }
-
   render() {
     let rightButtonLabel
     let rightButtonBackground = "#ff0079"
