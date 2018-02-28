@@ -75,6 +75,7 @@ class EventShowContainer extends Component{
           verses = { this.props.verses[song.id] }
           subscribe = {this.props.subscribe}
           cable = {this.props.cable}
+          eventInProgress = {this.props.eventInProgress}
         />
       }
     })

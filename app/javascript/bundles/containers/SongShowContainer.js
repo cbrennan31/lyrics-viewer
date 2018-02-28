@@ -91,21 +91,24 @@ class SongShowContainer extends Component{
       rightButtonLabel = "Next Verse"
     }
 
+    let rightButtonClassName = !this.props.eventInProgress ? "button-not-allowed" : "button-allowed"
+
     let rightButton = <ControlsButton
+      className={rightButtonClassName}
       label={rightButtonLabel}
       backgroundColor={rightButtonBackground}
       onClick={() => {
-        this.props.handleNext(this.props.verses, this.props.id, this.props.selectedVerseId,
-          (newVerseId) => {
-            this.props.cable.subscription.send({
-              selected_verse_id: newVerseId
-            })
-          }
-        )
+        if (this.props.eventInProgress) {
+          this.props.handleNext(this.props.verses, this.props.id, this.props.selectedVerseId,
+            (newVerseId) => {
+              this.props.cable.subscription.send({
+                selected_verse_id: newVerseId
+              })
+            }
+          )
+        }
       }}
     />
-
-
 
     let addVerse = this.props.showAddVerseForm ?
       <VerseForm

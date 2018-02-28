@@ -60,3 +60,7 @@
 .edit-delete-verse {
   text-align: center;
 }
+
+.button-not-allowed {
+  cursor: not-allowed !important;
+}
