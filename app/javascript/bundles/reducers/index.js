@@ -168,6 +168,17 @@ const showDeleteVerseForm = (state = false, action) => {
   }
 }
 
+const editSongTitleValue = (state = '', action) => {
+  switch (action.type) {
+    case 'HANDLE_EDIT_SONG_TITLE':
+      return action.value
+    case 'TOGGLE_EDIT_SONG_FORM':
+      return ''
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
   selectedSong,
   cable,
@@ -178,7 +189,8 @@ const EventShowReducer = combineReducers({
   showAddVerseForm,
   showEditVerseForm,
   showDeleteVerseForm,
-  showDeleteSongForm
+  showDeleteSongForm,
+  editSongTitleValue
 })
 
 export default EventShowReducer

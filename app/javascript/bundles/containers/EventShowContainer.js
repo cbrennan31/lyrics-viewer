@@ -140,6 +140,7 @@ class EventShowContainer extends Component{
               }
             />
           </div>
+          
           {songTitles}
 
           <div id='add-song-div'>

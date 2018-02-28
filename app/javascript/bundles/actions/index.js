@@ -316,3 +316,8 @@ export const deleteVerseRequest = (data) => {
     })
   }
 }
+
+export const handleEditSongTitle = (e) => ({
+  type: 'HANDLE_EDIT_SONG_TITLE',
+  value: e.target.value
+})

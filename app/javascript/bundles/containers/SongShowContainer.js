@@ -20,6 +20,7 @@ const mapStateToProps = (state) => ({
   showEditVerseForm: state.showEditVerseForm,
   showDeleteVerseForm: state.showDeleteVerseForm,
   showDeleteSongForm: state.showDeleteSongForm,
+  editSongTitleValue: state.editSongTitleValue,
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -36,33 +37,20 @@ const mapDispatchToProps = (dispatch) => {
     toggleEditVerseForm: Actions.toggleEditVerseForm,
     deleteVerseRequest: Actions.deleteVerseRequest,
     toggleDeleteVerseForm: Actions.toggleDeleteVerseForm,
-    toggleDeleteSongForm: Actions.toggleDeleteSongForm
+    toggleDeleteSongForm: Actions.toggleDeleteSongForm,
+    handleEditSongTitle: Actions.handleEditSongTitle
   }, dispatch)
 }
 
 class SongShowContainer extends Component{
 
-  constructor (props) {
-    super (props)
-
-    this.state = {
-      editTitleValue: '',
-    }
-
-    this.handleTitleChange = this.handleTitleChange.bind(this)
-  }
-
   componentDidMount() {
     this.props.subscribe(this.props.cable)
   }
 
-  componentWillReceiveProps(newProps) {
-    this.setState({editTitleValue: this.props.title})
-  }
-
-  handleTitleChange(e) {
-    this.setState({editTitleValue: e.target.value})
-  }
+  // componentWillReceiveProps(newProps) {
+  //   this.setState({editTitleValue: this.props.title})
+  // }
 
   render() {
     let rightButtonLabel
@@ -137,8 +125,10 @@ class SongShowContainer extends Component{
           id={this.props.id}
           toggleForm={this.props.toggleEditSongForm}
           placeholder={null}
-          defaultValue={this.state.editTitleValue}
           onSubmit={this.props.editTitleRequest}
+          value={this.props.editSongTitleValue}
+          defaultValue={this.props.title}
+          onChange={this.props.handleEditSongTitle}
         />
       </div>
       :
