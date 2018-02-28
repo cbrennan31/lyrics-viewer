@@ -6,7 +6,7 @@ const SongTitleForm = (props) => {
 
   let value
 
-  if (props.value === '') {
+  if (props.value === null) {
     value = props.defaultValue
   } else {
     value = props.value

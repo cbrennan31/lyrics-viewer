@@ -168,12 +168,12 @@ const showDeleteVerseForm = (state = false, action) => {
   }
 }
 
-const editSongTitleValue = (state = '', action) => {
+const editSongTitleValue = (state = null, action) => {
   switch (action.type) {
     case 'HANDLE_EDIT_SONG_TITLE':
       return action.value
     case 'TOGGLE_EDIT_SONG_FORM':
-      return ''
+      return null
     default:
       return state
   }
