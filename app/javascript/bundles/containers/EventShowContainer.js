@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     eventInProgress,
     songs,
     verses,
-    songTitleValue: state.songTitleValue
+    addSongTitleValue: state.addSongTitleValue
   })
 }
 
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleAddSongForm: Actions.toggleAddSongForm,
     submitSongRequest: Actions.submitSongRequest,
     requestSongsOnMount: Actions.requestSongsOnMount,
-    handleSongTitleChange: Actions.handleSongTitleChange
+    handleAddTitleChange: Actions.handleAddTitleChange
   }, dispatch)
 }
 
@@ -48,12 +48,12 @@ class EventShowContainer extends Component{
     let addSong = this.props.showAddSongForm ?
       <SongTitleForm
         onSubmit={this.props.submitSongRequest}
-        onChange={this.props.handleSongTitleChange}
+        onChange={this.props.handleAddTitleChange}
         id={this.props.event.id}
         toggleForm={this.props.toggleAddSongForm}
         placeholder={'Enter title'}
         defaultValue=''
-        value={this.props.songTitleValue}
+        value={this.props.addSongTitleValue}
       /> :
       <FlatButton
         label="Add Song"
