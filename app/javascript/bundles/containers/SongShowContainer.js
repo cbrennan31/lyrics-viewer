@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
   showEditVerseForm: state.showEditVerseForm,
   showDeleteVerseForm: state.showDeleteVerseForm,
   showDeleteSongForm: state.showDeleteSongForm,
-  editSongTitleValue: state.editSongTitleValue,
+  songTitleValue: state.songTitleValue,
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteVerseRequest: Actions.deleteVerseRequest,
     toggleDeleteVerseForm: Actions.toggleDeleteVerseForm,
     toggleDeleteSongForm: Actions.toggleDeleteSongForm,
-    handleEditSongTitle: Actions.handleEditSongTitle
+    handleSongTitleChange: Actions.handleSongTitleChange
   }, dispatch)
 }
 
@@ -122,9 +122,9 @@ class SongShowContainer extends Component{
           toggleForm={this.props.toggleEditSongForm}
           placeholder={null}
           onSubmit={this.props.editTitleRequest}
-          value={this.props.editSongTitleValue}
+          value={this.props.songTitleValue}
           defaultValue={this.props.title}
-          onChange={this.props.handleEditSongTitle}
+          onChange={this.props.handleSongTitleChange}
         />
       </div>
       :

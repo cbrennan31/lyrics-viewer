@@ -168,11 +168,13 @@ const showDeleteVerseForm = (state = false, action) => {
   }
 }
 
-const editSongTitleValue = (state = null, action) => {
+const songTitleValue = (state = null, action) => {
   switch (action.type) {
-    case 'HANDLE_EDIT_SONG_TITLE':
+    case 'HANDLE_SONG_TITLE_CHANGE':
       return action.value
     case 'TOGGLE_EDIT_SONG_FORM':
+      return null
+    case 'TOGGLE_ADD_SONG_FORM':
       return null
     default:
       return state
@@ -190,7 +192,7 @@ const EventShowReducer = combineReducers({
   showEditVerseForm,
   showDeleteVerseForm,
   showDeleteSongForm,
-  editSongTitleValue
+  songTitleValue
 })
 
 export default EventShowReducer
