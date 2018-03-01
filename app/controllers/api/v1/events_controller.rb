@@ -1,5 +1,12 @@
 class Api::V1::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
+
+  def index
+    events = Event.all
+
+    render json: {events: events}
+  end
+
   def show
     event = Event.find(params[:id])
     songs = Song.where(event: event).order(:id)
