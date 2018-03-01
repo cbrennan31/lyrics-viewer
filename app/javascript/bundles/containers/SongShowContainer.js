@@ -21,6 +21,8 @@ const mapStateToProps = (state) => ({
   showDeleteVerseForm: state.showDeleteVerseForm,
   showDeleteSongForm: state.showDeleteSongForm,
   editSongTitleValue: state.editSongTitleValue,
+  addVerseValue: state.addVerseValue,
+  editVerseValue: state.editVerseValue
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -38,7 +40,9 @@ const mapDispatchToProps = (dispatch) => {
     deleteVerseRequest: Actions.deleteVerseRequest,
     toggleDeleteVerseForm: Actions.toggleDeleteVerseForm,
     toggleDeleteSongForm: Actions.toggleDeleteSongForm,
-    handleEditTitleChange: Actions.handleEditTitleChange
+    handleEditTitleChange: Actions.handleEditTitleChange,
+    handleAddVerseChange: Actions.handleAddVerseChange,
+    handleEditVerseChange: Actions.handleEditVerseChange
   }, dispatch)
 }
 
@@ -102,6 +106,8 @@ class SongShowContainer extends Component{
         open={this.props.showAddVerseForm}
         cancel={this.props.toggleAddVerseForm}
         defaultValue=''
+        value={this.props.addVerseValue}
+        handleChange={this.props.handleAddVerseChange}
       />
       :
       <FlatButton
@@ -163,6 +169,8 @@ class SongShowContainer extends Component{
           open={!!this.props.showEditVerseForm}
           cancel={this.props.toggleEditVerseForm}
           defaultValue={this.props.showEditVerseForm.defaultValue}
+          value={this.props.editVerseValue}
+          handleChange={this.props.handleEditVerseChange}
         />
     }
 
