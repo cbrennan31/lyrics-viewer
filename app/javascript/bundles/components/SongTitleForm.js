@@ -2,70 +2,59 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField';
 
-class SongTitleForm extends Component{
+const SongTitleForm = (props) => {
 
-  constructor(props) {
-    super(props);
+  let value
 
-    this.state = {
-      value: this.props.defaultValue
-    };
-
-    this.handleChange = this.handleChange.bind(this)
+  if (props.value === null) {
+    value = props.defaultValue
+  } else {
+    value = props.value
   }
 
+  return (
+    <div>
+      <form onSubmit = {(e) => {
+          e.preventDefault();
+          props.onSubmit({
+            id: props.id,
+            title: value
+          });
+        }}
+      >
+        <label value="Song Title">
+          <TextField
+            id="songTitle"
+            placeholder={props.placeholder}
+            value={value}
+            onChange={props.onChange}
+          />
 
-  handleChange(event) {
-    this.setState({
-      value: event.target.value,
-    });
-  };
+          <RaisedButton
+            default={true}
+            type="submit"
+            id="submit"
+            label='Submit'
+            labelStyle={{
+              textTransform: 'none'
+            }}
+            className="song-form-button"
+          />
 
-  render() {
-    return (
-      <div>
-        <form onSubmit = {(e) => {
-            e.preventDefault();
-            this.props.onSubmit({
-              id: this.props.id,
-              title: this.state.value
-            });
-          }}
-        >
-          <label value="Song Title">
-            <TextField
-              id="songTitle"
-              placeholder={this.props.placeholder}
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-
-            <RaisedButton
-              default={true}
-              type="submit"
-              id="submit"
-              label='Submit'
-              labelStyle={{
-                textTransform: 'none'
-              }}
-              className="song-form-button"
-            />
-
-            <RaisedButton
-              secondary={true}
-              id="cancel"
-              label='Cancel'
-              onClick={() => this.props.toggleForm()}
-              labelStyle={{
-                textTransform: 'none'
-              }}
-              className="song-form-button"
-            />
-          </label>
-        </form>
-      </div>
-    )
-  }
+          <RaisedButton
+            secondary={true}
+            id="cancel"
+            label='Cancel'
+            onClick={() => props.toggleForm()}
+            labelStyle={{
+              textTransform: 'none'
+            }}
+            className="song-form-button"
+          />
+        </label>
+      </form>
+    </div>
+  )
 }
 
 export default SongTitleForm;

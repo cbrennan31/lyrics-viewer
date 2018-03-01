@@ -20,6 +20,9 @@ const mapStateToProps = (state) => ({
   showEditVerseForm: state.showEditVerseForm,
   showDeleteVerseForm: state.showDeleteVerseForm,
   showDeleteSongForm: state.showDeleteSongForm,
+  editSongTitleValue: state.editSongTitleValue,
+  addVerseValue: state.addVerseValue,
+  editVerseValue: state.editVerseValue
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -36,32 +39,17 @@ const mapDispatchToProps = (dispatch) => {
     toggleEditVerseForm: Actions.toggleEditVerseForm,
     deleteVerseRequest: Actions.deleteVerseRequest,
     toggleDeleteVerseForm: Actions.toggleDeleteVerseForm,
-    toggleDeleteSongForm: Actions.toggleDeleteSongForm
+    toggleDeleteSongForm: Actions.toggleDeleteSongForm,
+    handleEditTitleChange: Actions.handleEditTitleChange,
+    handleAddVerseChange: Actions.handleAddVerseChange,
+    handleEditVerseChange: Actions.handleEditVerseChange
   }, dispatch)
 }
 
 class SongShowContainer extends Component{
 
-  constructor (props) {
-    super (props)
-
-    this.state = {
-      editTitleValue: '',
-    }
-
-    this.handleTitleChange = this.handleTitleChange.bind(this)
-  }
-
   componentDidMount() {
     this.props.subscribe(this.props.cable)
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({editTitleValue: this.props.title})
-  }
-
-  handleTitleChange(e) {
-    this.setState({editTitleValue: e.target.value})
   }
 
   render() {
@@ -118,6 +106,8 @@ class SongShowContainer extends Component{
         open={this.props.showAddVerseForm}
         cancel={this.props.toggleAddVerseForm}
         defaultValue=''
+        value={this.props.addVerseValue}
+        handleChange={this.props.handleAddVerseChange}
       />
       :
       <FlatButton
@@ -137,8 +127,10 @@ class SongShowContainer extends Component{
           id={this.props.id}
           toggleForm={this.props.toggleEditSongForm}
           placeholder={null}
-          defaultValue={this.state.editTitleValue}
           onSubmit={this.props.editTitleRequest}
+          value={this.props.editSongTitleValue}
+          defaultValue={this.props.title}
+          onChange={this.props.handleEditTitleChange}
         />
       </div>
       :
@@ -177,6 +169,8 @@ class SongShowContainer extends Component{
           open={!!this.props.showEditVerseForm}
           cancel={this.props.toggleEditVerseForm}
           defaultValue={this.props.showEditVerseForm.defaultValue}
+          value={this.props.editVerseValue}
+          handleChange={this.props.handleEditVerseChange}
         />
     }
 

@@ -316,3 +316,23 @@ export const deleteVerseRequest = (data) => {
     })
   }
 }
+
+export const handleEditTitleChange = (e) => ({
+  type: 'HANDLE_EDIT_TITLE_CHANGE',
+  value: e.target.value
+})
+
+export const handleAddTitleChange = (e) => ({
+  type: 'HANDLE_ADD_TITLE_CHANGE',
+  value: e.target.value
+})
+
+export const handleAddVerseChange = (e) => ({
+  type: 'HANDLE_ADD_VERSE_CHANGE',
+  value: e.target.value
+})
+
+export const handleEditVerseChange = (e) => ({
+  type: 'HANDLE_EDIT_VERSE_CHANGE',
+  value: e.target.value
+})

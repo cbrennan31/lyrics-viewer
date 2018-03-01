@@ -168,6 +168,50 @@ const showDeleteVerseForm = (state = false, action) => {
   }
 }
 
+const editSongTitleValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_EDIT_TITLE_CHANGE':
+      return action.value
+    case 'TOGGLE_EDIT_SONG_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
+const addSongTitleValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_ADD_TITLE_CHANGE':
+      return action.value
+    case 'TOGGLE_ADD_SONG_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
+const addVerseValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_ADD_VERSE_CHANGE':
+      return action.value
+    case 'TOGGLE_ADD_VERSE_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
+const editVerseValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_EDIT_VERSE_CHANGE':
+      return action.value
+    case 'TOGGLE_EDIT_VERSE_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
 const EventShowReducer = combineReducers({
   selectedSong,
   cable,
@@ -178,7 +222,11 @@ const EventShowReducer = combineReducers({
   showAddVerseForm,
   showEditVerseForm,
   showDeleteVerseForm,
-  showDeleteSongForm
+  showDeleteSongForm,
+  editSongTitleValue,
+  addSongTitleValue,
+  addVerseValue,
+  editVerseValue
 })
 
 export default EventShowReducer
