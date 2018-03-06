@@ -3,11 +3,14 @@ const moment = require('moment')
 
 const EventTile = (props) => {
   let eventTime = moment(props.time).format('llll')
+
   return(
-    <div>
-      <p>{props.title}</p>
-      <p>{eventTime}</p>
-    </div>
+    <a className='event-tile-link' href={`/events/${props.id}`}>
+      <div className="tile event-tile">
+        <h3>{props.title}</h3>
+        <span>{eventTime}</span>
+      </div>
+    </a>
   )
 }
 

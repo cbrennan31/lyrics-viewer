@@ -3,7 +3,7 @@ import EditDeleteButtons from './EditDeleteButtons'
 import VerseForm from './VerseForm'
 
 const SongVerse = (props) => {
-  let className = props.selected ? 'song-verse selected' : 'song-verse'
+  let className = props.selected ? 'tile selected' : 'tile'
   let displayLyrics
 
   if (props.lyrics) {

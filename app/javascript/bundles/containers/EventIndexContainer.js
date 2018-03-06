@@ -36,6 +36,7 @@ class EventIndexContainer extends Component{
       return (
         <EventTile
           key={event.id}
+          id={event.id}
           title={event.title}
           time={event.time}
         />
@@ -67,8 +68,15 @@ class EventIndexContainer extends Component{
 
     return(
       <div>
-        {events}
-        {addEvent}
+        <h1 id="events-header">Events</h1>
+
+        <div id="tile-grid">
+          {events}
+        </div>
+
+        <div id="add-event-button">
+          {addEvent}
+        </div>
       </div>
     )
   }

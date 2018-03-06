@@ -213,7 +213,7 @@ class SongShowContainer extends Component{
           </div>
         </div>
 
-        <div id='verses-grid'>
+        <div id='tile-grid'>
           {verses}
         </div>
 

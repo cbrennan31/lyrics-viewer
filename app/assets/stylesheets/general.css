@@ -1,5 +1,3 @@
-/*$font-path: '~react-widgets/lib/fonts';
-$img-path: '~react-widgets/lib/img';*/
 @import 'react-widgets/dist/css/react-widgets.css';
 
 .edit-delete-buttons {
@@ -21,4 +19,57 @@ $img-path: '~react-widgets/lib/img';*/
 
 #event-title-input-field {
   margin: 75px 0px;
+}
+
+#tile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tile {
+  min-height: 200px;
+  width: 200px;
+  padding: 10px;
+  margin: 15px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px gray;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.event-tile {
+  text-align: center;
+  background: #d9dde2;
+}
+
+.tile.event-tile {
+  min-height: 150px;
+}
+
+#add-event-button {
+  text-align: center;
+}
+
+#events-header {
+  margin-left: 10px;
+}
+
+.event-tile-link {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.event-tile-link :hover {
+  box-shadow: 4px 4px 4px gray;
+  border: 2px solid black;
+}
+
+.event-tile-link .tile :hover {
+  box-shadow: none;
+  border: none;
 }
