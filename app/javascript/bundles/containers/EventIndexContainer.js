@@ -10,6 +10,8 @@ const mapStateToProps = (state) => {
   return({
     events: state.events,
     showAddEventForm: state.showAddEventForm,
+    addEventTitleValue: state.addEventTitleValue,
+    addEventDateValue: state.addEventDateValue
   })
 }
 
@@ -17,6 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     requestEventsOnMount: Actions.requestEventsOnMount,
     toggleAddEventForm: Actions.toggleAddEventForm,
+    handleAddEventChange: Actions.handleAddEventChange,
+    handleAddDateChange: Actions.handleAddDateChange,
+    submitEventRequest: Actions.submitEventRequest
   }, dispatch)
 }
 
@@ -41,9 +46,12 @@ class EventIndexContainer extends Component{
       <EventForm
         open={this.props.showAddEventForm}
         cancel={this.props.toggleAddEventForm}
-        // defaultValue={this.props.showEditVerseForm.defaultValue}
-        // value={this.props.editVerseValue}
-        // handleChange={this.props.handleEditVerseChange}
+        titleValue={this.props.addEventTitleValue}
+        handleTitleChange={this.props.handleAddEventChange}
+        dateValue={this.props.addEventDateValue}
+        handleDateChange={this.props.handleAddDateChange}
+        submitEventRequest={this.props.submitEventRequest}
+        defaultValue=''
       />
       :
       <FlatButton

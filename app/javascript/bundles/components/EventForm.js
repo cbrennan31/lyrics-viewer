@@ -12,18 +12,12 @@ momentLocalizer()
 
 const EventForm = (props) => {
 
-  // let value
-  //
-  // if (props.value === null) {
-  //   value = defaultValue
-  // } else {
-  //   value = props.value
-  // }
+  let titleValue
 
-  let dialogHeight = 'inherit'
-
-  if (props.showDateTimePopup) {
-    dialogHeight = '600px'
+  if (props.titleValue === null) {
+    titleValue = props.defaultValue
+  } else {
+    titleValue = props.titleValue
   }
 
   const actions = [
@@ -36,14 +30,13 @@ const EventForm = (props) => {
         textTransform: 'none'
       }}
       className="song-form-button"
-      // onClick={(e) => {
-      //   e.preventDefault();
-      //   props.onSubmit({
-      //     song_id: props.songId,
-      //     verse_id: props.verseId,
-      //     lyrics: props.value.replace(/\r?\n/g, '<br />')
-      //   });
-      // }}
+      onClick={(e) => {
+        e.preventDefault();
+        props.submitEventRequest({
+          time: props.dateValue,
+          title: titleValue
+        });
+      }}
     />,
     <RaisedButton
       secondary={true}
@@ -75,6 +68,8 @@ const EventForm = (props) => {
         <div id="date-time-picker">
           <DateTimePicker
             placeholder='Select date and time'
+            value={props.dateValue}
+            onChange={(value) => props.handleDateChange(value)}
           />
         </div>
 
@@ -83,8 +78,8 @@ const EventForm = (props) => {
             <TextField
               placeholder='Event Title'
               id='newEvent'
-              // value={value}
-              // onChange={props.handleChange}
+              value={titleValue}
+              onChange={props.handleTitleChange}
               style={{
                 width: '400px'
               }}

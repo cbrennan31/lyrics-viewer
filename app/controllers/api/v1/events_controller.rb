@@ -41,4 +41,13 @@ class Api::V1::EventsController < ApplicationController
 
     render json: {event: event, songs: songs}
   end
+
+  def create
+    event = Event.create(
+      title: params[:title],
+      time: params[:time]
+    )
+
+    render json: {event: event}
+  end
 end
