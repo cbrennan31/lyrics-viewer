@@ -17,3 +17,5 @@ export const requestEventsOnMount = (id) => {
     })
   }
 }
+
+export const handleAddEventChange = ()

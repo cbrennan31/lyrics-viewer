@@ -62,18 +62,16 @@ const VerseForm = (props) => {
         }}
       >
         <form>
-          <label value="Lyrics">
-            <TextField
-              id="newVerse"
-              placeholder={`Press \"Enter\" to add a new line`}
-              value={value}
-              onChange={props.handleChange}
-              multiLine={true}
-              style={{
-                width: '400px'
-              }}
-            />
-          </label>
+          <TextField
+            id="newVerse"
+            placeholder={`Press \"Enter\" to add a new line`}
+            value={value}
+            onChange={props.handleChange}
+            multiLine={true}
+            style={{
+              width: '400px'
+            }}
+          />
         </form>
       </Dialog>
     </div>

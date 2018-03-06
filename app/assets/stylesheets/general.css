@@ -1,7 +1,24 @@
+/*$font-path: '~react-widgets/lib/fonts';
+$img-path: '~react-widgets/lib/img';*/
+@import 'react-widgets/dist/css/react-widgets.css';
+
 .edit-delete-buttons {
   display: inline-block;
 }
 
 .green-red-button-div {
   text-align: center;
+}
+
+#date-time-picker {
+  margin: 0px 0px 75px 0px;
+  font-size: 11.5px;
+}
+
+.rw-popup-container {
+  overflow: visible;
+}
+
+#event-title-input-field {
+  margin: 75px 0px;
 }

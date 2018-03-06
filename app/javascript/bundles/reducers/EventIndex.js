@@ -9,8 +9,18 @@ const events = (state = [], action) => {
   }
 }
 
+const showAddEventForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_ADD_EVENT_FORM':
+      return !state
+    default:
+      return state
+  }
+}
+
 const EventIndexReducer = combineReducers({
-  events
+  events,
+  showAddEventForm
 })
 
 export default EventIndexReducer
