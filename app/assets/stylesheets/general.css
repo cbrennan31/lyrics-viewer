@@ -48,6 +48,7 @@
 
 .tile.event-tile {
   min-height: 150px;
+  width: 225px;
 }
 
 #add-event-button {
