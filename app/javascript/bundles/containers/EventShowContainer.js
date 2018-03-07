@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 import SongShowContainer from './SongShowContainer'
-import * as Actions from '../actions'
+import * as Actions from '../actions/EventShow'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable';
 import SongTitleForm from '../components/SongTitleForm'

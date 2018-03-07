@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SongVerse from '../components/SongVerse'
 import VerseForm from '../components/VerseForm'
-import * as Actions from '../actions'
+import * as Actions from '../actions/EventShow'
 import { bindActionCreators } from 'redux';
 import ActionCable from 'actioncable'
 import FlatButton from 'material-ui/FlatButton';
@@ -213,7 +213,7 @@ class SongShowContainer extends Component{
           </div>
         </div>
 
-        <div id='verses-grid'>
+        <div id='tile-grid'>
           {verses}
         </div>
 
