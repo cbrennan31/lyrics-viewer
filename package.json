@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "postinstall": "cd client",
     "start": "foreman start -f Procfile.dev"
   },
   "name": "lyrics_viewer",
