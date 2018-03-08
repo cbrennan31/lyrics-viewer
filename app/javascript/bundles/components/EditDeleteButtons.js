@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 
