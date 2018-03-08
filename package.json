@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postinstall": "cd client",
+    "postinstall": "yarn install",
     "start": "foreman start -f Procfile.dev"
   },
   "name": "lyrics_viewer",
