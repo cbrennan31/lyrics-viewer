@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import EventTile from '../components/EventTile';
 import FlatButton from 'material-ui/FlatButton';
 import EventForm from '../components/EventForm';
-import 'react-widgets/dist/css/react-widgets.css';
-
 
 const mapStateToProps = (state) => {
   return({
