@@ -7,7 +7,6 @@
     "yarn": "^1.0.0"
   },
   "scripts": {
-    "postinstall": "yarn install",
     "test": "rspec && yarn run test:client && yarn run lint",
     "test:client": "(cd client && yarn run --silent test)",
     "lint": "(cd client && yarn run --silent lint)",
