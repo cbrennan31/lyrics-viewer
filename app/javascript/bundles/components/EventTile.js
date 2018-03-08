@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 const moment = require('moment')
 
 const EventTile = (props) => {
