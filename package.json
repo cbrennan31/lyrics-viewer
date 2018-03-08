@@ -28,7 +28,7 @@
     "js-yaml": "^3.9.0",
     "material-ui": "^0.20.0",
     "moment": "^2.20.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.7.2",
     "path-complete-extname": "^0.1.0",
     "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.7.5",
