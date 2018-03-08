@@ -53,5 +53,9 @@
   "devDependencies": {
     "redux-devtools": "^3.4.1",
     "webpack-dev-server": "^2.9.7"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ]
 }
