@@ -34,7 +34,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .event-tile {
@@ -45,6 +45,7 @@
 .tile.event-tile {
   min-height: 150px;
   width: 225px;
+  justify-content: space-evenly;
 }
 
 #add-event-button {
