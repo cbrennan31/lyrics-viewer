@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import Text from '../components/Text'
 import ActionCable from 'actioncable'
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import EventIndexContainer from '../containers/EventIndexContainer'
+
+const font = "'Fira Sans', sans-serif";
+
+const muiTheme = getMuiTheme({
+  fontFamily: font
+});
 
 class TextContainer extends Component{
   constructor(props) {
@@ -106,25 +118,35 @@ class TextContainer extends Component{
 
     if (this.state.languages) {
       let langOptions = this.state.languages.map(lang => {
-        return <option value={lang.code}>{lang.name}</option>
+        return <MenuItem value={lang.code} primaryText={lang.name}></MenuItem>
       })
 
       selectLang =
-        <select
-          onChange = {
-            (e) => this.translate(this.state.origText, e.target.value, true)
+        <SelectField
+          floatingLabelText='Language'
+          onChange={
+            (e, index, value) => this.translate(this.state.origText, value, true)
           }
-          value = {this.state.code}
+          style={{
+            fontSize: '14px'
+          }}
+          value={this.state.code}
         >
           {langOptions}
-        </select>
+        </SelectField>
     }
 
     return(
-      <div>
-        {selectLang}
-        {content}
-      </div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div style={{fontFamily: font, textAlign: 'center'}}>
+          <div style={{display: "inline-block"}}>
+            {content}
+            <div style={{textAlign: 'left'}}>
+              {selectLang}
+            </div>
+          </div>
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
