@@ -1,14 +1,6 @@
 @import '../../../node_modules/react-widgets/dist/css/react-widgets.css';
 @import 'react-widgets/dist/css/react-widgets.css';
 
-@font-face {
-  src: url('rw-widgets.eot');
-  src: url('rw-widgets.svg');
-  src: url('rw-widgets.ttf');
-  src: url('rw-widgets.woff');
-  src: url('rw-widgets.woff2');
-}
-
 .edit-delete-buttons {
   display: inline-block;
 }
