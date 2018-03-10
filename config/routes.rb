@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root 'verses#index'
 
-  resources :events, only: [:index, :show]
+  resources :users do
+    resources :events, only: [:index, :show]
+  end
+  
   resources :text, only: [:index]
   resources :songs, only: [:show]
 
