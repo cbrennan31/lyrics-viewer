@@ -37,6 +37,7 @@ class EventIndexContainer extends Component{
         <EventTile
           key={event.id}
           id={event.id}
+          userId={event.user_id}
           title={event.title}
           time={event.time}
         />

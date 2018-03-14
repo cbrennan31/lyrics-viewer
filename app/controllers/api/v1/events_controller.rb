@@ -2,9 +2,11 @@ class Api::V1::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    events = Event.all.order(:id)
+    user = current_user
 
-    render json: {events: events}
+    events = user.events.order(:id)
+
+    render json: {events: events, user: current_user}
   end
 
   def show
@@ -45,7 +47,8 @@ class Api::V1::EventsController < ApplicationController
   def create
     event = Event.create(
       title: params[:title],
-      time: params[:time]
+      time: params[:time],
+      user: current_user
     )
 
     render json: {event: event}
