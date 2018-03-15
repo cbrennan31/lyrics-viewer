@@ -27,6 +27,7 @@ const EditDeleteButtons = (props) => {
           height: '20px',
         }}
       />
+
       <RaisedButton
         secondary={true}
         label="Delete"

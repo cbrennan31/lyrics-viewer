@@ -65,10 +65,13 @@
 
 .event-tile-link :hover {
   box-shadow: 4px 4px 4px gray;
-  border: 2px solid black;
 }
 
 .event-tile-link .tile :hover {
   box-shadow: none;
   border: none;
+}
+
+.edit-delete-button-container {
+  display: inline-block;
 }

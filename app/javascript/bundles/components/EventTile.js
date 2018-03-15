@@ -4,17 +4,22 @@ const moment = require('moment')
 
 const EventTile = (props) => {
   let eventTime = moment(props.time).format('llll')
+  let preventLinkExec = (e) => {
+    if (e.target.nodeName == 'SPAN' && e.target.id !== 'event-date') {
+      e.preventDefault()
+    }
+  }
 
   return(
-    <a className='event-tile-link' href={`/events/${props.id}`}>
+    <a className='event-tile-link' href={`/events/${props.id}`} onClick={preventLinkExec}>
       <div className="tile event-tile">
         <h3>{props.title}</h3>
 
-        <span>{eventTime}</span>
+        <span id="event-date">{eventTime}</span>
 
         <EditDeleteButtons
-          onClickDelete={() => props.toggleDeleteVerseForm(props.id)}
-          onClickEdit={() => props.toggleEditVerseForm(props.id, props.lyrics)}
+          onClickDelete={() => null}
+          onClickEdit={() => null}
         />
       </div>
     </a>
