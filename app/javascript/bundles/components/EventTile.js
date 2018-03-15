@@ -6,7 +6,7 @@ const EventTile = (props) => {
   let eventTime = moment(props.time).format('llll')
 
   return(
-    <a className='event-tile-link' href={`/users/${props.userId}/events/${props.id}`}>
+    <a className='event-tile-link' href={`/events/${props.id}`}>
       <div className="tile event-tile">
         <h3>{props.title}</h3>
 
