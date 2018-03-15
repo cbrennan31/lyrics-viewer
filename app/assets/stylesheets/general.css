@@ -75,3 +75,16 @@
 .edit-delete-button-container {
   display: inline-block;
 }
+
+#header {
+  position: fixed;
+  bottom: 0;
+  background: blue;
+  width: 300px;
+  z-index: 1;
+}
+
+#event-show-store-container {
+  position: relative;
+  z-index: 0;
+}
