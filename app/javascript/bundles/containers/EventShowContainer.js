@@ -39,6 +39,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class EventShowContainer extends Component{
+
   componentDidMount() {
     this.props.subscribe(this.props.cable)
     this.props.requestSongsOnMount(this.props.event.id)
