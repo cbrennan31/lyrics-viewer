@@ -1,0 +1,12 @@
+<div class="navbar">
+  <ul>
+    <li><a href="/" id="main">Lyrics Viewer</a></li>
+    <li>
+      <% if signed_in? -%>
+        <%= link_to "Sign Out", sign_out_path, id: "sign-out"%>
+      <% else -%>
+        <%= link_to t(".sign_in"), sign_in_path %>
+      <% end -%>
+    </li>
+  </ul>
+</div>
