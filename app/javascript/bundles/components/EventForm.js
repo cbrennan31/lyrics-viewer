@@ -12,12 +12,18 @@ momentLocalizer()
 
 const EventForm = (props) => {
 
-  let titleValue
+  let titleValue, dateValue
 
-  if (props.titleValue === null) {
-    titleValue = props.defaultValue
+  if (!props.titleValue) {
+    titleValue = props.defaultTitle
   } else {
     titleValue = props.titleValue
+  }
+
+  if (!props.dateValue) {
+    dateValue = props.defaultDate
+  } else {
+    dateValue = props.dateValue
   }
 
   const actions = [
@@ -68,7 +74,7 @@ const EventForm = (props) => {
         <div id="date-time-picker">
           <DateTimePicker
             placeholder='Select date and time'
-            value={props.dateValue}
+            value={dateValue}
             onChange={(value) => props.handleDateChange(value)}
           />
         </div>

@@ -57,3 +57,9 @@ export const submitEventRequest = (data) => {
     }
   }
 }
+
+export const toggleEditEventForm = (id, defaults) => ({
+  type: 'TOGGLE_EDIT_EVENT_FORM',
+  id,
+  defaults,
+})

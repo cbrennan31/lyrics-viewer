@@ -42,11 +42,25 @@ const addEventDateValue = (state = null, action) => {
   }
 }
 
+const showEditEventForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_EDIT_EVENT_FORM':
+      if (!state) {
+        return Object.assign({}, state, {id: action.id, defaults: action.defaults})
+      } else {
+        return false
+      }
+    default:
+      return state
+  }
+}
+
 const EventIndexReducer = combineReducers({
   events,
   showAddEventForm,
   addEventTitleValue,
-  addEventDateValue
+  addEventDateValue,
+  showEditEventForm
 })
 
 export default EventIndexReducer

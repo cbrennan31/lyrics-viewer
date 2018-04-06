@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
     events: state.events,
     showAddEventForm: state.showAddEventForm,
     addEventTitleValue: state.addEventTitleValue,
-    addEventDateValue: state.addEventDateValue
+    addEventDateValue: state.addEventDateValue,
+    showEditEventForm: state.showEditEventForm
   })
 }
 
@@ -21,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleAddEventForm: Actions.toggleAddEventForm,
     handleAddEventChange: Actions.handleAddEventChange,
     handleAddDateChange: Actions.handleAddDateChange,
-    submitEventRequest: Actions.submitEventRequest
+    submitEventRequest: Actions.submitEventRequest,
+    toggleEditEventForm: Actions.toggleEditEventForm,
   }, dispatch)
 }
 
@@ -40,6 +42,7 @@ class EventIndexContainer extends Component{
           userId={event.user_id}
           title={event.title}
           time={event.time}
+          toggleEditEventForm={this.props.toggleEditEventForm}
         />
       )
     })
@@ -53,7 +56,7 @@ class EventIndexContainer extends Component{
         dateValue={this.props.addEventDateValue}
         handleDateChange={this.props.handleAddDateChange}
         submitEventRequest={this.props.submitEventRequest}
-        defaultValue=''
+        defaultTitle=''
       />
       :
       <FlatButton
@@ -67,6 +70,19 @@ class EventIndexContainer extends Component{
         }}
       />
 
+    let editEvent
+
+    if (this.props.showEditEventForm) {
+      editEvent =
+        <EventForm
+          id={this.props.showEditEventForm.id}
+          open={!!this.props.showEditEventForm}
+          cancel={this.props.toggleEditEventForm}
+          defaultTitle={this.props.showEditEventForm.defaults.title}
+          defaultDate={new Date(this.props.showEditEventForm.defaults.time)}
+        />
+    }
+
     return(
       <div>
         <h1 id="events-header">Events</h1>
@@ -77,6 +93,7 @@ class EventIndexContainer extends Component{
 
         <div id="add-event-button">
           {addEvent}
+          {editEvent}
         </div>
       </div>
     )

@@ -19,7 +19,11 @@ const EventTile = (props) => {
 
         <EditDeleteButtons
           onClickDelete={() => null}
-          onClickEdit={() => null}
+          onClickEdit={() => props.toggleEditEventForm(props.id, {
+              title: props.title,
+              time: props.time
+            })
+          }
         />
       </div>
     </a>
