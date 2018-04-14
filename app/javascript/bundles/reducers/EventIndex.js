@@ -6,6 +6,11 @@ const events = (state = [], action) => {
       return action.data.events
     case 'RECEIVE_NEW_EVENT':
       return [...state, action.data]
+    case 'RECEIVE_UPDATED_EVENT':
+      let events = state.slice()
+      const index = events.findIndex((e) => e.id === action.data.id)
+      events[index] = action.data
+      return events
     default:
       return state
   }
@@ -24,7 +29,7 @@ const addEventTitleValue = (state = null, action) => {
   switch (action.type) {
     case 'HANDLE_ADD_EVENT_CHANGE':
       return action.value
-    case 'RECEIVE_NEW_EVENT':
+    case 'TOGGLE_ADD_EVENT_FORM':
       return null
     default:
       return state
@@ -35,7 +40,7 @@ const addEventDateValue = (state = null, action) => {
   switch (action.type) {
     case 'HANDLE_ADD_DATE_CHANGE':
       return action.value
-    case 'RECEIVE_NEW_EVENT':
+    case 'TOGGLE_ADD_EVENT_FORM':
       return null
     default:
       return state
@@ -55,12 +60,36 @@ const showEditEventForm = (state = false, action) => {
   }
 }
 
+const editEventTitleValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_EDIT_EVENT_CHANGE':
+      return action.value
+    case 'TOGGLE_EDIT_EVENT_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
+const editEventDateValue = (state = null, action) => {
+  switch (action.type) {
+    case 'HANDLE_EDIT_DATE_CHANGE':
+      return action.value
+    case 'TOGGLE_EDIT_EVENT_FORM':
+      return null
+    default:
+      return state
+  }
+}
+
 const EventIndexReducer = combineReducers({
   events,
   showAddEventForm,
   addEventTitleValue,
   addEventDateValue,
-  showEditEventForm
+  showEditEventForm,
+  editEventTitleValue,
+  editEventDateValue
 })
 
 export default EventIndexReducer

@@ -37,7 +37,7 @@ const receiveNewEvent = (data) => ({
   data
 })
 
-export const submitEventRequest = (data) => {
+export const submitEventRequest = (data, id) => {
   return (dispatch) => {
     if (data.title !== '' && data.time) {
       dispatch(toggleAddEventForm())
@@ -63,3 +63,39 @@ export const toggleEditEventForm = (id, defaults) => ({
   id,
   defaults,
 })
+
+export const handleEditEventChange = (e) => ({
+  type: 'HANDLE_EDIT_EVENT_CHANGE',
+  value: e.target.value
+})
+
+export const handleEditDateChange = (value) => ({
+  type: 'HANDLE_EDIT_DATE_CHANGE',
+  value
+})
+
+const receiveUpdatedEvent = (data) => ({
+  type: 'RECEIVE_UPDATED_EVENT',
+  data
+})
+
+export const editEventRequest = (data, id) => {
+  return (dispatch) => {
+    if (data.title !== '' && data.time) {
+      dispatch(toggleEditEventForm())
+      return fetch(`/api/v1/events/${id}`, {
+        credentials: 'same-origin',
+        method: 'PATCH',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(
+        response => response.json(),
+        error => console.log('An error occurred.', error)
+      )
+      .then(json => {
+        return dispatch(receiveUpdatedEvent(json.event))
+      })
+    }
+  }
+}

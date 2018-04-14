@@ -12,7 +12,9 @@ const mapStateToProps = (state) => {
     showAddEventForm: state.showAddEventForm,
     addEventTitleValue: state.addEventTitleValue,
     addEventDateValue: state.addEventDateValue,
-    showEditEventForm: state.showEditEventForm
+    showEditEventForm: state.showEditEventForm,
+    editEventTitleValue: state.editEventTitleValue,
+    editEventDateValue: state.editEventDateValue,
   })
 }
 
@@ -24,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     handleAddDateChange: Actions.handleAddDateChange,
     submitEventRequest: Actions.submitEventRequest,
     toggleEditEventForm: Actions.toggleEditEventForm,
+    handleEditEventChange: Actions.handleEditEventChange,
+    handleEditDateChange: Actions.handleEditDateChange,
+    editEventRequest: Actions.editEventRequest
   }, dispatch)
 }
 
@@ -55,8 +60,9 @@ class EventIndexContainer extends Component{
         handleTitleChange={this.props.handleAddEventChange}
         dateValue={this.props.addEventDateValue}
         handleDateChange={this.props.handleAddDateChange}
-        submitEventRequest={this.props.submitEventRequest}
+        handleSubmit={this.props.submitEventRequest}
         defaultTitle=''
+        defaultDate={null}
       />
       :
       <FlatButton
@@ -80,6 +86,11 @@ class EventIndexContainer extends Component{
           cancel={this.props.toggleEditEventForm}
           defaultTitle={this.props.showEditEventForm.defaults.title}
           defaultDate={new Date(this.props.showEditEventForm.defaults.time)}
+          handleTitleChange={this.props.handleEditEventChange}
+          titleValue={this.props.editEventTitleValue}
+          handleDateChange={this.props.handleEditDateChange}
+          dateValue={this.props.editEventDateValue}
+          handleSubmit={this.props.editEventRequest}
         />
     }
 

@@ -14,13 +14,13 @@ const EventForm = (props) => {
 
   let titleValue, dateValue
 
-  if (!props.titleValue) {
+  if (props.titleValue === null) {
     titleValue = props.defaultTitle
   } else {
     titleValue = props.titleValue
   }
 
-  if (!props.dateValue) {
+  if (props.dateValue === null) {
     dateValue = props.defaultDate
   } else {
     dateValue = props.dateValue
@@ -38,10 +38,10 @@ const EventForm = (props) => {
       className="song-form-button"
       onClick={(e) => {
         e.preventDefault();
-        props.submitEventRequest({
-          time: props.dateValue,
+        props.handleSubmit({
+          time: dateValue,
           title: titleValue
-        });
+        }, props.id || null);
       }}
     />,
     <RaisedButton
