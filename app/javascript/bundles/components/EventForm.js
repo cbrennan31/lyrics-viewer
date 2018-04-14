@@ -12,12 +12,18 @@ momentLocalizer()
 
 const EventForm = (props) => {
 
-  let titleValue
+  let titleValue, dateValue
 
   if (props.titleValue === null) {
-    titleValue = props.defaultValue
+    titleValue = props.defaultTitle
   } else {
     titleValue = props.titleValue
+  }
+
+  if (props.dateValue === null) {
+    dateValue = props.defaultDate
+  } else {
+    dateValue = props.dateValue
   }
 
   const actions = [
@@ -32,10 +38,10 @@ const EventForm = (props) => {
       className="song-form-button"
       onClick={(e) => {
         e.preventDefault();
-        props.submitEventRequest({
-          time: props.dateValue,
+        props.handleSubmit({
+          time: dateValue,
           title: titleValue
-        });
+        }, props.id || null);
       }}
     />,
     <RaisedButton
@@ -68,7 +74,7 @@ const EventForm = (props) => {
         <div id="date-time-picker">
           <DateTimePicker
             placeholder='Select date and time'
-            value={props.dateValue}
+            value={dateValue}
             onChange={(value) => props.handleDateChange(value)}
           />
         </div>

@@ -11,20 +11,21 @@ class Api::V1::EventsController < ApplicationController
 
   def show
     event = Event.find(params[:id])
-    songs = Song.where(event: event).order(:id)
-    verses = {}
+    if current_user == event.user
+      songs = Song.where(event: event).order(:id)
+      verses = {}
 
-    songs.each do |song|
-      verses[song.id] = Verse.where(song_id: song.id).order(:id)
+      songs.each do |song|
+        verses[song.id] = Verse.where(song_id: song.id).order(:id)
+      end
+
+      render json: {songs: songs, verses: verses}
     end
-
-    render json: {songs: songs, verses: verses}
   end
 
   def update
     event = Event.find(params[:id])
     songs = nil
-
     if params[:in_progress] === true || params[:in_progress] === false
       event.update(in_progress: params[:in_progress])
 
@@ -39,6 +40,14 @@ class Api::V1::EventsController < ApplicationController
 
     if params[:selected_song_id]
       event.update(selected_song_id: params[:selected_song_id])
+    end
+
+    if params[:title]
+      event.update(
+        title: params[:title],
+        time: params[:time],
+        user: current_user
+      )
     end
 
     render json: {event: event, songs: songs}
