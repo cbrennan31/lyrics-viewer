@@ -138,7 +138,7 @@ class TextContainer extends Component{
 
     return(
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={{fontFamily: font, textAlign: 'center'}}>
+        <div className="text-container">
           <div style={{display: 'inline-block', textAlign: 'left'}}>
             {content}
           </div>
