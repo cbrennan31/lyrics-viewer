@@ -28,7 +28,4 @@
 
 Lyrics_Viewer-6e1d3141db67.json
 
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+/config/local_env.yml
