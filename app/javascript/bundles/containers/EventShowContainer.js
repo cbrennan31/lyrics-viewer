@@ -114,6 +114,10 @@ class EventShowContainer extends Component{
           className='event-side-menu'
           width={300}
         >
+          <div className="back-to-events-container">
+            <a href="/events" className="back-to-events">&#8592; All Events</a>
+          </div>
+
           <p id='event-title'>{this.props.event.title}</p>
 
           {eventMessage}
