@@ -99,3 +99,32 @@ export const editEventRequest = (data, id) => {
     }
   }
 }
+
+export const toggleDeleteEventForm = (id) => ({
+  type: 'TOGGLE_DELETE_EVENT_FORM',
+  id
+})
+
+const handleDeletedEvent = (data) => ({
+  type: 'HANDLE_DELETED_EVENT',
+  data
+})
+
+export const deleteEventRequest = (data) => {
+  return (dispatch) => {
+    dispatch(toggleDeleteEventForm())
+    return fetch(`/api/v1/events/${data.id}`, {
+      credentials: 'same-origin',
+      method: 'DELETE',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    )
+    .then(json => {
+      return dispatch(handleDeletedEvent(json))
+    })
+  }
+}
