@@ -11,6 +11,12 @@ const events = (state = [], action) => {
       const index = events.findIndex((e) => e.id === action.data.id)
       events[index] = action.data
       return events
+    case 'HANDLE_DELETED_EVENT':
+      let originalEvents = state.slice()
+      let filteredEvents = originalEvents.filter((e) => {
+        return e.id !== action.data.event.id
+      })
+      return filteredEvents
     default:
       return state
   }
@@ -82,6 +88,19 @@ const editEventDateValue = (state = null, action) => {
   }
 }
 
+const showDeleteEventForm = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_DELETE_EVENT_FORM':
+      if (!state) {
+        return action.id
+      } else {
+        return false
+      }
+    default:
+      return state
+  }
+}
+
 const EventIndexReducer = combineReducers({
   events,
   showAddEventForm,
@@ -89,7 +108,8 @@ const EventIndexReducer = combineReducers({
   addEventDateValue,
   showEditEventForm,
   editEventTitleValue,
-  editEventDateValue
+  editEventDateValue,
+  showDeleteEventForm
 })
 
 export default EventIndexReducer

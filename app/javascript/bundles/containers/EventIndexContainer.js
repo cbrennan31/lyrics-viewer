@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import EventTile from '../components/EventTile';
 import FlatButton from 'material-ui/FlatButton';
 import EventForm from '../components/EventForm';
+import DeleteConfirmation from '../components/DeleteConfirmation';
 
 const mapStateToProps = (state) => {
   return({
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => {
     showEditEventForm: state.showEditEventForm,
     editEventTitleValue: state.editEventTitleValue,
     editEventDateValue: state.editEventDateValue,
+    showDeleteEventForm: state.showDeleteEventForm
   })
 }
 
@@ -28,7 +30,9 @@ const mapDispatchToProps = (dispatch) => {
     toggleEditEventForm: Actions.toggleEditEventForm,
     handleEditEventChange: Actions.handleEditEventChange,
     handleEditDateChange: Actions.handleEditDateChange,
-    editEventRequest: Actions.editEventRequest
+    editEventRequest: Actions.editEventRequest,
+    toggleDeleteEventForm: Actions.toggleDeleteEventForm,
+    deleteEventRequest: Actions.deleteEventRequest
   }, dispatch)
 }
 
@@ -48,6 +52,7 @@ class EventIndexContainer extends Component{
           title={event.title}
           time={event.time}
           toggleEditEventForm={this.props.toggleEditEventForm}
+          toggleDeleteEventForm={this.props.toggleDeleteEventForm}
         />
       )
     })
@@ -94,6 +99,19 @@ class EventIndexContainer extends Component{
         />
     }
 
+    let deleteEvent
+
+    if (this.props.showDeleteEventForm) {
+      deleteEvent =
+        <DeleteConfirmation
+          id={this.props.showDeleteEventForm}
+          deleteRequest={this.props.deleteEventRequest}
+          open={!!this.props.showDeleteEventForm}
+          cancel={this.props.toggleDeleteEventForm}
+          item='event'
+        />
+    }
+
     return(
       <div>
         <h1 id="events-header">Events</h1>
@@ -105,6 +123,7 @@ class EventIndexContainer extends Component{
         <div id="add-event-button">
           {addEvent}
           {editEvent}
+          {deleteEvent}
         </div>
       </div>
     )

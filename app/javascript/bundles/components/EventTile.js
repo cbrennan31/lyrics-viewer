@@ -18,7 +18,7 @@ const EventTile = (props) => {
         <span id="event-date">{eventTime}</span>
 
         <EditDeleteButtons
-          onClickDelete={() => null}
+          onClickDelete={() => props.toggleDeleteEventForm(props.id)}
           onClickEdit={() => props.toggleEditEventForm(props.id, {
               title: props.title,
               time: props.time
