@@ -12,8 +12,10 @@
     "lint": "(cd client && yarn run --silent lint)",
     "build:clean": "rm app/assets/webpack/*",
     "build:production": "(cd client && yarn run --silent build:production)",
-    "build:production:client": "(cd client && yarn run --silent build:production:client)",
-    "build:production:server": "(cd client && yarn run --silent build:production:server)",
+    "build:production:client":
+      "(cd client && yarn run --silent build:production:client)",
+    "build:production:server":
+      "(cd client && yarn run --silent build:production:server)",
     "build:client": "(cd client && yarn run --silent build:client)",
     "build:server": "(cd client && yarn run --silent build:server)",
     "build:dev:client": "(cd client && yarn run --silent build:dev:client)",

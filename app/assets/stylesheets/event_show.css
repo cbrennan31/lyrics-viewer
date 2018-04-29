@@ -12,6 +12,7 @@ body {
   font-family: 'Fira Sans', sans-serif !important;
   padding: 0px 0px 10px 10px !important;
   overflow: scroll !important;
+  overflow-x: hidden !important;
 }
 
 .event-menu-song-title {
@@ -39,4 +40,12 @@ body {
 
 .song-form-button {
   margin: 5px !important;
+}
+
+.back-to-events-container {
+  margin-top: 5px;
+}
+
+a.back-to-events{
+  text-decoration: none;
 }
