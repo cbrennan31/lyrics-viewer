@@ -94,7 +94,7 @@ class TextContainer extends Component {
   }
 
   render() {
-    let dropdownLabel = '(auto-detected - select to change)';
+    let dropdownLabel = '(auto-detected - select below)';
 
     if (this.state.codeChange) {
       dropdownLabel = '(selected)';
