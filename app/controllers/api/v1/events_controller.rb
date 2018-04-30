@@ -84,6 +84,13 @@ class Api::V1::EventsController < ApplicationController
       event = Event.find(params[:id])
       event.destroy
 
+      songs = Song.where(event: event)
+
+      songs.each do |s|
+        verses = Verse.destroy_all(song: s)
+        s.destroy
+      end
+
       render json: {event: event}
     else
       render body: "401 Unauthorized", status: 401
