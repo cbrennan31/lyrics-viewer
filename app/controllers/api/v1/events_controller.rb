@@ -87,7 +87,12 @@ class Api::V1::EventsController < ApplicationController
       songs = Song.where(event: event)
 
       songs.each do |s|
-        verses = Verse.destroy_all(song: s)
+        verses = Verse.where(song: s)
+
+        verses.each do |v|
+          v.destroy
+        end
+
         s.destroy
       end
 
